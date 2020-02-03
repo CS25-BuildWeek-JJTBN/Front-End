@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-// import './App.css';
+import './App.css';
 
 import GlobalStyle from './styled-components/GlobalStyle';
 
