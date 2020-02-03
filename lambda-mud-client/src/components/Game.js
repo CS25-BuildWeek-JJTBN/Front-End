@@ -3,12 +3,9 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 import { useDataContext } from '../contexts/DataContext';
 
-import Map from './gameComponents/Map';
-import Room from './gameComponents/Room';
-import Inventory from './gameComponents/Inventory';
+import PlayerBar from './gameComponents/PlayerBar';
+import Screen from './gameComponents/Screen';
 import Dashboard from './gameComponents/Dashboard';
-import Controls from './gameComponents/Controls';
-import Chat from './gameComponents/Chat';
 
 export default function Game() {
 	const {
@@ -42,19 +39,9 @@ export default function Game() {
 
 	return (
 		<div>
-			<h2>Game Page</h2>
-			{/* {isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<> */}
-			<Map />
-			<Room />
-			<Inventory />
+			<PlayerBar />
+			<Screen />
 			<Dashboard />
-			<Controls />
-			<Chat />
-			{/* </>
-			)} */}
 		</div>
 	);
 }
