@@ -22,16 +22,19 @@ export const StyledForm = styled.div`
     padding: 1rem;
         label{
             color: #bb1333;
+            font-size: 1rem;
         }
         input{
             margin: 1.2rem;
             border: none;
             background-color: #f0f4f7;
+            
         }
     }
 
     button{ 
-    border: solid 4px #2f2b4a;
-    width: 20rem;
+        border: solid 4px #2f2b4a;
+        width: 20rem;
+        height: 3rem;
     }
 `;
