@@ -54,7 +54,7 @@ export default function Login() {
 						type='text'
 						id='username'
 						name='username'
-						placeholder='Username'
+						placeholder='_________'
 						value={credentials.username}
 						onChange={handleChange}
 					/>
@@ -64,7 +64,7 @@ export default function Login() {
 						type='password'
 						id='password'
 						name='password'
-						placeholder='Password'
+						placeholder='_________'
 						value={credentials.password}
 						onChange={handleChange}
 					/>

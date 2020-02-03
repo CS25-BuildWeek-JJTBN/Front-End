@@ -31,12 +31,12 @@ export default function Nav() {
 				</NavLink>
 			</NavBarLeft>
 			<NavBarRight>
-				<NavLink to='/about'>About</NavLink>
-				{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
-				{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
 				{user.isLoggedIn && pathname !== '/game' && (
 					<NavLink to='/game'>Game</NavLink>
 				)}
+				<NavLink to='/about'>About</NavLink>
+				{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
+				{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
 				{user.isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
 			</NavBarRight>
 		</NavBar>
