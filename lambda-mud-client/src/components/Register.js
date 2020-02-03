@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+// Context Api
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
+
+//Styled Components
+import {StyledForm} from '../styled-components/styledComponents';
 
 export default function Register() {
 	const history = useHistory();
@@ -45,8 +49,8 @@ export default function Register() {
 	};
 
 	return (
-		<div>
-			<h2>Register:</h2>
+		<StyledForm>
+			<h2> Register Your Name </h2>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : (
@@ -56,7 +60,7 @@ export default function Register() {
 						type='text'
 						id='username'
 						name='username'
-						placeholder='Username'
+						placeholder='___________'
 						value={registrationInfo.username}
 						onChange={handleChange}
 					/>
@@ -66,7 +70,7 @@ export default function Register() {
 						type='password'
 						id='password1'
 						name='password1'
-						placeholder='Password 1'
+						placeholder='___________'
 						value={registrationInfo.password1}
 						onChange={handleChange}
 					/>
@@ -76,7 +80,7 @@ export default function Register() {
 						type='password'
 						id='password2'
 						name='password2'
-						placeholder='Password 2'
+						placeholder='___________'
 						value={registrationInfo.password2}
 						onChange={handleChange}
 					/>
@@ -84,8 +88,11 @@ export default function Register() {
 					<button type='submit'>Register</button>
 
 					{error && <div>{error}</div>}
-				</form>
+					
+				</form>				
 			)}
-		</div>
+		</StyledForm>
 	);
 }
+
+

@@ -5,6 +5,9 @@ import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
+// Styled
+import {StyledForm} from '../styled-components/styledComponents';
+
 export default function Login() {
 	const history = useHistory();
 
@@ -40,7 +43,7 @@ export default function Login() {
 	};
 
 	return (
-		<div>
+		<StyledForm>
 			<h2>Login:</h2>
 			{isLoading ? (
 				<div>Loading...</div>
@@ -51,7 +54,7 @@ export default function Login() {
 						type='text'
 						id='username'
 						name='username'
-						placeholder='Username'
+						placeholder='_________'
 						value={credentials.username}
 						onChange={handleChange}
 					/>
@@ -61,7 +64,7 @@ export default function Login() {
 						type='password'
 						id='password'
 						name='password'
-						placeholder='Password'
+						placeholder='_________'
 						value={credentials.password}
 						onChange={handleChange}
 					/>
@@ -71,6 +74,6 @@ export default function Login() {
 					{error && <div>{error}</div>}
 				</form>
 			)}
-		</div>
+		</StyledForm>
 	);
 }
