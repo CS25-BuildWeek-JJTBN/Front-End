@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+// Context Api
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
+
+//Styled Components
+import styled from 'styled-components';
 
 export default function Register() {
 	const history = useHistory();
@@ -45,8 +49,8 @@ export default function Register() {
 	};
 
 	return (
-		<div>
-			<h2>Register:</h2>
+		<RegisterPage>
+			<h2> Register Your Name </h2>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : (
@@ -86,6 +90,11 @@ export default function Register() {
 					{error && <div>{error}</div>}
 				</form>
 			)}
-		</div>
+		</RegisterPage>
 	);
 }
+
+
+const RegisterPage = styled.div`
+	border: black 2px;
+`;
