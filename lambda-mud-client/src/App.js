@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
+// import './App.css';
+
+import GlobalStyle from './styled-components/GlobalStyle';
 
 import UserProvider from './contexts/UserContext';
 import DataProvider from './contexts/DataContext';
@@ -16,6 +18,7 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
 	return (
 		<div className='App'>
+			<GlobalStyle />
 			<UserProvider>
 				<Nav />
 				<Route exact path='/' component={Home} />
