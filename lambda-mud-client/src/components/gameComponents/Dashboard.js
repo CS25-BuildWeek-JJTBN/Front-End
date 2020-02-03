@@ -33,8 +33,4 @@ const BottomWrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-
-	position: absolute;
-	width: 100%;
-	bottom: 0;
 `;

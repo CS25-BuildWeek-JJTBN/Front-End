@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
 export default function Chat() {
+	const [showChat, setShowChat] = useState(true);
+
 	const {
 		data: { isLoading, players },
 	} = useDataContext();
 
 	return (
-		<div>
-			<h3>Chat</h3>
+		<ChatWrapper>
+			<h3>
+				Chat{' '}
+				<ToggleChat onClick={() => setShowChat(!showChat)}>(toggle)</ToggleChat>
+			</h3>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : (
-				<ul>
-					{players.map(player => (
-						<li key={player}>{player}</li>
-					))}
-				</ul>
+				<div>
+					{showChat && (
+						<ul>
+							{players.map(player => (
+								<li key={player}>{player}</li>
+							))}
+						</ul>
+					)}
+				</div>
 			)}
-		</div>
+		</ChatWrapper>
 	);
 }
+
+const ChatWrapper = styled.div`
+	background-color: gray;
+	width: 30rem;
+	border-radius: 1rem;
+	padding: 1rem;
+
+	ul {
+		margin-top: 1rem;
+		background-color: white;
+		padding: 1rem;
+	}
+`;
+
+const ToggleChat = styled.span`
+	cursor: pointer;
+`;

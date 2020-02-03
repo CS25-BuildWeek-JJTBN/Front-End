@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
@@ -38,10 +39,16 @@ export default function Game() {
 	}, []);
 
 	return (
-		<div>
+		<GameWrapper>
 			<PlayerBar />
 			<Screen />
 			<Dashboard />
-		</div>
+		</GameWrapper>
 	);
 }
+
+const GameWrapper = styled.div`
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+`;

@@ -15,11 +15,13 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
     background-color: #f0f4f7;
+    height: 100%;
   }
 
   body {
     line-height: 1.5;
     font-size: 1rem;
+    height: 100%;
   }
 
   h1 {
