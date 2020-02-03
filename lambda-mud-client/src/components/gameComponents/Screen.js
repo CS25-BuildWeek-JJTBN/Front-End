@@ -18,11 +18,11 @@ export default function Screen() {
 }
 
 const ScreenWrapper = styled.div`
-	border: 3px solid purple;
-	flex-grow: 2;
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-bottom: 1rem;
 `;
 
 const ScreenRight = styled.div`

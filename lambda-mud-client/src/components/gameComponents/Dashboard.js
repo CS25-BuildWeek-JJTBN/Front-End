@@ -1,28 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useDataContext } from '../../contexts/DataContext';
-
 import Room from './Room';
 import Inventory from './Inventory';
 // import Avatar from './Avatar';
 
 export default function Dashboard() {
-	const {
-		data: { isLoading },
-	} = useDataContext();
-
 	return (
 		<BottomWrapper>
-			{isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<>
-					<Room />
-					<Inventory />
-					{/* <Avatar /> */}
-				</>
-			)}
+			<Room />
+			<Inventory />
 		</BottomWrapper>
 	);
 }

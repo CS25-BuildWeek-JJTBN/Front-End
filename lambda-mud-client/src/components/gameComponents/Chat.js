@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useDataContext } from '../../contexts/DataContext';
 
 export default function Chat() {
-	const [showChat, setShowChat] = useState(true);
+	const [showChat, setShowChat] = useState(false);
 
 	const {
 		data: { isLoading, players },
@@ -13,7 +13,7 @@ export default function Chat() {
 	return (
 		<ChatWrapper>
 			<h3>
-				Chat{' '}
+				Players: {/* Chat{' '} */}
 				<ToggleChat onClick={() => setShowChat(!showChat)}>(toggle)</ToggleChat>
 			</h3>
 			{isLoading ? (
@@ -34,7 +34,7 @@ export default function Chat() {
 }
 
 const ChatWrapper = styled.div`
-	background-color: gray;
+	background-color: silver;
 	width: 30rem;
 	border-radius: 1rem;
 	padding: 1rem;

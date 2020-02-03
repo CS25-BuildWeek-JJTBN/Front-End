@@ -34,14 +34,130 @@ export default function Controls() {
 
 	return (
 		<ControlsWrapper>
-			<button onClick={() => handleClick('n')}>North</button>
-			<button onClick={() => handleClick('s')}>South</button>
-			<button onClick={() => handleClick('e')}>East</button>
-			<button onClick={() => handleClick('w')}>West</button>
+			<ControlsNav>
+				<button id='button_n' onClick={() => handleClick('n')}>
+					N
+				</button>
+				<div className='nav-buttons-row'>
+					<button id='button_w' onClick={() => handleClick('w')}>
+						W
+					</button>
+					<button></button>
+					<button id='button_e' onClick={() => handleClick('e')}>
+						E
+					</button>
+				</div>
+				<button id='button_s' onClick={() => handleClick('s')}>
+					S
+				</button>
+			</ControlsNav>
+			<ControlsMiddle>
+				<FlatButton>SELECT</FlatButton>
+				<FlatButton>START</FlatButton>
+			</ControlsMiddle>
+			<ControlsButtons>
+				<RoundButtonXY>X</RoundButtonXY>
+				<div className='round-buttons-row'>
+					<RoundButtonXY>Y</RoundButtonXY>
+					<RoundButtonAB>A</RoundButtonAB>
+				</div>
+				<RoundButtonAB>B</RoundButtonAB>
+			</ControlsButtons>
 		</ControlsWrapper>
 	);
 }
 
 const ControlsWrapper = styled.div`
-	border: 3px solid green;
+	align-self: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 30rem;
+`;
+
+const ControlsNav = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.nav-buttons-row {
+		display: flex;
+		align-items: center;
+	}
+
+	button {
+		width: 2.5rem;
+		height: 2.5rem;
+		border: none;
+		background-color: gray;
+		color: silver;
+		padding: 0;
+		outline: none;
+		cursor: pointer;
+		letter-spacing: 0;
+	}
+
+	#button_n {
+		border-radius: 0.4rem 0.4rem 0 0;
+	}
+
+	#button_e {
+		border-radius: 0 0.4rem 0.4rem 0;
+	}
+
+	#button_s {
+		border-radius: 0 0 0.4rem 0.4rem;
+	}
+
+	#button_w {
+		border-radius: 0.4rem 0 0 0.4rem;
+	}
+`;
+
+const ControlsMiddle = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
+const FlatButton = styled.button`
+	background-color: gray;
+	color: silver;
+	border: none;
+	font-size: 0.5rem;
+	height: 1.25rem;
+	width: 3.75rem;
+	border-radius: 0.6rem;
+	transform: rotate(-35deg);
+	letter-spacing: 0;
+	cursor: pointer;
+`;
+
+const ControlsButtons = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 9rem;
+
+	.round-buttons-row {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+`;
+
+const RoundButtonXY = styled.button`
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: 1.6rem;
+	border: none;
+	letter-spacing: 0;
+	cursor: pointer;
+
+	background-color: #baa9cb;
+	color: #7d35d5;
+`;
+
+const RoundButtonAB = styled(RoundButtonXY)`
+	background-color: #7d35d5;
+	color: #baa9cb;
 `;
