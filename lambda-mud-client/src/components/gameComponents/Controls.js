@@ -38,7 +38,7 @@ export default function Controls() {
 				<button id='button_n' onClick={() => handleClick('n')}>
 					N
 				</button>
-				<ControlsNavRow>
+				<div className='nav-buttons-row'>
 					<button id='button_w' onClick={() => handleClick('w')}>
 						W
 					</button>
@@ -46,16 +46,23 @@ export default function Controls() {
 					<button id='button_e' onClick={() => handleClick('e')}>
 						E
 					</button>
-				</ControlsNavRow>
+				</div>
 				<button id='button_s' onClick={() => handleClick('s')}>
 					S
 				</button>
 			</ControlsNav>
 			<ControlsMiddle>
-				<FlatButton>BLAH</FlatButton>
-				<FlatButton>BLAH</FlatButton>
+				<FlatButton>SELECT</FlatButton>
+				<FlatButton>START</FlatButton>
 			</ControlsMiddle>
-			<ControlsButtons>BLEH</ControlsButtons>
+			<ControlsButtons>
+				<RoundButtonXY>X</RoundButtonXY>
+				<div className='round-buttons-row'>
+					<RoundButtonXY>Y</RoundButtonXY>
+					<RoundButtonAB>A</RoundButtonAB>
+				</div>
+				<RoundButtonAB>B</RoundButtonAB>
+			</ControlsButtons>
 		</ControlsWrapper>
 	);
 }
@@ -64,6 +71,7 @@ const ControlsWrapper = styled.div`
 	align-self: center;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	width: 30rem;
 `;
 
@@ -71,6 +79,11 @@ const ControlsNav = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	.nav-buttons-row {
+		display: flex;
+		align-items: center;
+	}
 
 	button {
 		width: 2.5rem;
@@ -101,18 +114,9 @@ const ControlsNav = styled.div`
 	}
 `;
 
-const ControlsNavRow = styled.div`
-	display: flex;
-	align-items: center;
-`;
-
 const ControlsMiddle = styled.div`
 	display: flex;
 	align-items: center;
-`;
-
-const ControlsButtons = styled.div`
-	border: 2px solid orange;
 `;
 
 const FlatButton = styled.button`
@@ -125,8 +129,35 @@ const FlatButton = styled.button`
 	border-radius: 0.6rem;
 	transform: rotate(-35deg);
 	letter-spacing: 0;
+	cursor: pointer;
 `;
 
-const RoundButton = styled.button`
-	background-color: pink;
+const ControlsButtons = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 9rem;
+
+	.round-buttons-row {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+`;
+
+const RoundButtonXY = styled.button`
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: 1.6rem;
+	border: none;
+	letter-spacing: 0;
+	cursor: pointer;
+
+	background-color: #baa9cb;
+	color: #7d35d5;
+`;
+
+const RoundButtonAB = styled(RoundButtonXY)`
+	background-color: #7d35d5;
+	color: #baa9cb;
 `;

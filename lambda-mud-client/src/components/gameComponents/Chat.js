@@ -13,7 +13,7 @@ export default function Chat() {
 	return (
 		<ChatWrapper>
 			<h3>
-				Chat{' '}
+				Players: {/* Chat{' '} */}
 				<ToggleChat onClick={() => setShowChat(!showChat)}>(toggle)</ToggleChat>
 			</h3>
 			{isLoading ? (
