@@ -5,10 +5,13 @@
 	src: url('./fonts/Triforce.ttf') format('truetype');
 }
 
-/* .App {
-  text-align: center;
+.App {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;

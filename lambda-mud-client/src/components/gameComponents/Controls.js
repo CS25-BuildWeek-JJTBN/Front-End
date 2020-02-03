@@ -1,5 +1,6 @@
 import React from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
@@ -32,12 +33,15 @@ export default function Controls() {
 	};
 
 	return (
-		<div>
-			<h3>Controls</h3>
+		<ControlsWrapper>
 			<button onClick={() => handleClick('n')}>North</button>
 			<button onClick={() => handleClick('s')}>South</button>
 			<button onClick={() => handleClick('e')}>East</button>
 			<button onClick={() => handleClick('w')}>West</button>
-		</div>
+		</ControlsWrapper>
 	);
 }
+
+const ControlsWrapper = styled.div`
+	border: 3px solid green;
+`;

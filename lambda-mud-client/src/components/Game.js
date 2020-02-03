@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
-import Map from './gameComponents/Map';
-import Room from './gameComponents/Room';
-import Inventory from './gameComponents/Inventory';
+import PlayerBar from './gameComponents/PlayerBar';
+import Screen from './gameComponents/Screen';
 import Dashboard from './gameComponents/Dashboard';
-import Controls from './gameComponents/Controls';
-import Chat from './gameComponents/Chat';
 
 export default function Game() {
 	const {
@@ -41,20 +39,16 @@ export default function Game() {
 	}, []);
 
 	return (
-		<div>
-			<h2>Game Page</h2>
-			{/* {isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<> */}
-			<Map />
-			<Room />
-			<Inventory />
+		<GameWrapper>
+			<PlayerBar />
+			<Screen />
 			<Dashboard />
-			<Controls />
-			<Chat />
-			{/* </>
-			)} */}
-		</div>
+		</GameWrapper>
 	);
 }
+
+const GameWrapper = styled.div`
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+`;
