@@ -50,7 +50,7 @@ export default function Register() {
 
 	return (
 		<RegisterPage>
-			<h2> Register Your Name </h2>
+			<Heading> Register Your Name </Heading>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : (
@@ -96,5 +96,13 @@ export default function Register() {
 
 
 const RegisterPage = styled.div`
-	border: black 2px;
+	display: flex-wrap;
+	width: 40%;
+	margin: auto;
+	margin-top: 10rem;
+`;
+
+const Heading = styled.h2`
+	text-align: center;
+	padding: 5rem;
 `;
