@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { useUserContext } from '../contexts/UserContext';
+
+import Logo from './Logo';
 
 export default function Nav() {
 	const { user, dispatch } = useUserContext();
@@ -21,8 +24,10 @@ export default function Nav() {
 	};
 
 	return (
-		<div>
-			<NavLink to='/'>The Legend of Lambda</NavLink>
+		<NavBar>
+			<NavLink to='/'>
+				<Logo />
+			</NavLink>
 			<NavLink to='/about'>About Us</NavLink>
 			{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
 			{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
@@ -30,6 +35,10 @@ export default function Nav() {
 				<NavLink to='/game'>Game</NavLink>
 			)}
 			{user.isLoggedIn && <div onClick={handleLogOut}>Sign Out</div>}
-		</div>
+		</NavBar>
 	);
 }
+
+const NavBar = styled.div`
+	background-color: #bb1333;
+`;
