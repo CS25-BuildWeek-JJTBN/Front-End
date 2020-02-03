@@ -25,20 +25,59 @@ export default function Nav() {
 
 	return (
 		<NavBar>
-			<NavLink to='/'>
-				<Logo />
-			</NavLink>
-			<NavLink to='/about'>About Us</NavLink>
-			{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
-			{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
-			{user.isLoggedIn && pathname !== '/game' && (
-				<NavLink to='/game'>Game</NavLink>
-			)}
-			{user.isLoggedIn && <div onClick={handleLogOut}>Sign Out</div>}
+			<NavBarLeft>
+				<NavLink to='/'>
+					<Logo />
+				</NavLink>
+			</NavBarLeft>
+			<NavBarRight>
+				<NavLink to='/about'>About</NavLink>
+				{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
+				{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
+				{user.isLoggedIn && pathname !== '/game' && (
+					<NavLink to='/game'>Game</NavLink>
+				)}
+				{user.isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
+			</NavBarRight>
 		</NavBar>
 	);
 }
 
 const NavBar = styled.div`
 	background-color: #bb1333;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+`;
+
+const NavBarLeft = styled.div`
+	a {
+		color: white;
+		text-decoration: none;
+	}
+`;
+
+const NavBarRight = styled.div`
+	width: 30rem;
+	display: flex;
+	justify-content: space-between;
+
+	a {
+		color: white;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+`;
+
+const SignOut = styled.div`
+	color: white;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
 `;

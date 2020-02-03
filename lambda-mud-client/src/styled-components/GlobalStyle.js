@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
-    font-family: 'VT323', Courier, monospace;
+    font-family: 'Press Start 2P', Courier, monospace;
     letter-spacing: 0.3rem;
   }
 
@@ -18,7 +18,11 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     line-height: 1.5;
-    font-size: 2rem;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-family: 'Triforce', sans-serif;
   }
 `;
 
