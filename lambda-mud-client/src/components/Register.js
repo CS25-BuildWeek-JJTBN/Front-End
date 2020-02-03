@@ -7,7 +7,7 @@ import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
 //Styled Components
-import styled from 'styled-components';
+import {StyledForm} from '../styled-components/styledComponents';
 
 export default function Register() {
 	const history = useHistory();
@@ -49,8 +49,8 @@ export default function Register() {
 	};
 
 	return (
-		<RegisterPage>
-			<Heading> Register Your Name </Heading>
+		<StyledForm>
+			<h2> Register Your Name </h2>
 			{isLoading ? (
 				<div>Loading...</div>
 			) : (
@@ -60,7 +60,7 @@ export default function Register() {
 						type='text'
 						id='username'
 						name='username'
-						placeholder='Username'
+						placeholder='___________'
 						value={registrationInfo.username}
 						onChange={handleChange}
 					/>
@@ -70,7 +70,7 @@ export default function Register() {
 						type='password'
 						id='password1'
 						name='password1'
-						placeholder='Password 1'
+						placeholder='___________'
 						value={registrationInfo.password1}
 						onChange={handleChange}
 					/>
@@ -80,7 +80,7 @@ export default function Register() {
 						type='password'
 						id='password2'
 						name='password2'
-						placeholder='Password 2'
+						placeholder='___________'
 						value={registrationInfo.password2}
 						onChange={handleChange}
 					/>
@@ -88,21 +88,31 @@ export default function Register() {
 					<button type='submit'>Register</button>
 
 					{error && <div>{error}</div>}
+					
 				</form>
+				
 			)}
-		</RegisterPage>
+		</StyledForm>
 	);
 }
 
 
-const RegisterPage = styled.div`
-	display: flex-wrap;
-	width: 40%;
-	margin: auto;
-	margin-top: 10rem;
-`;
+// const StyledForm = styled.div`
+// 	display: flex-wrap;
+// 	width: 40%;
+// 	margin: auto;
+// 	margin-top: 10rem;
 
-const Heading = styled.h2`
-	text-align: center;
-	padding: 5rem;
-`;
+// 	h2{
+// 	text-align: center;
+// 	padding: 5rem;
+// 	color: #bb1333;
+// 	font-size: 3rem;
+// 	}
+
+// 	form{
+// 	background-color; #f0f4f7;
+// 	border: solid 4px #2f2b4a;
+// 	}
+// `;
+

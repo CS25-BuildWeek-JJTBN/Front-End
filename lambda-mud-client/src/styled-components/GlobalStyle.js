@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1.5;
     font-size: 1rem;
+    background-color:#f0f4f7;
   }
 
   h1 {
