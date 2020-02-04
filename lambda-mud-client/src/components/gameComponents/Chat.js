@@ -38,7 +38,7 @@ export default function Chat() {
 
 const ChatWrapper = styled.div`
 	position: absolute;
-	top: 13rem;
+	top: 14rem;
 	right: 2rem;
 	z-index: 999;
 

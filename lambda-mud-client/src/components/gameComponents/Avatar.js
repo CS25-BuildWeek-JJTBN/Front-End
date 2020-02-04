@@ -4,13 +4,13 @@ import { AvatarWrapper } from '../../styled-components/AvatarWrapper';
 
 export default function Avatar() {
 	const avatarColors = {
-		headPhoneColor: 'black',
-		hatColor: 'orange',
-		hatBandColor: 'purple',
+		headPhoneColor: 'gold',
+		hatColor: 'black',
+		hatBandColor: 'black',
 		skinTone: 'pink',
 		eyeColor: 'white',
 		pupilColor: 'black',
-		hoodieColor: 'green',
+		hoodieColor: 'purple',
 		pantsColor: 'darkblue',
 		shoeColor: 'white',
 	};

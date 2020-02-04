@@ -31,6 +31,7 @@ const HomePage = styled.div`
 	position: relative;
 	height: 40rem;
 	border: solid 4px #2f2b4a;
+	background-color: #f0f4f7;
 	width: 60%;
 	text-align: center;
 	margin: auto;
