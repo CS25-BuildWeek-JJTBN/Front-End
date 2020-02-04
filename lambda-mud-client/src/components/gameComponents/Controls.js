@@ -46,6 +46,8 @@ export default function Controls() {
 				case 'w':
 					handleSend('w');
 					break;
+				default:
+					return;
 			}
 		};
 

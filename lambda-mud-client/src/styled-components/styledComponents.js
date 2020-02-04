@@ -58,14 +58,15 @@ export const StyledForm = styled.div`
 `;
 
 export const DashboardPanel = styled.div`
-	max-width: 30rem;
+	width: 40%;
+	min-width: 30rem;
 	color: white;
 
 	.span-normal {
 		font-weight: normal;
 	}
 
-	div {
+	.text-box {
 		background-color: white;
 		color: black;
 
