@@ -19,7 +19,7 @@ export default function PlayerBar() {
 }
 
 const DashBar = styled.div`
-	padding: 1rem;
+	padding: 1rem 2rem;
 	background-color: #2f2b4a;
 	display: flex;
 	justify-content: space-between;

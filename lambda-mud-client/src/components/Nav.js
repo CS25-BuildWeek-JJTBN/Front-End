@@ -7,9 +7,13 @@ import { useUserContext } from '../contexts/UserContext';
 import Logo from './Logo';
 
 export default function Nav() {
-	const { user, dispatch } = useUserContext();
 	const history = useHistory();
 	const { pathname } = useLocation();
+
+	const {
+		user: { isLoggedIn },
+		dispatch,
+	} = useUserContext();
 
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
@@ -31,13 +35,13 @@ export default function Nav() {
 				</NavLink>
 			</NavBarLeft>
 			<NavBarRight>
-				{user.isLoggedIn && pathname !== '/game' && (
+				{isLoggedIn && pathname !== '/game' && (
 					<NavLink to='/game'>Game</NavLink>
 				)}
 				<NavLink to='/about'>About</NavLink>
-				{!user.isLoggedIn && <NavLink to='/login'>Login</NavLink>}
-				{!user.isLoggedIn && <NavLink to='/register'>Register</NavLink>}
-				{user.isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
+				{!isLoggedIn && <NavLink to='/login'>Login</NavLink>}
+				{!isLoggedIn && <NavLink to='/register'>Register</NavLink>}
+				{isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
 			</NavBarRight>
 		</NavBar>
 	);
@@ -48,7 +52,7 @@ const NavBar = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem;
+	padding: 1rem 2rem;
 `;
 
 const NavBarLeft = styled.div`
