@@ -15,6 +15,13 @@ export const AvatarWrapper = styled.div`
 	align-items: center;
 	flex-direction: column;
 
+	.glasses {
+		display: flex;
+
+		.round-lens {
+		}
+	}
+
 	.headphones {
 		display: flex;
 
