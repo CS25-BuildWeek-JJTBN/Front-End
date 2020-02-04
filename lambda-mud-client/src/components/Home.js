@@ -1,14 +1,18 @@
 import React from 'react';
-// import Logo from './Logo';
+import { useHistory } from 'react-router-dom';
 
 import { useUserContext } from '../contexts/UserContext';
 
 import styled from 'styled-components';
 
 export default function Home() {
+	const history = useHistory();
+
 	const {
 		user: { isLoggedIn },
 	} = useUserContext();
+
+	console.log(history);
 
 	return (
 		<HomePage>
@@ -21,8 +25,16 @@ export default function Home() {
 					<h1>Lambda</h1>
 				</HomeLogoLarge>
 			</HomeLogoText>
-			{isLoggedIn && <h2 class='blink'> Press Start Button</h2>}
-			{!isLoggedIn && <h2 class='blink'> Login/Register To Start</h2>}
+			{isLoggedIn && (
+				<h2 class='blink clickable' onClick={() => history.push('/game')}>
+					Press Start Button
+				</h2>
+			)}
+			{!isLoggedIn && (
+				<h2 class='blink clickable' onClick={() => history.push('/login')}>
+					Login/Register To Start
+				</h2>
+			)}
 		</HomePage>
 	);
 }
@@ -35,10 +47,12 @@ const HomePage = styled.div`
 	width: 60%;
 	text-align: center;
 	margin: auto;
+
 	.blink {
 		margin: 2rem;
 		animation: blinkingText 1.2s infinite;
 	}
+
 	@keyframes blinkingText {
 		0% {
 			color: #000;
@@ -55,6 +69,10 @@ const HomePage = styled.div`
 		100% {
 			color: #000;
 		}
+	}
+
+	.clickable {
+		cursor: pointer;
 	}
 `;
 

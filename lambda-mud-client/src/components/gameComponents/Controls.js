@@ -92,10 +92,10 @@ export default function Controls() {
 }
 
 const ControlsWrapper = styled.div`
-	position: relative;
-	left: 50%;
-	transform: translate(-50%);
-	bottom: 10.6rem;
+	// position: relative;
+	// left: 50%;
+	// transform: translate(-50%);
+	// bottom: 10.6rem;
 
 	display: flex;
 	justify-content: space-around;

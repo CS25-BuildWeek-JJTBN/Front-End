@@ -51,8 +51,8 @@ export default function Register() {
 
 	return (
 		<StyledForm>
-			<h2> Register </h2>
-			<h2> End </h2>
+			<h2>Register:</h2>
+			{/* <h2> End </h2> */}
 			{isLoading ? (
 				<Loading />
 			) : (
