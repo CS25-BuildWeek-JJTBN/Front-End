@@ -8,10 +8,8 @@ import Controls from './Controls';
 export default function Screen() {
 	return (
 		<ScreenWrapper>
-			<ScreenRight>
-				<Chat />
-			</ScreenRight>
 			<Map />
+			<Chat />
 			<Controls />
 		</ScreenWrapper>
 	);
@@ -19,14 +17,4 @@ export default function Screen() {
 
 const ScreenWrapper = styled.div`
 	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding-bottom: 1rem;
-`;
-
-const ScreenRight = styled.div`
-	align-self: flex-end;
-	margin-top: 1rem;
-	margin-right: 1rem;
 `;

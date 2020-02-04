@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
 
@@ -7,8 +7,7 @@ import { useDataContext } from '../../contexts/DataContext';
 export default function Controls() {
 	const { dispatch } = useDataContext();
 
-	const handleClick = direction => {
-		// console.log(direction);
+	const handleSend = direction => {
 		dispatch({ type: 'MOVE_START' });
 
 		axiosWithAuth()
@@ -32,22 +31,45 @@ export default function Controls() {
 			});
 	};
 
+	useEffect(() => {
+		const handleKeyUp = ({ key }) => {
+			switch (key) {
+				case 'n':
+					handleSend('n');
+					break;
+				case 's':
+					handleSend('s');
+					break;
+				case 'e':
+					handleSend('e');
+					break;
+				case 'w':
+					handleSend('w');
+					break;
+			}
+		};
+
+		window.addEventListener('keyup', handleKeyUp);
+
+		return () => window.removeEventListener('keyup', handleKeyUp);
+	}, []);
+
 	return (
 		<ControlsWrapper>
 			<ControlsNav>
-				<button id='button_n' onClick={() => handleClick('n')}>
+				<button id='button_n' onClick={() => handleSend('n')}>
 					N
 				</button>
 				<div className='nav-buttons-row'>
-					<button id='button_w' onClick={() => handleClick('w')}>
+					<button id='button_w' onClick={() => handleSend('w')}>
 						W
 					</button>
-					<button></button>
-					<button id='button_e' onClick={() => handleClick('e')}>
+					<button className='button-cover'></button>
+					<button id='button_e' onClick={() => handleSend('e')}>
 						E
 					</button>
 				</div>
-				<button id='button_s' onClick={() => handleClick('s')}>
+				<button id='button_s' onClick={() => handleSend('s')}>
 					S
 				</button>
 			</ControlsNav>
@@ -68,7 +90,11 @@ export default function Controls() {
 }
 
 const ControlsWrapper = styled.div`
-	align-self: center;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 10.6rem;
+
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -95,6 +121,11 @@ const ControlsNav = styled.div`
 		outline: none;
 		cursor: pointer;
 		letter-spacing: 0;
+
+		&:hover {
+			color: white;
+			box-shadow: 0 0 1rem white;
+		}
 	}
 
 	#button_n {
@@ -112,6 +143,13 @@ const ControlsNav = styled.div`
 	#button_w {
 		border-radius: 0.4rem 0 0 0.4rem;
 	}
+
+	.button-cover {
+		z-index: 999;
+		&:hover {
+			box-shadow: none;
+		}
+	}
 `;
 
 const ControlsMiddle = styled.div`
@@ -125,11 +163,16 @@ const FlatButton = styled.button`
 	border: none;
 	font-size: 0.5rem;
 	height: 1.25rem;
-	width: 3.75rem;
+	width: 4.5rem;
 	border-radius: 0.6rem;
 	transform: rotate(-35deg);
 	letter-spacing: 0;
 	cursor: pointer;
+
+	&:hover {
+		color: white;
+		box-shadow: 0 0 1rem white;
+	}
 `;
 
 const ControlsButtons = styled.div`
@@ -151,10 +194,16 @@ const RoundButtonXY = styled.button`
 	border-radius: 1.6rem;
 	border: none;
 	letter-spacing: 0;
+	text-align: center;
 	cursor: pointer;
 
 	background-color: #baa9cb;
 	color: #7d35d5;
+
+	&:hover {
+		box-shadow: 0 0 1rem white;
+		color: white;
+	}
 `;
 
 const RoundButtonAB = styled(RoundButtonXY)`

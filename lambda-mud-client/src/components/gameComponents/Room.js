@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
+
+import { DashboardPanel } from '../../styled-components/styledComponents';
 
 export default function Room() {
 	const {
@@ -9,30 +10,11 @@ export default function Room() {
 	} = useDataContext();
 
 	return (
-		<Panel>
+		<DashboardPanel>
 			<h3>
-				Room:
-				<Normal>{title}</Normal>
+				Room: <span className='span-normal'>{title}</span>
 			</h3>
-			<p>{description}</p>
-		</Panel>
+			<div>{description}</div>
+		</DashboardPanel>
 	);
 }
-
-const Panel = styled.div`
-	max-width: 30rem;
-	color: white;
-
-	p {
-		background-color: white;
-		color: black;
-
-		margin-top: 1rem;
-		border-radius: 1rem;
-		padding: 1rem;
-	}
-`;
-
-const Normal = styled.span`
-	font-weight: normal;
-`;

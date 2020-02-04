@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 import Room from './Room';
 import Inventory from './Inventory';
-// import Avatar from './Avatar';
+import Avatar from './Avatar';
 
 export default function Dashboard() {
 	return (
 		<BottomWrapper>
 			<Room />
 			<Inventory />
+			<Avatar />
 		</BottomWrapper>
 	);
 }
