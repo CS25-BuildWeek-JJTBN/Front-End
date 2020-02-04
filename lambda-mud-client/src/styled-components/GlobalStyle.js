@@ -14,14 +14,16 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-    background-color: #f0f4f7;
+    // background-color: #f0f4f7;
+    background-color: lightblue;
     height: 100%;
   }
-
+  
   body {
     line-height: 1.5;
     font-size: 1rem;
-    background-color:#f0f4f7;
+    // background-color:#f0f4f7;
+    background-color: lightblue;
     height: 100%;
   }
 

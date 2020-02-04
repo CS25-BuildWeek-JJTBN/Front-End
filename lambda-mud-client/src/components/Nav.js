@@ -67,13 +67,12 @@ const NavBarRight = styled.div`
 	display: flex;
 	justify-content: space-between;
 
-
 	a {
 		color: white;
 		text-decoration: none;
 
 		&:hover {
-			text-decoration: underline;
+			color: lightblue;
 		}
 	}
 `;
@@ -83,6 +82,6 @@ const SignOut = styled.div`
 	cursor: pointer;
 
 	&:hover {
-		text-decoration: underline;
+		color: lightblue;
 	}
 `;

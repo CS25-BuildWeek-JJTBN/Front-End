@@ -23,6 +23,7 @@ const DashBar = styled.div`
 	background-color: #2f2b4a;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 
 	color: white;
 
