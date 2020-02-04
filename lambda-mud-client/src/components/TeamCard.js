@@ -7,7 +7,7 @@ export default function TeamCard({member}){
 
 
 return (
-    <div>
+    <StyledCard>
         <h2>{member.role.toUpperCase()}</h2>
         <div>
             <p>{member.bio.toUpperCase()}</p>
@@ -17,8 +17,13 @@ return (
         <div href={member.link_url} target='_blank'>
             {member.link_title.toUpperCase()}
         </div>
-    </div>
+    </StyledCard>
 
 )
 
 };
+
+const StyledCard = styled.div`
+    border: solid black 4px;
+    width: 30rem;
+`

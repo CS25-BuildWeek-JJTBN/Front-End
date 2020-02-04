@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Logo from './Logo';
 
 import { useUserContext } from '../contexts/UserContext';
@@ -6,13 +6,8 @@ import { useUserContext } from '../contexts/UserContext';
 import styled from 'styled-components';
 
 export default function Home() {
-	const { user, dispatch } = useUserContext();
+	const { user } = useUserContext();
 
-	useEffect(() => {
-		if (localStorage.getItem('token')) {
-		dispatch({ type: 'LOGIN_TRUE' });
-	}
-}, [dispatch]);
 
 	return <HomePage>
 		<HomeLogoText>
