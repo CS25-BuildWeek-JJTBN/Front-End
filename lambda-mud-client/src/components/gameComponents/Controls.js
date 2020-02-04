@@ -93,15 +93,13 @@ export default function Controls() {
 }
 
 const ControlsWrapper = styled.div`
-	// position: relative;
-	// left: 50%;
-	// transform: translate(-50%);
-	// bottom: 10.6rem;
-
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	width: 30rem;
+
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 1rem;
 `;
 
 const ControlsNav = styled.div`
@@ -124,10 +122,11 @@ const ControlsNav = styled.div`
 		outline: none;
 		cursor: pointer;
 		letter-spacing: 0;
+		box-shadow: 0 0 1rem black;
 
 		&:hover {
 			color: white;
-			box-shadow: 0 0 1rem white;
+			box-shadow: 0 0 1rem yellow;
 		}
 	}
 
@@ -148,7 +147,9 @@ const ControlsNav = styled.div`
 	}
 
 	.button-cover {
+		box-shadow: none;
 		z-index: 999;
+
 		&:hover {
 			box-shadow: none;
 		}
@@ -171,10 +172,11 @@ const FlatButton = styled.button`
 	transform: rotate(-35deg);
 	letter-spacing: 0;
 	cursor: pointer;
+	box-shadow: 0 0 1rem black;
 
 	&:hover {
 		color: white;
-		box-shadow: 0 0 1rem white;
+		box-shadow: 0 0 1rem yellow;
 	}
 `;
 
@@ -202,9 +204,10 @@ const RoundButtonXY = styled.button`
 
 	background-color: #baa9cb;
 	color: #7d35d5;
+	box-shadow: 0 0 1rem black;
 
 	&:hover {
-		box-shadow: 0 0 1rem white;
+		box-shadow: 0 0 1rem yellow;
 		color: white;
 	}
 `;

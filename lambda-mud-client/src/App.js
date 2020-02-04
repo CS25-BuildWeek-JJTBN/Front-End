@@ -13,6 +13,7 @@ import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
 import Game from './components/Game';
+import Profile from './components/Profile';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 				<Route path='/register' component={Register} />
 				<DataProvider>
 					<PrivateRoute path='/game' component={Game} />
+					<PrivateRoute path='/profile' component={Profile} />
 				</DataProvider>
 			</UserProvider>
 		</div>

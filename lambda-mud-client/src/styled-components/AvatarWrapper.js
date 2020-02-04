@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const AvatarContainer = styled.div`
-	width: 10rem;
+	width: 12rem;
 	height: 15rem;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 1rem;
 
 	display: flex;
 	justify-content: center;
@@ -15,10 +17,23 @@ export const AvatarWrapper = styled.div`
 	align-items: center;
 	flex-direction: column;
 
+	position: relative;
+	top: ${props => props.avatarShift};
+
 	.glasses {
 		display: flex;
 
-		.round-lens {
+		position: relative;
+		top: ${props => props.glassesShift};
+		z-index: 1015;
+
+		.lens {
+			background-color: ${props => props.avatarColors.lensColor};
+			width: 2rem;
+			height: 2rem;
+			border-radius: ${props =>
+				props.avatarColors.glassesStyle === 'round' ? '1rem' : '0'};
+			border: 3px solid ${props => props.avatarColors.glassesColor};
 		}
 	}
 
@@ -63,6 +78,8 @@ export const AvatarWrapper = styled.div`
 			height: 3rem;
 			border-radius: 3rem 3rem 0 0;
 
+			box-shadow: inset 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+
 			position: relative;
 			top: 1rem;
 		}
@@ -71,7 +88,9 @@ export const AvatarWrapper = styled.div`
 			background-color: ${props => props.avatarColors.hatBandColor};
 			width: 6.75rem;
 			height: 2rem;
-			border-radius: 0.5rem;
+			border-radius: 0.3rem;
+			box-shadow: inset 0 -0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+
 			z-index: 1005;
 		}
 	}
@@ -86,16 +105,20 @@ export const AvatarWrapper = styled.div`
 		justify-content: center;
 		align-items: center;
 
+		box-shadow: inset 0 -0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+
 		.head {
 			background-color: ${props => props.avatarColors.skinTone};
-			width: 5.5rem;
-			height: 5.5rem;
-			border-radius: 2.75rem;
+			width: 5rem;
+			height: 5rem;
+			border-radius: 2.5rem;
 			z-index: 995;
 
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			box-shadow: inset 0 -0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 		}
 	}
 
@@ -135,6 +158,7 @@ export const AvatarWrapper = styled.div`
 			width: 1.5rem;
 			height: 1.5rem;
 			border-radius: 0.75rem;
+			box-shadow: inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.5);
 		}
 	}
 
@@ -160,6 +184,7 @@ export const AvatarWrapper = styled.div`
 			width: 3rem;
 			height: 1rem;
 			border-radius: 0 0 1rem 1rem;
+			box-shadow: 0 0 2rem black;
 		}
 	}
 `;
