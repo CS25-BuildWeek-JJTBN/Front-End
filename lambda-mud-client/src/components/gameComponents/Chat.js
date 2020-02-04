@@ -7,33 +7,35 @@ export default function Chat() {
 	const [showChat, setShowChat] = useState(false);
 
 	const {
-		data: { isLoading, players },
+		data: { players },
 	} = useDataContext();
 
 	return (
 		<ChatWrapper>
 			<h3>
 				Players: {/* Chat{' '} */}
-				<ToggleChat onClick={() => setShowChat(!showChat)}>(toggle)</ToggleChat>
+				<span className='toggle-chat' onClick={() => setShowChat(!showChat)}>
+					(toggle)
+				</span>
 			</h3>
-			{isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<div>
-					{showChat && (
-						<ul>
-							{players.map(player => (
-								<li key={player}>{player}</li>
-							))}
-						</ul>
-					)}
-				</div>
-			)}
+			<div>
+				{showChat && (
+					<ul>
+						{players.map(player => (
+							<li key={player}>{player}</li>
+						))}
+					</ul>
+				)}
+			</div>
 		</ChatWrapper>
 	);
 }
 
 const ChatWrapper = styled.div`
+	position: absolute;
+	top: 13rem;
+	right: 1rem;
+
 	background-color: silver;
 	width: 30rem;
 	border-radius: 1rem;
@@ -44,8 +46,8 @@ const ChatWrapper = styled.div`
 		background-color: white;
 		padding: 1rem;
 	}
-`;
 
-const ToggleChat = styled.span`
-	cursor: pointer;
+	.toggle-chat {
+		cursor: pointer;
+	}
 `;

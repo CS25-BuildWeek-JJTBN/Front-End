@@ -5,21 +5,15 @@ import { useDataContext } from '../../contexts/DataContext';
 
 export default function PlayerBar() {
 	const {
-		data: { isLoading, name },
+		data: { name },
 	} = useDataContext();
 
 	return (
 		<DashBar>
-			{isLoading ? (
-				<div>Loading...</div>
-			) : (
-				<>
-					<h3>
-						Player: <Normal>{name}</Normal>
-					</h3>
-					<div>**DASHBOARD STATS**</div>
-				</>
-			)}
+			<h3>
+				Player: <span className='span-normal'>{name}</span>
+			</h3>
+			<div>**DASHBOARD STATS**</div>
 		</DashBar>
 	);
 }
@@ -31,8 +25,8 @@ const DashBar = styled.div`
 	justify-content: space-between;
 
 	color: white;
-`;
 
-const Normal = styled.span`
-	font-weight: normal;
+	.span-normal {
+		font-weight: normal;
+	}
 `;

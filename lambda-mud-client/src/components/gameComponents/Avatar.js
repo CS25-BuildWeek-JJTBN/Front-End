@@ -1,21 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+
+import { DashboardPanel } from '../../styled-components/styledComponents';
 
 export default function Avatar() {
 	return (
-		<Panel>
+		<DashboardPanel>
 			<h3>Avatar</h3>
-			<p>BLAH</p>
-		</Panel>
+			<div>BLAH</div>
+		</DashboardPanel>
 	);
 }
-
-const Panel = styled.div`
-	max-width: 30rem;
-	color: white;
-
-	p {
-		background-color: white;
-		color: black;
-	}
-`;
