@@ -15,7 +15,7 @@ export default function Map() {
 		axiosWithAuth()
 			.get('/adv/rooms/')
 			.then(res => {
-				console.log(JSON.parse(res.data.rooms));
+				// console.log(JSON.parse(res.data.rooms));
 			})
 			.catch(err => {
 				console.log(err);

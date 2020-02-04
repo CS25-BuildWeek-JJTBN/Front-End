@@ -20,11 +20,16 @@ export default function Chat() {
 			</h3>
 			<div>
 				{showChat && (
-					<ul>
-						{players.map(player => (
-							<li key={player}>{player}</li>
-						))}
-					</ul>
+					<>
+						<ul>
+							{players.map(player => (
+								<li key={player}>{player}</li>
+							))}
+						</ul>
+						<h4>Chat:</h4>
+						<div className='chat-box'></div>
+						<input type='text' />
+					</>
 				)}
 			</div>
 		</ChatWrapper>
@@ -34,20 +39,28 @@ export default function Chat() {
 const ChatWrapper = styled.div`
 	position: absolute;
 	top: 13rem;
-	right: 1rem;
+	right: 2rem;
+	z-index: 999;
 
 	background-color: silver;
 	width: 30rem;
 	border-radius: 1rem;
 	padding: 1rem;
 
-	ul {
-		margin-top: 1rem;
-		background-color: white;
-		padding: 1rem;
-	}
-
 	.toggle-chat {
 		cursor: pointer;
+	}
+
+	ul,
+	.chat-box {
+		margin: 1rem 0;
+		background-color: white;
+		padding: 1rem;
+		height: 25vh;
+		overflow-y: scroll;
+	}
+
+	h4 {
+		margin-top: 2rem;
 	}
 `;

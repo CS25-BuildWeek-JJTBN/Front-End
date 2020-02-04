@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { DashboardPanel } from '../../styled-components/styledComponents';
 
@@ -6,7 +7,7 @@ export default function Avatar() {
 	return (
 		<DashboardPanel>
 			<h3>Avatar</h3>
-			<div>BLAH</div>
+			<div></div>
 		</DashboardPanel>
 	);
 }
