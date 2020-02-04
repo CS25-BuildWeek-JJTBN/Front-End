@@ -56,7 +56,7 @@ const ChatWrapper = styled.div`
 		margin: 1rem 0;
 		background-color: white;
 		padding: 1rem;
-		height: 25vh;
+		height: 21vh;
 		overflow-y: scroll;
 	}
 

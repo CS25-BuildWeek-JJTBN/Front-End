@@ -10,13 +10,23 @@ export default function Screen() {
 	return (
 		<ScreenWrapper>
 			<Map />
-			<Avatar />
 			<Chat />
-			<Controls />
+			<div className='screen-bottom'>
+				<Avatar />
+				<Controls />
+			</div>
 		</ScreenWrapper>
 	);
 }
 
 const ScreenWrapper = styled.div`
 	flex-grow: 1;
+
+	.screen-bottom {
+		position: relative;
+		bottom: 15rem;
+
+		display: flex;
+		justify-content: space-evenly;
+	}
 `;

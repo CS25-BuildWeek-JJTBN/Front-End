@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
+export const AvatarContainer = styled.div`
+	width: 10rem;
+	height: 15rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
 export const AvatarWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-
-	position: absolute;
-	bottom: 15rem;
-	left: 2rem;
 
 	.headphones {
 		display: flex;
@@ -93,7 +98,7 @@ export const AvatarWrapper = styled.div`
 	}
 
 	.eye {
-		background-color: ${props => props.avatarColors.eyeColor};
+		background-color: white;
 		width: 1.5rem;
 		height: 1.5rem;
 		border-radius: 0.75rem;
