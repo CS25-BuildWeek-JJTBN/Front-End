@@ -7,13 +7,13 @@ import { team_info } from "./TeamInfo";
 
 export default function About() {
 	return <div>
-			About
+		About
 			<div>
-				{team_info.map(member => (
-					<TeamCard key={member.name} member={member}/>
-				))}
-			</div>
-  			</div>;
+			{team_info.map(member => (
+				<TeamCard key={member.name} member={member} />
+			))}
+		</div>
+	</div>;
 }
 
 
