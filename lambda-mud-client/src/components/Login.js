@@ -47,7 +47,7 @@ export default function Login() {
 		<StyledForm>
 			<h2>Login:</h2>
 			{isLoading ? (
-				<Loading />
+				<Loading /> 
 			) : (
 				<form onSubmit={handleSubmit}>
 					<label htmlFor='username'>Username: </label>
