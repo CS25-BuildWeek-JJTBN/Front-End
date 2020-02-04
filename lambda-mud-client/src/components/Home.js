@@ -16,7 +16,6 @@ export default function Home() {
 
 	return <HomePage>
 		<HomeLogoText>
-			
 			<h2 class='blink'>Welcome to </h2>
 			<HomeLogoSmall>
 				<h1>the legend of</h1>
@@ -26,14 +25,14 @@ export default function Home() {
 			</HomeLogoLarge>
 		</HomeLogoText>
 		{user.isLoggedIn && <h2 class='blink'> Press Start Button</h2>}
-		{!user.isLoggedIn && <h2 class='blink'> Login/Register To Start</h2>}
+		{!user.isLoggedIn && <h2 class='blink'> Login / Register To Start</h2>}
 	</HomePage>;
 }
 
 const HomePage = styled.div`
 	position: relative;
 	height: 40rem;
-	border: solid black 2px;
+	border: solid 4px #2f2b4a;
 	width: 60%;
 	text-align: center;
 	margin: auto;
