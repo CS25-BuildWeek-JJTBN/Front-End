@@ -11,7 +11,30 @@ export const StyledForm = styled.div`
 		padding: 5rem;
 		color: #bb1333;
 		font-size: 3rem;
-	}
+	
+
+    form{
+    background-color: #f0f4f7;
+    border: solid 4px #2f2b4a;
+    margin: 1.5rem;
+    padding: 1rem;
+        label{
+            color: #bb1333;
+            font-size: 1rem;
+        }
+        input{
+            margin: 1.2rem;
+            border: none;
+            background-color: #f0f4f7;
+            
+        }
+    }
+
+    button{ 
+        border: solid 4px #2f2b4a;
+        width: 20rem;
+        height: 3rem;
+    }
 
 	form {
 		background-color: #f0f4f7;
