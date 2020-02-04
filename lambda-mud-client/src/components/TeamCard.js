@@ -12,9 +12,10 @@ export default function TeamCard({ member }) {
 				<p>{member.bio.toUpperCase()}</p>
 				<h3>{member.name.toUpperCase()}</h3>
 			</div>
+            <i class="nes-icon linkedin is-medium" >
 			<a href={member.link_url} target='_blank'>
-				{member.link_title.toUpperCase()}
-			</a>
+				{/* {member.link_title.toUpperCase()} */}
+			</a></i>
 		</StyledCard>
 	);
 }

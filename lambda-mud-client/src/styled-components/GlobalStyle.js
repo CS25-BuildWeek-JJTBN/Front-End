@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     font-size: 1rem;
     // background-color:#f0f4f7;
-    background-color: lightblue;
+    background-color: black;
     height: 100%;
   }
 

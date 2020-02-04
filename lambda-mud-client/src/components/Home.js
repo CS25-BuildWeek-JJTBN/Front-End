@@ -42,8 +42,8 @@ export default function Home() {
 const HomePage = styled.div`
 	position: relative;
 	height: 40rem;
-	border: solid 4px #2f2b4a;
-	background-color: #f0f4f7;
+	border: solid 4px white;
+	background-color: black;
 	width: 60%;
 	text-align: center;
 	margin: auto;
@@ -51,14 +51,15 @@ const HomePage = styled.div`
 	.blink {
 		margin: 2rem;
 		animation: blinkingText 1.2s infinite;
+		
 	}
 
 	@keyframes blinkingText {
 		0% {
-			color: #000;
+			color: white;
 		}
 		49% {
-			color: #000;
+			color: white;
 		}
 		60% {
 			color: transparent;
@@ -73,6 +74,7 @@ const HomePage = styled.div`
 
 	.clickable {
 		cursor: pointer;
+		
 	}
 `;
 
@@ -87,10 +89,12 @@ const HomeLogoSmall = styled.div`
 	position: relative;
 	left: 3rem;
 	top: 0.5rem;
+	color: white;
 `;
 
 const HomeLogoLarge = styled.div`
 	font-size: 10rem;
 	line-height: 1;
 	text-shadow: 0.3rem 0.3rem darkred;
+	color: lightblue;
 `;
