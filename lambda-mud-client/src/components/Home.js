@@ -30,7 +30,7 @@ export default function Home() {
 const HomePage = styled.div`
 	position: relative;
 	height: 40rem;
-	border: solid black 2px;
+	border: solid 4px #2f2b4a;
 	width: 60%;
 	text-align: center;
 	margin: auto;

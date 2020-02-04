@@ -67,6 +67,7 @@ const NavBarRight = styled.div`
 	display: flex;
 	justify-content: space-between;
 
+
 	a {
 		color: white;
 		text-decoration: none;
