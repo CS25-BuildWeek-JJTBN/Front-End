@@ -63,4 +63,8 @@ const ChatWrapper = styled.div`
 	h4 {
 		margin-top: 2rem;
 	}
+
+	input {
+		width: 100%;
+	}
 `;

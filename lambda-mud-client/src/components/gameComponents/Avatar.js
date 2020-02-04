@@ -10,13 +10,13 @@ export default function Avatar() {
 		skinTone: 'pink',
 		eyeColor: 'white',
 		pupilColor: 'black',
-		hoodieColor: 'purple',
+		hoodieColor: 'gray',
 		pantsColor: 'darkblue',
 		shoeColor: 'white',
 	};
 
 	const accessoriesStatus = {
-		headphones: true,
+		headphones: false,
 		hat: true,
 	};
 
