@@ -12,8 +12,6 @@ export default function Home() {
 		user: { isLoggedIn },
 	} = useUserContext();
 
-	console.log(history);
-
 	return (
 		<HomePage>
 			<HomeLogoText>

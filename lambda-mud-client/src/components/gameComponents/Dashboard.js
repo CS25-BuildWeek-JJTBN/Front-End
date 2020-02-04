@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Room from './Room';
+import Question from './Question';
+import Resource from './Resource';
 import Inventory from './Inventory';
-// import Avatar from './Avatar';
 
 export default function Dashboard() {
 	return (
 		<BottomWrapper>
-			<Room />
+			<Question />
+			<Resource />
 			<Inventory />
-			{/* <Avatar /> */}
 		</BottomWrapper>
 	);
 }

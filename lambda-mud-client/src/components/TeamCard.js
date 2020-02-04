@@ -12,7 +12,7 @@ export default function TeamCard({ member }) {
 				<p>{member.bio.toUpperCase()}</p>
 				<h3>{member.name.toUpperCase()}</h3>
 			</div>
-			<a href={member.link_url} target='_blank'>
+			<a href={member.link_url} target='_blank' rel='noopener noreferrer'>
 				{member.link_title.toUpperCase()}
 			</a>
 		</StyledCard>

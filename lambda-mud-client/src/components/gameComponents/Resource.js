@@ -4,17 +4,19 @@ import { useDataContext } from '../../contexts/DataContext';
 
 import { DashboardPanel } from '../../styled-components/styledComponents';
 
-export default function Room() {
+export default function Question() {
 	const {
-		data: { title, description },
+		data: { description },
 	} = useDataContext();
 
 	return (
 		<DashboardPanel>
-			<h3>
-				Room: <span className='span-normal'>{title}</span>
-			</h3>
-			<div className='text-box'>{description}</div>
+			<h3>Resource:</h3>
+			<div className='text-box'>
+				<a href={description} target='_blank' rel='noopener noreferrer'>
+					{description}
+				</a>
+			</div>
 		</DashboardPanel>
 	);
 }
