@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-// Context Api
+// Context API
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
-//Styled Components
-import {StyledForm} from '../styled-components/styledComponents';
+// Styled Components & Components
+import { StyledForm } from '../styled-components/styledComponents';
+import Loading from './Loading';
 
 export default function Register() {
 	const history = useHistory();
@@ -52,7 +53,7 @@ export default function Register() {
 		<StyledForm>
 			<h2> Register Your Name </h2>
 			{isLoading ? (
-				<div>Loading...</div>
+				<Loading />
 			) : (
 				<form onSubmit={handleSubmit}>
 					<label htmlFor='username'>Username: </label>
@@ -88,11 +89,8 @@ export default function Register() {
 					<button type='submit'>Register</button>
 
 					{error && <div>{error}</div>}
-					
-				</form>				
+				</form>
 			)}
 		</StyledForm>
 	);
 }
-
-

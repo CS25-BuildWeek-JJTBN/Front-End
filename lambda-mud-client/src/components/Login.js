@@ -6,7 +6,8 @@ import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
 // Styled
-import {StyledForm} from '../styled-components/styledComponents';
+import { StyledForm } from '../styled-components/styledComponents';
+import Loading from './Loading';
 
 export default function Login() {
 	const history = useHistory();
@@ -46,7 +47,7 @@ export default function Login() {
 		<StyledForm>
 			<h2>Login:</h2>
 			{isLoading ? (
-				<div>Loading...</div>
+				<Loading />
 			) : (
 				<form onSubmit={handleSubmit}>
 					<label htmlFor='username'>Username: </label>
