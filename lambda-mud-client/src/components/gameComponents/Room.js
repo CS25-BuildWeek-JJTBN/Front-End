@@ -14,7 +14,7 @@ export default function Room() {
 			<h3>
 				Room: <span className='span-normal'>{title}</span>
 			</h3>
-			<div>{description}</div>
+			<div className='text-box'>{description}</div>
 		</DashboardPanel>
 	);
 }
