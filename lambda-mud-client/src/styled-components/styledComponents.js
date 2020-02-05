@@ -53,14 +53,13 @@ export const DashboardPanel = styled.div`
 		font-weight: normal;
 	}
 
-	.text-box {
+	.text-box{
 		background-color: white;
 		color: black;
 
 		margin-top: 1rem;
 		border-radius: 1rem;
 		padding: 1rem;
-
-		overflow-wrap: break-word;
-	}
+        overflow-wrap: break-word;
+    }
 `;

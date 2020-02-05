@@ -28,21 +28,30 @@ export default function Map() {
 
 	return (
 		<MapWrapper>
-			{isLoading && <Loading />}
 			{mapData && mapData.map((row, index) => <MapRow row={row} key={index} />)}
-			<div>{error_msg}</div>
+			{isLoading && <Loading />}
+			<div className='error-msg'>{error_msg}</div>
 		</MapWrapper>
 	);
 }
 
 const MapWrapper = styled.div`
-	background-color: lightblue;
-	max-height: 100%;
+	padding: 5.5rem 1rem 1rem;
 
-	padding: 1rem;
+	// overflow: hidden;
+
+	// &::-webkit-scrollbar {
+	// 	display: none;
+	// }
+
+	// -ms-overflow-style: none;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	.error-msg {
+		color: #bb1333;
+	}
 `;

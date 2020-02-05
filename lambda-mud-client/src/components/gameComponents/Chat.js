@@ -42,7 +42,8 @@ const ChatWrapper = styled.div`
 	right: 2rem;
 	z-index: 999;
 
-	background-color: silver;
+	background-color: #bb1333;
+	color: white;
 	width: 30rem;
 	border-radius: 1rem;
 	padding: 1rem;
