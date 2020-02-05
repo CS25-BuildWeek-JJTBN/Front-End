@@ -15,15 +15,15 @@ export default function Avatar() {
 		hoodieColor: 'gray',
 		pantsColor: 'darkblue',
 		shoeColor: 'white',
-		lensColor: 'navy',
+		lensColor: '',
 		glassesColor: 'brown',
-		glassesStyle: 'round',
+		glassesStyle: 'square',
 	};
 
 	const accessoriesStatus = {
 		glasses: true,
-		hat: true,
-		headphones: true,
+		hat: false,
+		headphones: false,
 	};
 
 	const headphonesShift = accessoriesStatus.hat ? '7rem' : '2.75rem';

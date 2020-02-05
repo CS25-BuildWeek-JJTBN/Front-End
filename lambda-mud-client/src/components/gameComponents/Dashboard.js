@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Avatar from './Avatar';
+// import Avatar from './Avatar';
 import Controls from './Controls';
 import Question from './Question';
 import Resource from './Resource';
