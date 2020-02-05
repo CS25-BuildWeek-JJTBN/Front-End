@@ -26,7 +26,7 @@ export default function CustomizeAvatar() {
 				<h4>Eye Color: </h4>
 				<div className='colors'>
 					{eyeColors.map(color => (
-						<ColorSwatch color={color} />
+						<ColorSwatch key={color} color={color} />
 					))}
 				</div>
 			</div>
@@ -34,7 +34,7 @@ export default function CustomizeAvatar() {
 				<h4>Skin Tone: </h4>
 				<div className='colors'>
 					{skinTones.map(color => (
-						<ColorSwatch color={color} />
+						<ColorSwatch key={color} color={color} />
 					))}
 				</div>
 			</div>
@@ -42,7 +42,7 @@ export default function CustomizeAvatar() {
 				<h4>Hoodie: </h4>
 				<div className='colors'>
 					{hoodieColors.map(color => (
-						<ColorSwatch color={color} />
+						<ColorSwatch key={color} color={color} />
 					))}
 				</div>
 			</div>
@@ -50,7 +50,7 @@ export default function CustomizeAvatar() {
 				<h4>Pants: </h4>
 				<div className='colors'>
 					{pantsColors.map(color => (
-						<ColorSwatch color={color} />
+						<ColorSwatch key={color} color={color} />
 					))}
 				</div>
 			</div>
@@ -58,7 +58,7 @@ export default function CustomizeAvatar() {
 				<h4>Shoes: </h4>
 				<div className='colors'>
 					{shoesColors.map(color => (
-						<ColorSwatch color={color} />
+						<ColorSwatch key={color} color={color} />
 					))}
 				</div>
 			</div>
@@ -103,7 +103,7 @@ export default function CustomizeAvatar() {
 						<h4>Frame: </h4>
 						<div className='colors'>
 							{glassesColors.map(color => (
-								<ColorSwatch color={color} />
+								<ColorSwatch key={color} color={color} />
 							))}
 						</div>
 					</div>
@@ -117,8 +117,9 @@ const CustomizeWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	width: 30rem;
-	margin: 2rem auto;
+	width: 40%;
+	min-width: 30rem;
+	margin: 2rem 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -130,6 +131,10 @@ const CustomizeWrapper = styled.div`
 
 	background-color: white;
 	border: 0.5rem solid black;
+
+	@media screen and (max-width: 700px) {
+		width: 90%;
+	}
 
 	.avatar-background {
 		background-color: lightblue;

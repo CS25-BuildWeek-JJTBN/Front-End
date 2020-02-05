@@ -13,7 +13,7 @@ export default function Login() {
 	const history = useHistory();
 
 	const {
-		user: { isLoading, error },
+		user: { isLoading },
 		dispatch,
 	} = useUserContext();
 
@@ -21,6 +21,8 @@ export default function Login() {
 		username: '',
 		password: '',
 	});
+
+	const [error, setError] = useState('');
 
 	const handleChange = e =>
 		setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -40,6 +42,7 @@ export default function Login() {
 			.catch(err => {
 				// console.log(err);
 				dispatch({ type: 'LOGIN_FAILURE' });
+				setError('Sorry, error logging in');
 			});
 	};
 
@@ -47,7 +50,7 @@ export default function Login() {
 		<StyledForm>
 			<h2>Login:</h2>
 			{isLoading ? (
-				<Loading /> 
+				<Loading />
 			) : (
 				<form onSubmit={handleSubmit}>
 					<label htmlFor='username'>Username: </label>
@@ -72,7 +75,7 @@ export default function Login() {
 
 					<button type='submit'>Login</button>
 
-					{error && <div>{error}</div>}
+					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
 		</StyledForm>
