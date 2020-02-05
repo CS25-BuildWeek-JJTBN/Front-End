@@ -21,8 +21,7 @@ export const team_info = [
 		img_path: 'jonathan_pixel.png',
 		link_title: 'LinkedIn',
 		link_url: 'https://www.linkedin.com/in/jonathan-y-ho/',
-		bio:
-			'Web22 | Labs18 QualityHub+InterviewQ | Lambda Winter 2020 Hackathon Best Overall: Create Your Own Adventure | CS25',
+		bio: '*Web22*Labs18*CS25*',
 	},
 	{
 		name: 'Nick Gonzalez',

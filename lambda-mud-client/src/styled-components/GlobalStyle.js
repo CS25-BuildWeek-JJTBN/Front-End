@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
     // background-color: #f0f4f7;
-    background-color: lightblue;
+    // background-color: lightblue;
     height: 100%;
   }
   
@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     // background-color:#f0f4f7;
     background-color: lightblue;
     height: 100%;
+    // background-image: url('./photos/background2.png');
+    // background-size: cover;
   }
 
   h1 {

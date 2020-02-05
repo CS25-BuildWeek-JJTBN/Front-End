@@ -8,6 +8,7 @@ export const initialDataState = {
 	currentRoom: '',
 	error: '',
 	error_msg: '',
+	chatOpen: false,
 };
 
 export const dataReducer = (state = initialDataState, action) => {
@@ -61,6 +62,11 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				error: 'Sorry, error making that move',
 				isLoading: false,
+			};
+		case 'TOGGLE_CHAT':
+			return {
+				...state,
+				chatOpen: action.payload,
 			};
 		default:
 			return state;

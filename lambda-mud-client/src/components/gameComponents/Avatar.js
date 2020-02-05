@@ -7,23 +7,23 @@ import {
 
 export default function Avatar() {
 	const avatarColors = {
-		headPhoneColor: 'black',
-		hatColor: 'orange',
-		hatBandColor: 'red',
+		headPhoneColor: 'gold',
+		hatColor: 'black',
+		hatBandColor: 'black',
 		skinTone: '#e0ac69',
 		pupilColor: 'black',
 		hoodieColor: 'gray',
 		pantsColor: 'darkblue',
 		shoeColor: 'white',
-		lensColor: '',
+		lensColor: 'navy',
 		glassesColor: 'brown',
-		glassesStyle: 'false',
+		glassesStyle: 'round',
 	};
 
 	const accessoriesStatus = {
 		glasses: true,
-		hat: false,
-		headphones: false,
+		hat: true,
+		headphones: true,
 	};
 
 	const headphonesShift = accessoriesStatus.hat ? '7rem' : '2.75rem';

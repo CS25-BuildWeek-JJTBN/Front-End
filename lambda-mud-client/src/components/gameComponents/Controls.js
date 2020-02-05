@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import { useDataContext } from '../../contexts/DataContext';
 
 export default function Controls() {
-	const { dispatch } = useDataContext();
+	const {
+		data: { chatOpen },
+		dispatch,
+	} = useDataContext();
 
 	const handleSend = direction => {
 		dispatch({ type: 'MOVE_START' });
@@ -33,29 +36,48 @@ export default function Controls() {
 	};
 
 	useEffect(() => {
-		const handleKeyUp = ({ key }) => {
-			switch (key) {
-				case 'n':
-					handleSend('n');
-					break;
-				case 's':
-					handleSend('s');
-					break;
-				case 'e':
-					handleSend('e');
-					break;
-				case 'w':
-					handleSend('w');
-					break;
-				default:
-					return;
+		const handleKeyDown = ({ key, keyCode }) => {
+			if (!chatOpen) {
+				switch (key) {
+					case 'n':
+						handleSend('n');
+						break;
+					case 's':
+						handleSend('s');
+						break;
+					case 'e':
+						handleSend('e');
+						break;
+					case 'w':
+						handleSend('w');
+						break;
+					default:
+						break;
+				}
+
+				switch (keyCode) {
+					case 37:
+						handleSend('w');
+						break;
+					case 38:
+						handleSend('n');
+						break;
+					case 39:
+						handleSend('e');
+						break;
+					case 40:
+						handleSend('s');
+						break;
+					default:
+						return;
+				}
 			}
 		};
 
-		window.addEventListener('keyup', handleKeyUp);
+		window.addEventListener('keydown', handleKeyDown);
 
-		return () => window.removeEventListener('keyup', handleKeyUp);
-	}, []);
+		return () => window.removeEventListener('keydown', handleKeyDown);
+	}, [chatOpen]);
 
 	return (
 		<ControlsWrapper>
@@ -76,14 +98,14 @@ export default function Controls() {
 					S
 				</button>
 			</ControlsNav>
-			<ControlsMiddle>
+			{/* <ControlsMiddle>
 				<FlatButton>SELECT</FlatButton>
 				<FlatButton>START</FlatButton>
-			</ControlsMiddle>
+			</ControlsMiddle> */}
 			<ControlsButtons>
-				<RoundButtonXY>X</RoundButtonXY>
+				{/* <RoundButtonXY>X</RoundButtonXY> */}
 				<div className='round-buttons-row'>
-					<RoundButtonXY>Y</RoundButtonXY>
+					{/* <RoundButtonXY>Y</RoundButtonXY> */}
 					<RoundButtonAB>A</RoundButtonAB>
 				</div>
 				<RoundButtonAB>B</RoundButtonAB>
@@ -99,7 +121,10 @@ const ControlsWrapper = styled.div`
 	width: 30rem;
 
 	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 1rem;
+	border-radius: 7.5rem;
+
+	box-shadow: 0.3rem 0.2rem rgba(0, 0, 0, 0.25),
+		inset 0.3rem 0.2rem rgba(255, 255, 255, 0.25);
 `;
 
 const ControlsNav = styled.div`
@@ -122,11 +147,14 @@ const ControlsNav = styled.div`
 		outline: none;
 		cursor: pointer;
 		letter-spacing: 0;
-		box-shadow: 0 0 1rem black;
+		box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 
 		&:hover {
 			color: white;
-			box-shadow: 0 0 1rem yellow;
+			box-shadow: 0 0 1rem yellow,
+				inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+				inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 		}
 	}
 
@@ -172,11 +200,14 @@ const FlatButton = styled.button`
 	transform: rotate(-35deg);
 	letter-spacing: 0;
 	cursor: pointer;
-	box-shadow: 0 0 1rem black;
+	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 
 	&:hover {
 		color: white;
-		box-shadow: 0 0 1rem yellow;
+		box-shadow: 0 0 1rem yellow,
+			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 	}
 `;
 
@@ -200,14 +231,17 @@ const RoundButtonXY = styled.button`
 	border: none;
 	letter-spacing: 0;
 	text-align: center;
-	cursor: pointer;
+	cursor: default;
 
 	background-color: #baa9cb;
 	color: #7d35d5;
-	box-shadow: 0 0 1rem black;
+	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 
 	&:hover {
-		box-shadow: 0 0 1rem yellow;
+		box-shadow: 0 0 1rem yellow,
+			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
+			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
 		color: white;
 	}
 `;
@@ -215,4 +249,5 @@ const RoundButtonXY = styled.button`
 const RoundButtonAB = styled(RoundButtonXY)`
 	background-color: #7d35d5;
 	color: #baa9cb;
+	cursor: pointer;
 `;
