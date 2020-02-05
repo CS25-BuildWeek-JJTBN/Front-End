@@ -21,7 +21,7 @@ export default function PlayerBar() {
 			<h3>
 				ISA:{' '}
 				<span className='span-normal'>
-					${roomsVisited * 300}/$30,000 ({Math.round(0.1 * roomsVisited)}%)
+					${roomsVisited * 300}/$30,000 ({roomsVisited}%)
 				</span>
 			</h3>
 		</DashBar>
