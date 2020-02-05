@@ -27,6 +27,7 @@ export default function Game() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
+						visitedRooms: res.data.visited_rooms,
 					},
 				});
 			})

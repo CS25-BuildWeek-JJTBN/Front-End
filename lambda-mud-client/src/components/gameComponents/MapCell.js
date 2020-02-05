@@ -3,9 +3,11 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
+import Avatar from './Avatar';
+
 export default function MapCell({ cell }) {
 	const {
-		data: { currentRoom },
+		data: { currentRoom, roomsVisited },
 	} = useDataContext();
 
 	const isCurrentRoom = currentRoom === cell.id ? true : false;
@@ -35,6 +37,11 @@ export default function MapCell({ cell }) {
 								</div>
 							</div>
 						</div>
+						{isCurrentRoom && (
+							<div className='screen-avatar'>
+								<Avatar />
+							</div>
+						)}
 						<div className='pc-link pc-e'></div>
 					</div>
 					<div className='pc-link pc-s'></div>
@@ -159,5 +166,10 @@ const StyledCell = styled.div`
 				}
 			}
 		}
+	}
+
+	.screen-avatar {
+		position: relative;
+		bottom: 5rem;
 	}
 `;

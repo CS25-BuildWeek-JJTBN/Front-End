@@ -47,6 +47,13 @@ export const StyledForm = styled.div`
 		height: 3rem;
 		margin: 0 auto;
 	}
+
+	.error {
+		color: white;
+		background-color: red;
+		text-align: center;
+		margin: 1rem 0;
+	}
 `;
 
 export const DashboardPanel = styled.div`
