@@ -8,12 +8,24 @@ export default function PlayerBar() {
 		data: { name },
 	} = useDataContext();
 
+	const roomsVisited = 10;
+
 	return (
 		<DashBar>
+			<div>
+				<h3>
+					Player: <span className='span-normal'>{name}</span>
+				</h3>
+				<h3>
+					Rooms: <span className='span-normal'>{roomsVisited}</span>
+				</h3>
+			</div>
 			<h3>
-				Player: <span className='span-normal'>{name}</span>
+				ISA Paid:{' '}
+				<span className='span-normal'>
+					${roomsVisited * 300}/$30,000 ({0.1 * roomsVisited}%)
+				</span>
 			</h3>
-			<div>**DASHBOARD STATS**</div>
 		</DashBar>
 	);
 }
@@ -29,5 +41,9 @@ const DashBar = styled.div`
 
 	.span-normal {
 		font-weight: normal;
+	}
+
+	.stats {
+		display: flex;
 	}
 `;

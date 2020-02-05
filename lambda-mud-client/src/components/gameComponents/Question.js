@@ -8,26 +8,6 @@ export default function Question() {
 	const {
 		data: { title },
 	} = useDataContext();
-	// const [text, setText] = useState("");
-	// const text = useRef({wordIndex: 0, text: '', letterIndex: 0});
-
-
-	// const txt = [title];	
-	// const speed = 80;
-	// let i = 0;
-
-	// console.log(txt.length)
-	// useEffect(() => {
-	// 	console.log('hi')
-	// 	if (i >= txt.length) {
-	// 		document.getElementsByClassName('text-box').innerHTML += txt.charAt(i);
-	// 		i++;
-	// 		setTimeout(txt, speed);
-	// 		}
-	// 	}, [txt]);
-
-
-
 
 	return (
 		<DashboardPanel>

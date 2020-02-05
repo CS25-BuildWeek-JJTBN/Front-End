@@ -12,7 +12,7 @@ export default function TeamCard({ member }) {
 				<p>{member.bio.toUpperCase()}</p>
 				<h3>{member.name.toUpperCase()}</h3>
 			</div>
-            <i class="nes-icon linkedin is-medium" >
+            <i className="nes-icon linkedin is-medium" >
 			<a href={member.link_url} target='_blank'>
 				{/* {member.link_title.toUpperCase()} */}
 			</a></i>
@@ -29,8 +29,8 @@ const StyledCard = styled.div`
 `;
 
 const StyledImage = styled.div`
-	width: 17rem;
-	height: 17rem;
+	width: 27rem;
+	height: 27rem;
 	margin: 0 auto;
 
 	background-image: ${props => props.image};
