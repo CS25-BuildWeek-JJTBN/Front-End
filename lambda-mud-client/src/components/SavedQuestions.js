@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
+import { visitedRoomsObjToArray } from '../utils/visitedRoomsFunctions';
+
 export default function SavedQuestions() {
 	const {
 		data: { visitedRooms },
@@ -17,10 +19,11 @@ export default function SavedQuestions() {
 			.get('/adv/init/')
 			.then(res => {
 				// console.log(res.data);
+
 				dispatch({
 					type: 'GET_DATA_SUCCESS',
 					payload: {
-						visitedRooms: res.data.visited_rooms,
+						visitedRooms: visitedRoomsObjToArray(res.data.visited_rooms),
 					},
 				});
 			})
@@ -29,8 +32,6 @@ export default function SavedQuestions() {
 				dispatch({ type: 'GET_DATA_FAILURE' });
 			});
 	}, []);
-
-	console.log(visitedRooms);
 
 	return (
 		<SavedWrapper>

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
+import { visitedRoomsObjToArray } from '../../utils/visitedRoomsFunctions';
+
 export default function Controls() {
 	const {
 		data: { chatOpen },
@@ -25,6 +27,7 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
+						visitedRooms: visitedRoomsObjToArray(res.data.rooms),
 						error_msg: res.data.error_msg,
 					},
 				});

@@ -137,9 +137,9 @@ const CustomizeWrapper = styled.div`
 	}
 
 	.avatar-background {
-		background-color: lightblue;
-		border-radius: 1rem;
-		box-shadow: 0.3rem 0.2rem lightblue;
+		// background-color: lightblue;
+		// border-radius: 1rem;
+		// box-shadow: 0.3rem 0.2rem lightblue;
 	}
 
 	h3 {
