@@ -99,6 +99,14 @@ const HomePageHeader = styled.div`
 	text-align: center;
 	margin: 2rem auto;
 
+	@media screen and (max-width: 1350px) {
+		width: 45%;
+	}
+
+	@media screen and (max-width: 1200px) {
+		width: 90%;
+	}
+
 	.blink {
 		margin: 2rem;
 		animation: blinkingText 1.2s infinite;
@@ -136,36 +144,66 @@ const HomeLogoSmall = styled.div`
 	font-size: 3rem;
 	line-height: 0.5;
 	position: relative;
-	left: 3rem;
+	left: 2rem;
 	top: 0.5rem;
+
+	@media screen and (max-width: 600px) {
+		font-size: 2.5rem;
+	}
+
+	@media screen and (max-width: 500px) {
+		font-size: 1.75rem;
+	}
+
+	@media screen and (max-width: 400px) {
+		font-size: 1.25rem;
+	}
 `;
 
 const HomeLogoLarge = styled.div`
 	font-size: 9rem;
 	line-height: 1;
 	text-shadow: 0.3rem 0.3rem darkred;
+
+	@media screen and (max-width: 600px) {
+		font-size: 7rem;
+	}
+
+	@media screen and (max-width: 500px) {
+		font-size: 5rem;
+	}
+
+	@media screen and (max-width: 400px) {
+		font-size: 4rem;
+	}
 `;
 
 const HomePageWrapper = styled.div`
 	.homepage-top {
 		display: flex;
 		align-items: center;
+
+		@media screen and (max-width: 1200px) {
+			flex-direction: column;
+		}
 	}
 
 	.testimonial {
 		width: 30rem;
+
+		font-size: 1.6rem;
 
 		.testimonial-img {
 			width: 30rem;
 			height: 25rem;
 			background-image: url('./photos/link-sprite.png');
 			background-size: cover;
+			margin-top: 2rem;
 		}
 	}
 
 	.blurb {
 		width: 90%;
-		min-width: 30rem;
 		max-width: 65ch;
 		margin: 0 auto;
 
@@ -176,6 +214,22 @@ const HomePageWrapper = styled.div`
 		p {
 			font-size: 1.4rem;
 		}
+
+		@media screen and (max-width: 1350px) {
+			width: 45%;
+
+			h2 {
+				font-size: 1.6rem;
+			}
+
+			p {
+				font-size: 1.2rem;
+			}
+		}
+
+		@media screen and (max-width: 1200px) {
+			width: 90%;
+		}
 	}
 
 	.feature-wrapper {
@@ -184,6 +238,11 @@ const HomePageWrapper = styled.div`
 		justify-content: space-around;
 		align-items: flex-end;
 		margin: 0 auto;
+		margin-bottom: 3rem;
+
+		@media screen and (max-width: 1300px) {
+			flex-wrap: wrap;
+		}
 
 		.feature-column {
 			display: flex;
@@ -206,6 +265,13 @@ const HomePageWrapper = styled.div`
 			justify-content: center;
 			align-items: center;
 			text-align: center;
+
+			@media screen and (max-width: 360px) {
+				width: 26rem;
+				height: 26rem;
+				border-radius: 13rem;
+				font-size: 1.2rem;
+			}
 		}
 	}
 
@@ -236,8 +302,13 @@ const HomePageWrapper = styled.div`
 		background-color: white;
 		border: 0.4rem solid #2f2b4a;
 		width: 34rem;
-		height: 12rem;
+		height: 12.5rem;
 		background-image: url('./photos/question.png');
 		background-size: cover;
+
+		@media screen and (max-width: 380px) {
+			width: 26rem;
+			height: 9.5rem;
+		}
 	}
 `;

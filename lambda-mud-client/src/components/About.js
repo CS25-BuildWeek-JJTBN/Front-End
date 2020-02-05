@@ -45,6 +45,7 @@ const AboutPage = styled.div`
 		margin: 1rem auto;
 		color: #2f2b4a;
 		font-size: 1.6rem;
+		margin-bottom: 3rem;
 	}
 `;
 

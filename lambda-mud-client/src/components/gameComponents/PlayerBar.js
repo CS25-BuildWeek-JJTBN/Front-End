@@ -12,12 +12,14 @@ export default function PlayerBar() {
 
 	return (
 		<DashBar>
-			<h3>
-				Player: <span className='span-normal'>{name}</span>
-			</h3>
-			<h3>
-				Rooms: <span className='span-normal'>{roomsVisited}</span>
-			</h3>
+			<div>
+				<h3>
+					Player: <span className='span-normal'>{name}</span>
+				</h3>
+				<h3>
+					Rooms: <span className='span-normal'>{roomsVisited}</span>
+				</h3>
+			</div>
 			<h3>
 				ISA Paid:{' '}
 				<span className='span-normal'>
