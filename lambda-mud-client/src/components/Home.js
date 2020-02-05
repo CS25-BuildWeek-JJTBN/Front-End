@@ -26,12 +26,16 @@ export default function Home() {
 						</HomeLogoLarge>
 					</HomeLogoText>
 					{isLoggedIn && (
-						<h2 className='blink clickable' onClick={() => history.push('/game')}>
+						<h2
+							className='blink clickable'
+							onClick={() => history.push('/game')}>
 							Press Start Button
 						</h2>
 					)}
 					{!isLoggedIn && (
-						<h2 className='blink clickable' onClick={() => history.push('/login')}>
+						<h2
+							className='blink clickable'
+							onClick={() => history.push('/login')}>
 							Login/Register To Start
 						</h2>
 					)}
@@ -158,6 +162,7 @@ const HomeLogoSmall = styled.div`
 
 	@media screen and (max-width: 400px) {
 		font-size: 1.25rem;
+		width: 90%;
 	}
 `;
 

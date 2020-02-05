@@ -6,6 +6,7 @@ export const initialDataState = {
 	description: '',
 	players: [],
 	currentRoom: '',
+	visitedRooms: [],
 	error: '',
 	error_msg: '',
 	chatOpen: false,
@@ -30,6 +31,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				visitedRooms: action.payload.visitedRooms,
 			};
 		case 'GET_DATA_FAILURE':
 			return {
@@ -55,6 +57,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				visitedRooms: action.payload.visitedRooms,
 				error_msg: action.payload.error_msg,
 			};
 		case 'MOVE_FAILURE':

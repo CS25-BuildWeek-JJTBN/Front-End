@@ -8,7 +8,7 @@ export default function Screen() {
 	return (
 		<ScreenWrapper>
 			<Map />
-			<Chat />
+			{/* <Chat /> */}
 		</ScreenWrapper>
 	);
 }

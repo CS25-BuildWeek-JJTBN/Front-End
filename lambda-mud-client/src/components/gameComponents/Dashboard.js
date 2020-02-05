@@ -11,7 +11,7 @@ export default function Dashboard() {
 	return (
 		<BottomWrapper>
 			<div className='floating-items'>
-				<Avatar />
+				{/* <Avatar /> */}
 				<Controls />
 			</div>
 			<div className='bottom-panels'>
@@ -30,7 +30,8 @@ const BottomWrapper = styled.div`
 
 	.floating-items {
 		display: flex;
-		justify-content: space-between;
+		// justify-content: space-between;
+		justify-content: flex-end;
 		padding: 1rem 3rem;
 	}
 
