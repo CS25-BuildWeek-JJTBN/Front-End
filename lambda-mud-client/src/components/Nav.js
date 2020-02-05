@@ -41,6 +41,7 @@ export default function Nav() {
 				<NavLink to='/about'>About</NavLink>
 				{!isLoggedIn && <NavLink to='/login'>Login</NavLink>}
 				{!isLoggedIn && <NavLink to='/register'>Register</NavLink>}
+				{isLoggedIn && <NavLink to='/profile'>Profile</NavLink>}
 				{isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
 			</NavBarRight>
 		</NavBar>
@@ -63,7 +64,8 @@ const NavBarLeft = styled.div`
 `;
 
 const NavBarRight = styled.div`
-	width: 30rem;
+	// width: 30rem;
+	width: 50%;
 	display: flex;
 	justify-content: space-between;
 
