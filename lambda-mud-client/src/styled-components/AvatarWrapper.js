@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const AvatarContainer = styled.div`
-	width: 12rem;
-	height: 15rem;
+	width: 9.2rem;
+	height: 14rem;
 	// background-color: rgba(255, 255, 255, 0.5);
 	// border-radius: 1rem;
 
@@ -187,7 +187,8 @@ export const AvatarWrapper = styled.div`
 			width: 3rem;
 			height: 1rem;
 			border-radius: 0 0 1rem 1rem;
-			box-shadow: 0 0 2rem black;
+			z-index: 10;
+			box-shadow: 0 0 3rem 1rem black;
 		}
 	}
 `;

@@ -7,10 +7,14 @@ import Avatar from './Avatar';
 
 export default function MapCell({ cell }) {
 	const {
-		data: { currentRoom, roomsVisited },
+		data: { currentRoom, visitedRooms },
 	} = useDataContext();
 
+	// console.log(visitedRooms);
+
 	const isCurrentRoom = currentRoom === cell.id ? true : false;
+	const isVisited =
+		visitedRooms && visitedRooms.map(obj => obj.id).includes(cell.id);
 
 	return (
 		<StyledWrapper>
@@ -20,26 +24,28 @@ export default function MapCell({ cell }) {
 					s={cell.s_to}
 					e={cell.e_to}
 					w={cell.w_to}
-					isCurrentRoom={isCurrentRoom}>
+					isCurrentRoom={isCurrentRoom}
+					isVisited={isVisited}>
 					{/* {cell.id} */}
 					<div className='pc-link pc-n'></div>
 					<div className='pc-middle'>
 						<div className='pc-link pc-w'></div>
-						<div className='pc'>
-							<div className='pc-top'>
-								<div className='pc-screen'>{cell.id}</div>
-							</div>
-							<div className='pc-bottom'>
-								<div className='pc-keyboard'>
-									<KeyboardRow />
-									<KeyboardRow />
-									<KeyboardRow />
-								</div>
-							</div>
-						</div>
-						{isCurrentRoom && (
+						{isCurrentRoom ? (
 							<div className='screen-avatar'>
 								<Avatar />
+							</div>
+						) : (
+							<div className='pc'>
+								<div className='pc-top'>
+									<div className='pc-screen'>{cell.id}</div>
+								</div>
+								<div className='pc-bottom'>
+									<div className='pc-keyboard'>
+										<KeyboardRow />
+										<KeyboardRow />
+										<KeyboardRow />
+									</div>
+								</div>
 							</div>
 						)}
 						<div className='pc-link pc-e'></div>
@@ -69,12 +75,12 @@ const StyledCell = styled.div`
 	width: 100%;
 	height: 5.5rem;
 
-	// background-color: ${props => (props.isCurrentRoom ? 'yellow' : 'none')};
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	
+	// background-color: ${props => (props.isCurrentRoom ? 'yellow' : 'none')};
 
 	// border-top: 2px ${props => (props.n ? 'none' : 'solid')} black;
 	// border-right: 2px ${props => (props.e ? 'none' : 'solid')} black;
@@ -115,8 +121,9 @@ const StyledCell = styled.div`
 		display: flex;
 		flex-direction: column;
 		
+
 		.pc-top, .pc-bottom {
-			background-color: silver;
+			background-color: ${props => (props.isVisited ? '#101010' : 'silver')};
 			width: 5.8rem;
 			height: 2rem;
 
@@ -140,6 +147,7 @@ const StyledCell = styled.div`
 				height: 1.4rem;
 				color: #00ff41;
 				font-size: 0.5rem;
+				border: 1px solid gray;
 				
 				display: flex;
 				justify-content: center;

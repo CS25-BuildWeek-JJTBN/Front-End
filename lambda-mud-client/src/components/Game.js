@@ -8,6 +8,8 @@ import PlayerBar from './gameComponents/PlayerBar';
 import Screen from './gameComponents/Screen';
 import Dashboard from './gameComponents/Dashboard';
 
+import { visitedRoomsObjToArray } from '../utils/visitedRoomsFunctions';
+
 export default function Game() {
 	const { dispatch } = useDataContext();
 
@@ -27,7 +29,7 @@ export default function Game() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
-						visitedRooms: res.data.visited_rooms,
+						visitedRooms: visitedRoomsObjToArray(res.data.visited_rooms),
 					},
 				});
 			})
