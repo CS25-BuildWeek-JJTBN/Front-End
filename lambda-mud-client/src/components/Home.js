@@ -13,38 +13,83 @@ export default function Home() {
 	} = useUserContext();
 
 	return (
-		<HomePage>
-			<HomeLogoText>
-				<h2 class='blink'>Welcome to </h2>
-				<HomeLogoSmall>
-					<h1>the legend of</h1>
-				</HomeLogoSmall>
-				<HomeLogoLarge>
-					<h1>Lambda</h1>
-				</HomeLogoLarge>
-			</HomeLogoText>
-			{isLoggedIn && (
-				<h2 class='blink clickable' onClick={() => history.push('/game')}>
-					Press Start Button
-				</h2>
-			)}
-			{!isLoggedIn && (
-				<h2 class='blink clickable' onClick={() => history.push('/login')}>
-					Login/Register To Start
-				</h2>
-			)}
-		</HomePage>
+		<HomePageWrapper>
+			<div className='homepage-top'>
+				<HomePageHeader>
+					<HomeLogoText>
+						<h2 class='blink'>Welcome to </h2>
+						<HomeLogoSmall>
+							<h1>the legend of</h1>
+						</HomeLogoSmall>
+						<HomeLogoLarge>
+							<h1>Lambda</h1>
+						</HomeLogoLarge>
+					</HomeLogoText>
+					{isLoggedIn && (
+						<h2 class='blink clickable' onClick={() => history.push('/game')}>
+							Press Start Button
+						</h2>
+					)}
+					{!isLoggedIn && (
+						<h2 class='blink clickable' onClick={() => history.push('/login')}>
+							Login/Register To Start
+						</h2>
+					)}
+				</HomePageHeader>
+				<div className='blurb'>
+					<h2>Experience the challenge of endless coding adventure.</h2>
+					<p>
+						Welcome to THE LEGEND OF LAMBDA. Where the only sound you'll hear is
+						your fingers tapping as you race through computer networks in an
+						attempt to pay off your Lambda ISA. Along the way you'll be
+						challenged by a series of Coding Interview Questions. But don't
+						despair. With a little luck and a lot of courage, you'll conquer
+						your impostor syndrome, hone your technical interview skills, and
+						unravel the mystery of THE LEGEND OF LAMBDA!
+					</p>
+				</div>
+			</div>
+			<div className='feature-wrapper'>
+				<div className='feature-column'>
+					<div className='feature-img1 feature-img'></div>
+					<div className='feature'>
+						<p>
+							Customize your Avatar! Add beanies, sunglasses, and other swag!
+						</p>
+					</div>
+				</div>
+				<div className='feature-column'>
+					<div className='feature-img2 feature-img'></div>
+					<div className='feature'>
+						<p>
+							Navigate the Lambda world with our clickable Controller or your
+							keyboard!
+						</p>
+					</div>
+				</div>
+				<div className='feature-column'>
+					<div className='feature-img3 feature-img'></div>
+					<div className='feature'>
+						<p>
+							Collect tough interview questions and the resources to crack 'em!
+						</p>
+					</div>
+				</div>
+			</div>
+		</HomePageWrapper>
 	);
 }
 
-const HomePage = styled.div`
+const HomePageHeader = styled.div`
 	position: relative;
-	height: 40rem;
-	border: solid 4px #2f2b4a;
+	// height: 40rem;
+	border: solid 0.4rem #2f2b4a;
 	background-color: #f0f4f7;
-	width: 60%;
+	// width: 60%;
+	width: 90%;
+	max-width: 53rem;
 	text-align: center;
-	margin: auto;
+	margin: 2rem auto;
 
 	.blink {
 		margin: 2rem;
@@ -80,15 +125,100 @@ const HomeLogoText = styled.div`
 `;
 
 const HomeLogoSmall = styled.div`
-	font-size: 3.7rem;
-	line-height: 1;
+	font-size: 3rem;
+	line-height: 0.5;
 	position: relative;
 	left: 3rem;
 	top: 0.5rem;
 `;
 
 const HomeLogoLarge = styled.div`
-	font-size: 10rem;
+	font-size: 9rem;
 	line-height: 1;
 	text-shadow: 0.3rem 0.3rem darkred;
+`;
+
+const HomePageWrapper = styled.div`
+	.homepage-top {
+		display: flex;
+		align-items: center;
+	}
+
+	.blurb {
+		width: 90%;
+		min-width: 30rem;
+		max-width: 65ch;
+		margin: 0 auto;
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		p {
+			font-size: 1.4rem;
+		}
+	}
+
+	.feature-wrapper {
+		width: 90%;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: flex-end;
+		margin: 0 auto;
+
+		.feature-column {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.feature {
+			width: 30rem;
+			height: 30rem;
+			background-color: #2f2b4a;
+			color: white;
+			border-radius: 15rem;
+			padding: 2rem;
+
+			font-size: 1.6rem;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	.feature-img {
+		position: relative;
+		top: 3rem;
+	}
+
+	.feature-img1 {
+		background-color: white;
+		border: 0.4rem solid #2f2b4a;
+		width: 14rem;
+		height: 13rem;
+		background-image: url('./photos/avatar.png');
+		background-size: cover;
+	}
+
+	.feature-img2 {
+		background-color: white;
+		border: 0.4rem solid #2f2b4a;
+		width: 23rem;
+		height: 13rem;
+		background-image: url('./photos/controller.png');
+		background-size: cover;
+	}
+
+	.feature-img3 {
+		background-color: white;
+		border: 0.4rem solid #2f2b4a;
+		width: 34rem;
+		height: 12rem;
+		background-image: url('./photos/question.png');
+		background-size: cover;
+	}
 `;

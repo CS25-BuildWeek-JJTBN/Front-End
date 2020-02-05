@@ -29,39 +29,9 @@ export default function MapCell({ cell }) {
 							</div>
 							<div className='pc-bottom'>
 								<div className='pc-keyboard'>
-									<div className='pc-key-row'>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-									</div>
-									<div className='pc-key-row'>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-									</div>
-									<div className='pc-key-row'>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-										<div className='pc-key'></div>
-									</div>
+									<KeyboardRow />
+									<KeyboardRow />
+									<KeyboardRow />
 								</div>
 							</div>
 						</div>
@@ -71,6 +41,16 @@ export default function MapCell({ cell }) {
 				</StyledCell>
 			)}
 		</StyledWrapper>
+	);
+}
+
+function KeyboardRow() {
+	return (
+		<div className='pc-key-row'>
+			{[...Array(9).keys()].map(val => (
+				<div className='pc-key' key={val}></div>
+			))}
+		</div>
 	);
 }
 
@@ -101,19 +81,21 @@ const StyledCell = styled.div`
 	}
 
 	.pc-n {
-		background-color: ${props => (props.n ? 'black' : 'none')};
+		background-color: ${props => (props.n ? '#101010' : 'none')};
 	}
 
 	.pc-s {
-		background-color: ${props => (props.s ? 'black' : 'none')};
+		background-color: ${props => (props.s ? '#101010' : 'none')};
 	}
 
 	.pc-e {
-		background-color: ${props => (props.e ? 'black' : 'none')};
+		background-color: ${props => (props.e ? '#101010' : 'none')};
+		// box-shadow: 0 0.5rem 1rem ${props => (props.e ? 'black' : 'none')};
 	}
-
+	
 	.pc-w {
-		background-color: ${props => (props.w ? 'black' : 'none')};
+		background-color: ${props => (props.w ? '#101010' : 'none')};
+		// box-shadow: 0 0.5rem 1rem ${props => (props.w ? 'black' : 'none')};
 	}
 
 	.pc-middle {

@@ -67,7 +67,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Password 1: </label>
+					<label htmlFor='password1'>Password: </label>
 					<input
 						type='password'
 						id='password1'
@@ -77,7 +77,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Password 2: </label>
+					<label htmlFor='password1'>Reenter your Password: </label>
 					<input
 						type='password'
 						id='password2'

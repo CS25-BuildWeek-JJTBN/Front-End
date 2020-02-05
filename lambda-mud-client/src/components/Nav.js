@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useUserContext } from '../contexts/UserContext';
@@ -8,7 +8,6 @@ import Logo from './Logo';
 
 export default function Nav() {
 	const history = useHistory();
-	const { pathname } = useLocation();
 
 	const {
 		user: { isLoggedIn },
@@ -35,13 +34,11 @@ export default function Nav() {
 				</NavLink>
 			</NavBarLeft>
 			<NavBarRight>
-				{isLoggedIn && pathname !== '/game' && (
-					<NavLink to='/game'>Game</NavLink>
-				)}
-				<NavLink to='/about'>About</NavLink>
+				<NavLink to='/about'>About Us</NavLink>
 				{!isLoggedIn && <NavLink to='/login'>Login</NavLink>}
 				{!isLoggedIn && <NavLink to='/register'>Register</NavLink>}
 				{isLoggedIn && <NavLink to='/profile'>Profile</NavLink>}
+				{isLoggedIn && <NavLink to='/game'>Game</NavLink>}
 				{isLoggedIn && <SignOut onClick={handleLogOut}>Sign Out</SignOut>}
 			</NavBarRight>
 		</NavBar>
@@ -72,6 +69,7 @@ const NavBarRight = styled.div`
 	a {
 		color: white;
 		text-decoration: none;
+		font-size: 2rem;
 
 		&:hover {
 			color: lightblue;
@@ -82,6 +80,7 @@ const NavBarRight = styled.div`
 const SignOut = styled.div`
 	color: white;
 	cursor: pointer;
+	font-size: 2rem;
 
 	&:hover {
 		color: lightblue;

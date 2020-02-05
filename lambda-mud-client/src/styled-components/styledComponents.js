@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.div`
-	display: flex-wrap;
-	width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 90%;
+	max-width: 30rem;
 	margin: auto;
 	margin-top: 10rem;
 
 	h2 {
 		text-align: center;
-		padding: 3rem;
+		// padding: 3rem;
 		color: #bb1333;
 		font-size: 3rem;
+		padding-left: 1.5rem;
 	}
 
 	form {
@@ -62,5 +67,7 @@ export const DashboardPanel = styled.div`
 		padding: 1rem;
 
 		overflow-wrap: break-word;
+
+		box-shadow: inset 0.3rem 0.2rem darkred;
 	}
 `;
