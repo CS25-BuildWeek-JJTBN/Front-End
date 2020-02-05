@@ -8,19 +8,21 @@ import {
 export default function Avatar() {
 	const avatarColors = {
 		headPhoneColor: 'black',
-		hatColor: 'red',
+		hatColor: 'orange',
 		hatBandColor: 'red',
-		skinTone: 'pink',
-		// eyeColor: 'white',
+		skinTone: '#e0ac69',
 		pupilColor: 'black',
 		hoodieColor: 'gray',
 		pantsColor: 'darkblue',
 		shoeColor: 'white',
+		lensColor: '',
 	};
 
 	const accessoriesStatus = {
 		headphones: true,
-		hat: false,
+		hat: true,
+		roundGlasses: false,
+		squareGlasses: false,
 	};
 
 	const headphonesShift = accessoriesStatus.hat ? '7rem' : '2.75rem';
@@ -30,6 +32,18 @@ export default function Avatar() {
 			<AvatarWrapper
 				headphonesShift={headphonesShift}
 				avatarColors={avatarColors}>
+				{accessoriesStatus.roundGlasses && (
+					<div className='round-glasses'>
+						<div className='round-lens'></div>
+						<div className='round-lens'></div>
+					</div>
+				)}
+				{accessoriesStatus.squareGlasses && (
+					<div className='square-glasses'>
+						<div className='square-lens'></div>
+						<div className='square-lens'></div>
+					</div>
+				)}
 				{accessoriesStatus.headphones && (
 					<div className='headphones'>
 						<div className='headphone'></div>

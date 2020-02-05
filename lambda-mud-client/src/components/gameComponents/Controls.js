@@ -21,6 +21,7 @@ export default function Controls() {
 						title: res.data.title,
 						description: res.data.description,
 						players: res.data.players,
+						room: res.data.id,
 						error_msg: res.data.error_msg,
 					},
 				});

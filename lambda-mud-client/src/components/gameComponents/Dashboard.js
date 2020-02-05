@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Room from './Room';
+import Question from './Question';
+import Resource from './Resource';
 import Inventory from './Inventory';
-// import Avatar from './Avatar';
 
 export default function Dashboard() {
 	return (
 		<BottomWrapper>
-			<Room />
+			<Question />
+			<Resource />
 			<Inventory />
-			{/* <Avatar /> */}
 		</BottomWrapper>
 	);
 }
 
 const BottomWrapper = styled.div`
-	background-color: #bb1333;
+	// background-color: #bb1333;
+	background-color: black;
 	padding: 1rem 1rem 2rem;
 	display: flex;
 	justify-content: space-around;

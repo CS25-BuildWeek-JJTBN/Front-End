@@ -24,7 +24,8 @@ const ScreenWrapper = styled.div`
 
 	.screen-bottom {
 		position: relative;
-		bottom: 15rem;
+		// bottom: 15rem;
+		top: 3rem;
 
 		display: flex;
 		justify-content: space-evenly;

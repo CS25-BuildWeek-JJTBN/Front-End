@@ -45,7 +45,7 @@ export const StyledForm = styled.div`
 `;
 
 export const DashboardPanel = styled.div`
-	width: 40%;
+	width: 30%;
 	min-width: 30rem;
 	color: white;
 
@@ -60,5 +60,7 @@ export const DashboardPanel = styled.div`
 		margin-top: 1rem;
 		border-radius: 1rem;
 		padding: 1rem;
+
+		overflow-wrap: break-word;
 	}
 `;

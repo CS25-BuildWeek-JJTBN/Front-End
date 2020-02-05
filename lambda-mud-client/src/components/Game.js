@@ -9,10 +9,7 @@ import Screen from './gameComponents/Screen';
 import Dashboard from './gameComponents/Dashboard';
 
 export default function Game() {
-	const {
-		// data: { isLoading },
-		dispatch,
-	} = useDataContext();
+	const { dispatch } = useDataContext();
 
 	useEffect(() => {
 		dispatch({ type: 'GET_DATA_START' });
@@ -29,6 +26,7 @@ export default function Game() {
 						title: res.data.title,
 						description: res.data.description,
 						players: res.data.players,
+						room: res.data.id,
 					},
 				});
 			})

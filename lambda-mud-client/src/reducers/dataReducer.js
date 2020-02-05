@@ -5,6 +5,7 @@ export const initialDataState = {
 	title: '',
 	description: '',
 	players: [],
+	currentRoom: '',
 	error: '',
 	error_msg: '',
 };
@@ -27,6 +28,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				title: action.payload.title,
 				description: action.payload.description,
 				players: action.payload.players,
+				currentRoom: action.payload.room,
 			};
 		case 'GET_DATA_FAILURE':
 			return {
@@ -51,6 +53,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				title: action.payload.title,
 				description: action.payload.description,
 				players: action.payload.players,
+				currentRoom: action.payload.room,
 				error_msg: action.payload.error_msg,
 			};
 		case 'MOVE_FAILURE':
