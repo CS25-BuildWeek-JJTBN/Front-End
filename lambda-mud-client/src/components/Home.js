@@ -36,11 +36,12 @@ export default function Home() {
 						</h2>
 					)}
 				</HomePageHeader>
+
 				<div className='blurb'>
 					<h2>Experience the challenge of endless coding adventure.</h2>
 					<p>
 						Welcome to THE LEGEND OF LAMBDA. Where the only sound you'll hear is
-						your fingers tapping as you race through computer networks in an
+						your fingers tapping as you hack through computer networks in an
 						attempt to pay off your Lambda ISA. Along the way you'll be
 						challenged by a series of Coding Interview Questions. But don't
 						despair. With a little luck and a lot of courage, you'll conquer
@@ -53,9 +54,8 @@ export default function Home() {
 				<div className='feature-column'>
 					<div className='feature-img1 feature-img'></div>
 					<div className='feature'>
-						<p>
-							Customize your Avatar! Add beanies, sunglasses, and other swag!
-						</p>
+						<p>Customize your Avatar!</p>
+						<p>Add beanies, sunglasses, and other swag!</p>
 					</div>
 				</div>
 				<div className='feature-column'>
@@ -71,9 +71,17 @@ export default function Home() {
 					<div className='feature-img3 feature-img'></div>
 					<div className='feature'>
 						<p>
-							Collect tough interview questions and the resources to crack 'em!
+							Collect over 90 tough interview questions and the resources to
+							crack 'em!
 						</p>
 					</div>
+				</div>
+				<div className='testimonial'>
+					<div className='testimonial-img'></div>
+					<p>
+						"Thanks to THE LEGEND OF LAMBDA, I was able to land my dream job at
+						LINKedIn!"
+					</p>
 				</div>
 			</div>
 		</HomePageWrapper>
@@ -144,6 +152,17 @@ const HomePageWrapper = styled.div`
 		align-items: center;
 	}
 
+	.testimonial {
+		width: 30rem;
+
+		.testimonial-img {
+			width: 30rem;
+			height: 25rem;
+			background-image: url('./photos/link-sprite.png');
+			background-size: cover;
+		}
+	}
+
 	.blurb {
 		width: 90%;
 		min-width: 30rem;
@@ -162,7 +181,7 @@ const HomePageWrapper = styled.div`
 	.feature-wrapper {
 		width: 90%;
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		align-items: flex-end;
 		margin: 0 auto;
 
