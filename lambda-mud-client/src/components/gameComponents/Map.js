@@ -2,17 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
 
-import { useDataContext } from '../../contexts/DataContext';
-
-import Loading from '../Loading';
 import MapRow from './MapRow';
 
 export default function Map() {
 	const [mapData, setMapData] = useState();
-
-	const {
-		data: { isLoading, error_msg },
-	} = useDataContext();
 
 	useEffect(() => {
 		axiosWithAuth()
@@ -29,8 +22,6 @@ export default function Map() {
 	return (
 		<MapWrapper>
 			{mapData && mapData.map((row, index) => <MapRow row={row} key={index} />)}
-			{/* {isLoading && <Loading />}
-			<div className='error-msg'>{error_msg}</div> */}
 		</MapWrapper>
 	);
 }
