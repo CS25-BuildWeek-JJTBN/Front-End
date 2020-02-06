@@ -20,7 +20,7 @@ export default function Game() {
 		axiosWithAuth()
 			.get('/adv/init/')
 			.then(res => {
-				console.log(res.data);
+				// console.log(res.data);
 				dispatch({
 					type: 'GET_DATA_SUCCESS',
 					payload: {

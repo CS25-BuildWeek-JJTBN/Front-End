@@ -6,13 +6,12 @@ import { useDataContext } from '../../contexts/DataContext';
 import Controls from './Controls';
 import Question from './Question';
 import Resource from './Resource';
-import Items from './Items';
-import Inventory from './Inventory';
+import ItemsList from './ItemsList';
 import Loading from '../Loading';
 
 export default function Dashboard() {
 	const {
-		data: { isLoading, error_msg },
+		data: { isLoading, error_msg, roomItems, playerItems },
 	} = useDataContext();
 
 	return (
@@ -28,8 +27,18 @@ export default function Dashboard() {
 				<div className='bottom-panels'>
 					<Question />
 					<Resource />
-					<Items />
-					<Inventory />
+					<ItemsList
+						header={'Item(s) in Room:'}
+						items={roomItems}
+						endpoint={'pickup'}
+						empty={'No items here'}
+					/>
+					<ItemsList
+						header={'Inventory'}
+						items={playerItems}
+						endpoint={'drop'}
+						empty={`You don't have any items`}
+					/>
 				</div>
 			</div>
 		</BottomWrapper>

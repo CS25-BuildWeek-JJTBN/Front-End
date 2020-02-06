@@ -5,9 +5,9 @@ import { useDataContext } from '../../contexts/DataContext';
 
 import { DashboardPanel, Item } from '../../styled-components/styledComponents';
 
-export default function Inventory() {
+export default function ItemsList({ header, empty, items, endpoint }) {
 	const {
-		data: { playerItems, currentRoom },
+		data: { currentRoom },
 		dispatch,
 	} = useDataContext();
 
@@ -15,9 +15,9 @@ export default function Inventory() {
 		dispatch({ type: 'ACTION_START' });
 
 		axiosWithAuth()
-			.post('/adv/drop/', { item, room: currentRoom })
+			.post(`/adv/${endpoint}`, { item, room: currentRoom })
 			.then(res => {
-				console.log(res.data);
+				// console.log(res.data);
 				dispatch({
 					type: 'ACTION_SUCCESS',
 					payload: {
@@ -34,13 +34,11 @@ export default function Inventory() {
 
 	return (
 		<DashboardPanel>
-			<h3>Inventory:</h3>
+			<h3>{header}</h3>
 			<div className='text-box'>
-				{playerItems && playerItems.length === 0 && (
-					<div>You don't have any items</div>
-				)}
-				{playerItems &&
-					playerItems.map(item => (
+				{items && items.length === 0 && <div>{empty}</div>}
+				{items &&
+					items.map(item => (
 						<Item key={item.id} onClick={() => handleClick(item.id)}>
 							{item.color}
 							{item.description}
