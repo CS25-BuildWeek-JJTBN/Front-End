@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import Avatar from './Avatar';
 import Controls from './Controls';
 import Question from './Question';
 import Resource from './Resource';
+import Items from './Items';
 import Inventory from './Inventory';
 
 export default function Dashboard() {
 	return (
 		<BottomWrapper>
 			<div className='floating-items'>
-				{/* <Avatar /> */}
 				<Controls />
 			</div>
 			<div className='bottom-panels'>
 				<Question />
 				<Resource />
+				<Items />
 				<Inventory />
 			</div>
 		</BottomWrapper>

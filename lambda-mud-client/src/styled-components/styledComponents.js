@@ -57,17 +57,20 @@ export const StyledForm = styled.div`
 `;
 
 export const DashboardPanel = styled.div`
-	width: 30%;
+	width: 23%;
 	min-width: 30rem;
 	color: white;
+	margin-bottom: 1rem;
 
 	.span-normal {
 		font-weight: normal;
 	}
 
 	.text-box {
-		background-color: white;
-		color: black;
+		// background-color: white;
+		background-color: #0d0208;
+		// color: black;
+		color: #00ff41;
 
 		margin-top: 1rem;
 		border-radius: 1rem;

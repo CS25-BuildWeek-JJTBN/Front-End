@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from 'styled-components';
+
+import { useDataContext } from '../contexts/DataContext';
 
 import Avatar from './gameComponents/Avatar';
 import ColorSwatch from './gameComponents/ColorSwatch';
@@ -13,8 +16,14 @@ import {
 } from './gameComponents/AvatarColors';
 
 export default function CustomizeAvatar() {
-	const [hasGlasses, setHasGlasses] = useState(false);
-	const [glassesShape, setGlassesShape] = useState('');
+	const {
+		data: { hasGlasses, glasses_style },
+		dispatch,
+	} = useDataContext();
+
+	const handleClick = (attribute, value) => {
+		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
+	};
 
 	return (
 		<CustomizeWrapper>
@@ -26,7 +35,11 @@ export default function CustomizeAvatar() {
 				<h4>Eye Color: </h4>
 				<div className='colors'>
 					{eyeColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('pupil_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -34,7 +47,11 @@ export default function CustomizeAvatar() {
 				<h4>Skin Tone: </h4>
 				<div className='colors'>
 					{skinTones.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('skin_tone', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -42,7 +59,11 @@ export default function CustomizeAvatar() {
 				<h4>Hoodie: </h4>
 				<div className='colors'>
 					{hoodieColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('hoodie_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -50,7 +71,11 @@ export default function CustomizeAvatar() {
 				<h4>Pants: </h4>
 				<div className='colors'>
 					{pantsColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('pants_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -58,7 +83,11 @@ export default function CustomizeAvatar() {
 				<h4>Shoes: </h4>
 				<div className='colors'>
 					{shoesColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('shoe_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -66,14 +95,14 @@ export default function CustomizeAvatar() {
 				<h4>Glasses?</h4>
 				<div className='check-glasses'>
 					<Checkbox
-						onClick={() => setHasGlasses(true)}
+						onClick={() => handleClick('hasGlasses', true)}
 						trueValue={hasGlasses}
 					/>{' '}
 					Yes{' '}
 					<Checkbox
 						onClick={() => {
-							setHasGlasses(false);
-							setGlassesShape('');
+							handleClick('hasGlasses', false);
+							handleClick('glassesStyle', '');
 						}}
 						trueValue={!hasGlasses}
 					/>{' '}
@@ -86,14 +115,14 @@ export default function CustomizeAvatar() {
 						<h4>Shape:</h4>
 						<div>
 							<Checkbox
-								onClick={() => setGlassesShape('round')}
-								trueValue={glassesShape === 'round'}
+								onClick={() => handleClick('glasses_style', 'round')}
+								trueValue={glasses_style === 'round'}
 							/>
 							<RoundLens />
 							<RoundLens />
 							<Checkbox
-								onClick={() => setGlassesShape('square')}
-								trueValue={glassesShape === 'square'}
+								onClick={() => handleClick('glasses_style', 'square')}
+								trueValue={glasses_style === 'square'}
 							/>
 							<SquareLens />
 							<SquareLens />
@@ -103,7 +132,11 @@ export default function CustomizeAvatar() {
 						<h4>Frame: </h4>
 						<div className='colors'>
 							{glassesColors.map(color => (
-								<ColorSwatch key={color} color={color} />
+								<ColorSwatch
+									key={color}
+									color={color}
+									handleClick={() => handleClick('glasses_color', color)}
+								/>
 							))}
 						</div>
 					</div>

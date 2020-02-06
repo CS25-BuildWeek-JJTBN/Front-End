@@ -1,59 +1,35 @@
 import React from 'react';
 
+import { useDataContext } from '../../contexts/DataContext';
+
 import {
 	AvatarContainer,
 	AvatarWrapper,
 } from '../../styled-components/AvatarWrapper';
 
 export default function Avatar() {
-	const avatarColors = {
-		headPhoneColor: 'gold',
-		hatColor: 'black',
-		hatBandColor: 'black',
-		skinTone: '#e0ac69',
-		pupilColor: 'black',
-		hoodieColor: 'gray',
-		pantsColor: 'darkblue',
-		shoeColor: 'white',
-		lensColor: '',
-		glassesColor: 'brown',
-		glassesStyle: 'square',
-	};
+	const { data } = useDataContext();
 
-	const accessoriesStatus = {
-		glasses: true,
-		hat: false,
-		headphones: false,
-	};
+	console.log(data);
 
-	const headphonesShift = accessoriesStatus.hat ? '7rem' : '2.75rem';
+	const headphonesShift = data.hasHat ? '7rem' : '2.75rem';
 
 	const glassesShift = () => {
-		if (!accessoriesStatus.hat && !accessoriesStatus.headphones)
-			return '4.8rem';
-		else if (!accessoriesStatus.hat && accessoriesStatus.headphones)
-			return '8.4rem';
-		else if (accessoriesStatus.hat && !accessoriesStatus.headphones)
-			return '10rem';
-		else if (accessoriesStatus.hat && accessoriesStatus.headphones)
-			return '13.3rem';
+		if (!data.hasHat && !data.hasHeadphones) return '4.8rem';
+		else if (!data.hasHat && data.hasHeadphones) return '8.4rem';
+		else if (data.hasHat && !data.hasHeadphones) return '10rem';
+		else if (data.hasHat && data.hasHeadphones) return '13.3rem';
 	};
 
 	const avatarShift = () => {
-		if (!accessoriesStatus.glasses) {
-			if (!accessoriesStatus.hat && !accessoriesStatus.headphones)
-				return '2rem';
-			else if (accessoriesStatus.hat !== accessoriesStatus.headphones)
-				return '0rem';
-			else if (accessoriesStatus.hat && accessoriesStatus.headphones)
-				return '-2rem';
+		if (!data.hasGlasses) {
+			if (!data.hasHat && !data.hasHeadphones) return '2rem';
+			else if (data.hasHat !== data.hasHeadphones) return '0rem';
+			else if (data.hasHat && data.hasHeadphones) return '-2rem';
 		} else {
-			if (!accessoriesStatus.hat && !accessoriesStatus.headphones)
-				return '1rem';
-			else if (accessoriesStatus.hat !== accessoriesStatus.headphones)
-				return '-1rem';
-			else if (accessoriesStatus.hat && accessoriesStatus.headphones)
-				return '-3rem';
+			if (!data.hasHat && !data.hasHeadphones) return '1rem';
+			else if (data.hasHat !== data.hasHeadphones) return '-1rem';
+			else if (data.hasHat && data.hasHeadphones) return '-3rem';
 		}
 	};
 
@@ -63,21 +39,21 @@ export default function Avatar() {
 				headphonesShift={headphonesShift}
 				glassesShift={glassesShift}
 				avatarShift={avatarShift}
-				avatarColors={avatarColors}>
-				{accessoriesStatus.glasses && (
+				data={data}>
+				{data.hasGlasses && (
 					<div className='glasses'>
 						<div className='lens'></div>
 						<div className='lens'></div>
 					</div>
 				)}
-				{accessoriesStatus.headphones && (
+				{data.hasHeadphones && (
 					<div className='headphones'>
 						<div className='headphone'></div>
 						<div className='headphone-band'></div>
 						<div className='headphone'></div>
 					</div>
 				)}
-				{accessoriesStatus.hat && (
+				{data.hasHat && (
 					<div className='hat'>
 						<div className='hat-top'></div>
 						<div className='hat-band'></div>

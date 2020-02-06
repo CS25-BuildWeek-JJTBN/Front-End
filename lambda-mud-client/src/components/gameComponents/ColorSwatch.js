@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function ColorSwatch({ color }) {
-	return <Swatch color={color}></Swatch>;
+export default function ColorSwatch({ color, handleClick }) {
+	return <Swatch color={color} onClick={handleClick}></Swatch>;
 }
 
 const Swatch = styled.div`
