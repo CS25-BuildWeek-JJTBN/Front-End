@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
 import Avatar from './gameComponents/Avatar';
+import Loading from './Loading';
 import ColorSwatch from './gameComponents/ColorSwatch';
 import {
 	eyeColors,
@@ -19,38 +20,34 @@ import {
 	Checkbox,
 } from '../styled-components/styledComponents';
 
+import { processAttributes } from '../utils/processAttributes';
+
 export default function CustomizeAvatar() {
 	const {
-		data: {
-			hasGlasses,
-			glasses_style,
-			skin_tone,
-			pupil_color,
-			hoodie_color,
-			pants_color,
-			shoe_color,
-			glasses_color,
-		},
+		data: { hasGlasses, glasses_style, isLoading },
 		dispatch,
 	} = useDataContext();
+
+	useEffect(() => {
+		dispatch({ type: 'GET_DATA_START' });
+
+		axiosWithAuth()
+			.get('/adv/init/')
+			.then(res => {
+				// console.log(res.data);
+				processAttributes(res.data, dispatch);
+			})
+			.catch(err => {
+				// console.log(err);
+				dispatch({ type: 'GET_DATA_FAILURE' });
+			});
+	}, []);
 
 	const handleClick = (attribute, value) => {
 		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
 
-		const body = {
-			skin_tone,
-			pupil_color,
-			hoodie_color,
-			pants_color,
-			shoe_color,
-			glasses_color,
-			glasses_style,
-		};
-
-		console.log({ body });
-
 		axiosWithAuth()
-			.get('/adv/player-update/', body)
+			.post('/adv/player-update/', { [attribute]: value })
 			.then(res => {
 				console.log(res);
 			})
@@ -65,6 +62,7 @@ export default function CustomizeAvatar() {
 			<div className='avatar-background'>
 				<Avatar />
 			</div>
+			{isLoading && <Loading />}
 			<div className='color-row color-row-first'>
 				<h4>Eye Color: </h4>
 				<div className='colors'>

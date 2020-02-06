@@ -6,7 +6,9 @@ export const initialDataState = {
 	description: '',
 	players: [],
 	currentRoom: '',
+	roomItems: [],
 	visitedRooms: [],
+	playerItems: [],
 	skin_tone: '#e0ac69',
 	pupil_color: '#634e34',
 	hoodie_color: 'gray',
@@ -45,7 +47,9 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				roomItems: action.payload.roomItems,
 				visitedRooms: action.payload.visitedRooms,
+				playerItems: action.payload.playerItems,
 			};
 		case 'GET_DATA_FAILURE':
 			return {
@@ -71,6 +75,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				roomItems: action.payload.roomItems,
 				error_msg: action.payload.error_msg,
 			};
 		case 'UPDATE_VISITED_ROOMS':
@@ -88,6 +93,26 @@ export const dataReducer = (state = initialDataState, action) => {
 			return {
 				...state,
 				[action.payload.attribute]: action.payload.value,
+			};
+		case 'ACTION_START':
+			return {
+				...state,
+				error: '',
+				error_msg: '',
+				isLoading: true,
+			};
+		case 'ACTION_SUCCESS':
+			return {
+				...state,
+				isLoading: false,
+				roomItems: action.payload.roomItems,
+				playerItems: action.payload.playerItems,
+			};
+		case 'ACTION_FAILURE':
+			return {
+				...state,
+				error: 'Sorry, error taking that action',
+				isLoading: false,
 			};
 		case 'TOGGLE_CHAT':
 			return {

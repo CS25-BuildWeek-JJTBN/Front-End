@@ -167,3 +167,11 @@ export const Checkbox = styled.span`
 	cursor: pointer;
 	border: 2px solid silver;
 `;
+
+export const Item = styled.div`
+	cursor: pointer;
+	&:hover {
+		background-color: #00ff41;
+		color: #0d0208;
+	}
+`;

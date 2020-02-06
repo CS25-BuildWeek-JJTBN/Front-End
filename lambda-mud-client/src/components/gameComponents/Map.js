@@ -27,10 +27,8 @@ export default function Map() {
 }
 
 const MapWrapper = styled.div`
-	padding: 5.5rem 1rem 1rem;
-	min-width: 118rem;
-
-	max-height: 100%;
+	padding: 5.3rem 1rem 1rem;
+	min-height: 53rem;
 
 	// overflow: hidden;
 
