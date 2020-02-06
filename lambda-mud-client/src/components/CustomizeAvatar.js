@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from 'styled-components';
+
+import { useDataContext } from '../contexts/DataContext';
 
 import Avatar from './gameComponents/Avatar';
 import ColorSwatch from './gameComponents/ColorSwatch';
@@ -11,13 +14,53 @@ import {
 	shoesColors,
 	glassesColors,
 } from './gameComponents/AvatarColors';
+import {
+	ProfilePanelWrapper,
+	Checkbox,
+} from '../styled-components/styledComponents';
 
 export default function CustomizeAvatar() {
-	const [hasGlasses, setHasGlasses] = useState(false);
-	const [glassesShape, setGlassesShape] = useState('');
+	const {
+		data: {
+			hasGlasses,
+			glasses_style,
+			skin_tone,
+			pupil_color,
+			hoodie_color,
+			pants_color,
+			shoe_color,
+			glasses_color,
+		},
+		dispatch,
+	} = useDataContext();
+
+	const handleClick = (attribute, value) => {
+		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
+
+		const body = {
+			skin_tone,
+			pupil_color,
+			hoodie_color,
+			pants_color,
+			shoe_color,
+			glasses_color,
+			glasses_style,
+		};
+
+		console.log({ body });
+
+		axiosWithAuth()
+			.get('/adv/player-update/', body)
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
 
 	return (
-		<CustomizeWrapper>
+		<ProfilePanelWrapper>
 			<h3>Build Your Avatar!</h3>
 			<div className='avatar-background'>
 				<Avatar />
@@ -26,7 +69,11 @@ export default function CustomizeAvatar() {
 				<h4>Eye Color: </h4>
 				<div className='colors'>
 					{eyeColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('pupil_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -34,7 +81,11 @@ export default function CustomizeAvatar() {
 				<h4>Skin Tone: </h4>
 				<div className='colors'>
 					{skinTones.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('skin_tone', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -42,7 +93,11 @@ export default function CustomizeAvatar() {
 				<h4>Hoodie: </h4>
 				<div className='colors'>
 					{hoodieColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('hoodie_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -50,7 +105,11 @@ export default function CustomizeAvatar() {
 				<h4>Pants: </h4>
 				<div className='colors'>
 					{pantsColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('pants_color', color)}
+						/>
 					))}
 				</div>
 			</div>
@@ -58,22 +117,26 @@ export default function CustomizeAvatar() {
 				<h4>Shoes: </h4>
 				<div className='colors'>
 					{shoesColors.map(color => (
-						<ColorSwatch key={color} color={color} />
+						<ColorSwatch
+							key={color}
+							color={color}
+							handleClick={() => handleClick('shoe_color', color)}
+						/>
 					))}
 				</div>
 			</div>
 			<div className='color-row'>
 				<h4>Glasses?</h4>
-				<div className='check-glasses'>
+				<div className='check-boxes'>
 					<Checkbox
-						onClick={() => setHasGlasses(true)}
+						onClick={() => handleClick('hasGlasses', true)}
 						trueValue={hasGlasses}
 					/>{' '}
 					Yes{' '}
 					<Checkbox
 						onClick={() => {
-							setHasGlasses(false);
-							setGlassesShape('');
+							handleClick('hasGlasses', false);
+							handleClick('glassesStyle', '');
 						}}
 						trueValue={!hasGlasses}
 					/>{' '}
@@ -86,14 +149,14 @@ export default function CustomizeAvatar() {
 						<h4>Shape:</h4>
 						<div>
 							<Checkbox
-								onClick={() => setGlassesShape('round')}
-								trueValue={glassesShape === 'round'}
+								onClick={() => handleClick('glasses_style', 'round')}
+								trueValue={glasses_style === 'round'}
 							/>
 							<RoundLens />
 							<RoundLens />
 							<Checkbox
-								onClick={() => setGlassesShape('square')}
-								trueValue={glassesShape === 'square'}
+								onClick={() => handleClick('glasses_style', 'square')}
+								trueValue={glasses_style === 'square'}
 							/>
 							<SquareLens />
 							<SquareLens />
@@ -103,87 +166,19 @@ export default function CustomizeAvatar() {
 						<h4>Frame: </h4>
 						<div className='colors'>
 							{glassesColors.map(color => (
-								<ColorSwatch key={color} color={color} />
+								<ColorSwatch
+									key={color}
+									color={color}
+									handleClick={() => handleClick('glasses_color', color)}
+								/>
 							))}
 						</div>
 					</div>
 				</>
 			)}
-		</CustomizeWrapper>
+		</ProfilePanelWrapper>
 	);
 }
-
-const CustomizeWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	width: 40%;
-	min-width: 30rem;
-	margin: 2rem 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
-
-	// background-color: rgba(255, 255, 255, 0.5);
-	// box-shadow: 0.3rem 0.2rem rgba(0, 0, 0, 0.25);
-	// border-radius: 1rem;
-
-	background-color: white;
-	border: 0.5rem solid black;
-
-	@media screen and (max-width: 700px) {
-		width: 90%;
-	}
-
-	.avatar-background {
-		// background-color: lightblue;
-		// border-radius: 1rem;
-		// box-shadow: 0.3rem 0.2rem lightblue;
-	}
-
-	h3 {
-		margin-bottom: 2rem;
-		text-transform: uppercase;
-	}
-
-	.color-row {
-		margin: 0.5rem 0;
-
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		h4 {
-			margin-bottom: 0;
-		}
-
-		.colors {
-			display: flex;
-		}
-	}
-
-	.color-row-first {
-		margin-top: 2rem;
-	}
-
-	.check-glasses {
-		display: flex;
-		align-items: center;
-	}
-`;
-
-const Checkbox = styled.span`
-	display: inline-block;
-	background-color: ${props => props.trueValue && 'silver'};
-	width: 2rem;
-	height: 2rem;
-	border-radius: 0.3rem;
-	margin: 0 1rem;
-	cursor: pointer;
-	border: 2px solid silver;
-`;
 
 const SquareLens = styled.span`
 	display: inline-block;

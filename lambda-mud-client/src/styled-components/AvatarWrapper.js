@@ -31,12 +31,12 @@ export const AvatarWrapper = styled.div`
 		z-index: 1015;
 
 		.lens {
-			background-color: ${props => props.avatarColors.lensColor};
+			background-color: ${props => props.data.lensColor};
 			width: 2rem;
 			height: 2rem;
 			border-radius: ${props =>
-				props.avatarColors.glassesStyle === 'round' ? '1rem' : '0'};
-			border: 3px solid ${props => props.avatarColors.glassesColor};
+				props.data.glassesStyle === 'round' ? '1rem' : '0'};
+			border: 3px solid ${props => props.data.glasses_color};
 		}
 	}
 
@@ -48,7 +48,7 @@ export const AvatarWrapper = styled.div`
 		z-index: 1010;
 
 		.headphone {
-			background-color: ${props => props.avatarColors.headPhoneColor};
+			background-color: ${props => props.data.headPhoneColor};
 			width: 1rem;
 			height: 3rem;
 
@@ -60,9 +60,9 @@ export const AvatarWrapper = styled.div`
 			width: 7rem;
 			height: 3.5rem;
 			border-radius: 3.5rem 3.5rem 0 0;
-			border-left: 2px solid ${props => props.avatarColors.headPhoneColor};
-			border-top: 3px solid ${props => props.avatarColors.headPhoneColor};
-			border-right: 2px solid ${props => props.avatarColors.headPhoneColor};
+			border-left: 2px solid ${props => props.data.headPhoneColor};
+			border-top: 3px solid ${props => props.data.headPhoneColor};
+			border-right: 2px solid ${props => props.data.headPhoneColor};
 		}
 	}
 
@@ -76,7 +76,7 @@ export const AvatarWrapper = styled.div`
 		z-index: 1000;
 
 		.hat-top {
-			background-color: ${props => props.avatarColors.hatColor};
+			background-color: ${props => props.data.hatColor};
 			width: 6rem;
 			height: 3rem;
 			border-radius: 3rem 3rem 0 0;
@@ -88,7 +88,7 @@ export const AvatarWrapper = styled.div`
 		}
 
 		.hat-band {
-			background-color: ${props => props.avatarColors.hatBandColor};
+			background-color: ${props => props.data.hatBandColor};
 			width: 6.75rem;
 			height: 2rem;
 			border-radius: 0.3rem;
@@ -99,7 +99,7 @@ export const AvatarWrapper = styled.div`
 	}
 
 	.hoodie {
-		background-color: ${props => props.avatarColors.hoodieColor};
+		background-color: ${props => props.data.hoodie_color};
 		width: 7.5rem;
 		height: 7.5rem;
 		border-radius: 3.75rem;
@@ -111,7 +111,7 @@ export const AvatarWrapper = styled.div`
 		box-shadow: inset 0 -0.1rem 0.5rem rgba(0, 0, 0, 0.5);
 
 		.head {
-			background-color: ${props => props.avatarColors.skinTone};
+			background-color: ${props => props.data.skin_tone};
 			width: 5rem;
 			height: 5rem;
 			border-radius: 2.5rem;
@@ -142,7 +142,7 @@ export const AvatarWrapper = styled.div`
 		align-items: center;
 
 		.pupil {
-			background-color: ${props => props.avatarColors.pupilColor};
+			background-color: ${props => props.data.pupil_color};
 			width: 0.5rem;
 			height: 0.5rem;
 			border-radius: 0.25rem;
@@ -157,7 +157,7 @@ export const AvatarWrapper = styled.div`
 		bottom: 3.5rem;
 
 		.hand {
-			background-color: ${props => props.avatarColors.skinTone};
+			background-color: ${props => props.data.skin_tone};
 			width: 1.5rem;
 			height: 1.5rem;
 			border-radius: 0.75rem;
@@ -170,25 +170,25 @@ export const AvatarWrapper = styled.div`
 		bottom: 2rem;
 
 		.shirt {
-			background-color: ${props => props.avatarColors.hoodieColor};
+			background-color: ${props => props.data.hoodie_color};
 			width: 6rem;
 			height: 3rem;
 			border-radius: 3rem 3rem 0 0;
 		}
 
 		.pants {
-			background-color: ${props => props.avatarColors.pantsColor};
+			background-color: ${props => props.data.pants_color};
 			width: 6rem;
 			height: 2rem;
 		}
 
 		.shoe {
-			background-color: ${props => props.avatarColors.shoeColor};
+			background-color: ${props => props.data.shoe_color};
 			width: 3rem;
 			height: 1rem;
 			border-radius: 0 0 1rem 1rem;
 			z-index: 10;
-			box-shadow: 0 0 3rem 1rem black;
+			box-shadow: 0 0 1rem 0.25rem black;
 		}
 	}
 `;

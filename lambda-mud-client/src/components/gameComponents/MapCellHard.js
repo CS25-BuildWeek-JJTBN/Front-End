@@ -24,7 +24,6 @@ export default function MapCell({ cell }) {
 					w={cell.w_to}
 					isCurrentRoom={isCurrentRoom}
 					isVisited={isVisited}>
-					{/* {cell.id} */}
 					<div className='pc-link pc-n'></div>
 					<div className='pc-middle'>
 						<div className='pc-link pc-w'></div>
@@ -33,18 +32,20 @@ export default function MapCell({ cell }) {
 								<Avatar />
 							</div>
 						) : (
-							<div className='pc'>
-								<div className='pc-top'>
-									<div className='pc-screen'>{cell.id}</div>
-								</div>
-								<div className='pc-bottom'>
-									<div className='pc-keyboard'>
-										<KeyboardRow />
-										<KeyboardRow />
-										<KeyboardRow />
+							isVisited && (
+								<div className='pc'>
+									<div className='pc-top'>
+										<div className='pc-screen'>{cell.id}</div>
+									</div>
+									<div className='pc-bottom'>
+										<div className='pc-keyboard'>
+											<KeyboardRow />
+											<KeyboardRow />
+											<KeyboardRow />
+										</div>
 									</div>
 								</div>
-							</div>
+							)
 						)}
 						<div className='pc-link pc-e'></div>
 					</div>
@@ -92,20 +93,24 @@ const StyledCell = styled.div`
 	}
 
 	.pc-n {
-		background-color: ${props => (props.n ? '#101010' : 'none')};
+		background-color: ${props =>
+			(props.isCurrentRoom || props.isVisited) && props.n ? '#101010' : 'none'};
 	}
 
 	.pc-s {
-		background-color: ${props => (props.s ? '#101010' : 'none')};
+		background-color: ${props =>
+			(props.isCurrentRoom || props.isVisited) && props.s ? '#101010' : 'none'};
 	}
 
 	.pc-e {
-		background-color: ${props => (props.e ? '#101010' : 'none')};
+		background-color: ${props =>
+			(props.isCurrentRoom || props.isVisited) && props.e ? '#101010' : 'none'};
 		// box-shadow: 0 0.5rem 1rem ${props => (props.e ? 'black' : 'none')};
 	}
 	
 	.pc-w {
-		background-color: ${props => (props.w ? '#101010' : 'none')};
+		background-color: ${props =>
+			(props.isCurrentRoom || props.isVisited) && props.w ? '#101010' : 'none'};
 		// box-shadow: 0 0.5rem 1rem ${props => (props.w ? 'black' : 'none')};
 	}
 

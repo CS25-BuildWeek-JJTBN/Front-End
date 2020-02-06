@@ -44,13 +44,14 @@ export default function Home() {
 				<div className='blurb'>
 					<h2>Experience the challenge of endless coding adventure.</h2>
 					<p>
-						Welcome to THE LEGEND OF LAMBDA. Where the only sound you'll hear is
-						your fingers tapping as you hack through computer networks in an
-						attempt to pay off your Lambda ISA. Along the way you'll be
-						challenged by a series of Coding Interview Questions. But don't
-						despair. With a little luck and a lot of courage, you'll conquer
-						your impostor syndrome, hone your technical interview skills, and
-						unravel the mystery of THE LEGEND OF LAMBDA!
+						Welcome to <span className='red-text'>THE LEGEND OF LAMBDA</span>.
+						Where the only sound you'll hear is your fingers tapping as you hack
+						through computer networks in an attempt to pay off your Lambda ISA.
+						Along the way you'll be challenged by a series of Coding Interview
+						Questions. But don't despair. With a little luck and a lot of
+						courage, you'll conquer your impostor syndrome, hone your technical
+						interview skills, and unravel the mystery of{' '}
+						<span className='red-text'>THE LEGEND OF LAMBDA</span>!
 					</p>
 				</div>
 			</div>
@@ -59,7 +60,7 @@ export default function Home() {
 					<div className='feature-img1 feature-img'></div>
 					<div className='feature'>
 						<p>Customize your Avatar!</p>
-						<p>Add beanies, sunglasses, and other swag!</p>
+						<p>Add beanies, sunglasses, and other swag you find!</p>
 					</div>
 				</div>
 				<div className='feature-column'>
@@ -83,8 +84,8 @@ export default function Home() {
 				<div className='testimonial'>
 					<div className='testimonial-img'></div>
 					<p>
-						"Thanks to THE LEGEND OF LAMBDA, I was able to land my dream job at
-						LINKedIn!"
+						"Thanks to <span className='red-text'>THE LEGEND OF LAMBDA</span>, I
+						was able to land my dream job at LinkedIn!"
 					</p>
 				</div>
 			</div>
@@ -197,6 +198,7 @@ const HomePageWrapper = styled.div`
 		width: 30rem;
 
 		font-size: 1.6rem;
+		color: #2f2b4a;
 
 		.testimonial-img {
 			width: 30rem;
@@ -214,10 +216,12 @@ const HomePageWrapper = styled.div`
 
 		h2 {
 			font-size: 2rem;
+			color: #bb1333;
 		}
 
 		p {
 			font-size: 1.4rem;
+			color: #2f2b4a;
 		}
 
 		@media screen and (max-width: 1350px) {
@@ -315,5 +319,9 @@ const HomePageWrapper = styled.div`
 			width: 26rem;
 			height: 9.5rem;
 		}
+	}
+
+	.red-text {
+		color: #bb1333;
 	}
 `;
