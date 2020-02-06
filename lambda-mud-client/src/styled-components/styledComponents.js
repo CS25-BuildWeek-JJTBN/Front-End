@@ -6,7 +6,7 @@ export const StyledForm = styled.div`
 	align-items: center;
 
 	width: 90%;
-	max-width: 30rem;
+	// max-width: 30rem;
 	margin: auto;
 	margin-top: 10rem;
 
@@ -166,4 +166,24 @@ export const Checkbox = styled.span`
 	margin: 0 1rem;
 	cursor: pointer;
 	border: 2px solid silver;
+`;
+
+export const LetterSelect = styled.div`
+        border: solid 4px #2f2b4a;
+        background-color: #F0F4F7;
+        height: 28rem;
+        width: 49rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        h1{
+            display: flex;
+            padding: 1rem;
+            color: #bb1333;
+            cursor: pointer;
+
+        }
+ 
+   
+
 `;

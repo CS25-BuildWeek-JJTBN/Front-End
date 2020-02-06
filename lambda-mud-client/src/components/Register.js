@@ -7,7 +7,10 @@ import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
 // Styled Components & Components
+import { LetterSelect} from '../styled-components/styledComponents';
 import { StyledForm } from '../styled-components/styledComponents';
+import {letter_data} from './LetterData';
+import LetterBox from './LetterBox';
 import Loading from './Loading';
 
 export default function Register() {
@@ -95,6 +98,13 @@ export default function Register() {
 					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
+					<LetterSelect>
+			{letter_data.map(letter => (
+				<LetterBox key={letter} letter={letter} />
+			))}
+		</LetterSelect>
 		</StyledForm>
+
 	);
 }
+
