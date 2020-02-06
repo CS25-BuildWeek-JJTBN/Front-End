@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useDataContext } from '../contexts/DataContext';
 
 import Avatar from './gameComponents/Avatar';
+import Loading from './Loading';
 import ColorSwatch from './gameComponents/ColorSwatch';
 import {
 	eyeColors,
@@ -23,16 +24,7 @@ import { processAttributes } from '../utils/processAttributes';
 
 export default function CustomizeAvatar() {
 	const {
-		data: {
-			hasGlasses,
-			glasses_style,
-			// skin_tone,
-			// pupil_color,
-			// hoodie_color,
-			// pants_color,
-			// shoe_color,
-			// glasses_color,
-		},
+		data: { hasGlasses, glasses_style, isLoading },
 		dispatch,
 	} = useDataContext();
 
@@ -70,6 +62,7 @@ export default function CustomizeAvatar() {
 			<div className='avatar-background'>
 				<Avatar />
 			</div>
+			{isLoading && <Loading />}
 			<div className='color-row color-row-first'>
 				<h4>Eye Color: </h4>
 				<div className='colors'>

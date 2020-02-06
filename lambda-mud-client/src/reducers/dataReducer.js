@@ -47,7 +47,9 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				roomItems: action.payload.roomItems,
 				visitedRooms: action.payload.visitedRooms,
+				playerItems: action.payload.playerItems,
 			};
 		case 'GET_DATA_FAILURE':
 			return {
@@ -102,7 +104,9 @@ export const dataReducer = (state = initialDataState, action) => {
 		case 'ACTION_SUCCESS':
 			return {
 				...state,
-				playerItems: [...state.playerItems, action.payload.item],
+				isLoading: false,
+				roomItems: action.payload.roomItems,
+				playerItems: action.payload.playerItems,
 			};
 		case 'ACTION_FAILURE':
 			return {

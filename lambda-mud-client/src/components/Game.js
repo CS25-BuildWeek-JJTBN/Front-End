@@ -14,40 +14,6 @@ import { processAttributes } from '../utils/processAttributes';
 export default function Game() {
 	const { dispatch } = useDataContext();
 
-	// const processAttributes = data => {
-	// 	const attributesArray = [
-	// 		'skin_tone',
-	// 		'pupil_color',
-	// 		'glasses_color',
-	// 		'glasses_style',
-	// 		'hoodie_color',
-	// 		'pants_color',
-	// 		'shoe_color',
-	// 	];
-
-	// 	const filteredData = Object.keys(data, dispatch)
-	// 		.filter(key => attributesArray.includes(key))
-	// 		.reduce((obj, key) => {
-	// 			return { ...obj, [key]: data[key] };
-	// 		}, {});
-
-	// 	Object.keys(filteredData).forEach(key => {
-	// 		if (!filteredData[key] || filteredData[key] === 'DEFAULT DESCRIPTION')
-	// 			delete filteredData[key];
-	// 	});
-
-	// 	Object.keys(filteredData).forEach(key => {
-	// 		const value = filteredData[key];
-	// 		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute: key, value } });
-	// 	});
-
-	// 	Object.keys(filteredData).includes('glasses_style') &&
-	// 		dispatch({
-	// 			type: 'SET_ATTRIBUTE',
-	// 			payload: { attribute: 'hasGlasses', value: true },
-	// 		});
-	// };
-
 	useEffect(() => {
 		dispatch({ type: 'GET_DATA_START' });
 
@@ -64,7 +30,9 @@ export default function Game() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
+						roomItems: res.data.room_items,
 						visitedRooms: visitedRoomsObjToArray(res.data.visited_rooms),
+						playerItems: res.data.player_items,
 					},
 				});
 

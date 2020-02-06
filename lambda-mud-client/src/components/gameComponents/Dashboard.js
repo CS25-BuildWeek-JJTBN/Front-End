@@ -45,7 +45,7 @@ const BottomWrapper = styled.div`
 	.floating-items {
 		display: flex;
 		// justify-content: space-between;
-		justify-content: flex-end;
+		justify-content: flex-start;
 		padding: 1rem 3rem;
 	}
 

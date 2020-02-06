@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
+// import ControlsMiddle from './ControlsMiddle';
+// import ControlsButtons from './ControlsButtons';
+
 import { visitedRoomsObjToArray } from '../../utils/visitedRoomsFunctions';
 
 export default function Controls() {
@@ -110,18 +113,8 @@ export default function Controls() {
 					S
 				</button>
 			</ControlsNav>
-			{/* <ControlsMiddle>
-				<FlatButton>SELECT</FlatButton>
-				<FlatButton>START</FlatButton>
-			</ControlsMiddle> */}
-			{/* <ControlsButtons>
-				<RoundButtonXY>X</RoundButtonXY>
-				<div className='round-buttons-row'>
-					<RoundButtonXY>Y</RoundButtonXY>
-					<RoundButtonAB onClick={() => handleAction('p')}>P</RoundButtonAB>
-				</div>
-				<RoundButtonAB onClick={() => handleAction('d')}>D</RoundButtonAB>
-			</ControlsButtons> */}
+			{/* <ControlsMiddle /> */}
+			{/* <ControlsButtons /> */}
 		</ControlsWrapper>
 	);
 }
@@ -199,72 +192,4 @@ const ControlsNav = styled.div`
 			box-shadow: none;
 		}
 	}
-`;
-
-// const ControlsMiddle = styled.div`
-// 	display: flex;
-// 	align-items: center;
-// `;
-
-// const FlatButton = styled.button`
-// 	background-color: gray;
-// 	color: silver;
-// 	border: none;
-// 	font-size: 0.5rem;
-// 	height: 1.25rem;
-// 	width: 4.5rem;
-// 	border-radius: 0.6rem;
-// 	transform: rotate(-35deg);
-// 	letter-spacing: 0;
-// 	cursor: pointer;
-// 	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-// 		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-
-// 	&:hover {
-// 		color: white;
-// 		box-shadow: 0 0 1rem yellow,
-// 			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-// 			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-// 	}
-// `;
-
-const ControlsButtons = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 9rem;
-
-	.round-buttons-row {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-	}
-`;
-
-const RoundButtonXY = styled.button`
-	width: 3.2rem;
-	height: 3.2rem;
-	border-radius: 1.6rem;
-	border: none;
-	letter-spacing: 0;
-	text-align: center;
-	cursor: default;
-
-	background-color: #baa9cb;
-	color: #7d35d5;
-	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-
-	&:hover {
-		box-shadow: 0 0 1rem yellow,
-			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-		color: white;
-	}
-`;
-
-const RoundButtonAB = styled(RoundButtonXY)`
-	background-color: #7d35d5;
-	color: #baa9cb;
-	cursor: pointer;
 `;
