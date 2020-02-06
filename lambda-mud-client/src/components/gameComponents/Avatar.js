@@ -10,8 +10,6 @@ import {
 export default function Avatar() {
 	const { data } = useDataContext();
 
-	console.log(data);
-
 	const headphonesShift = data.hasHat ? '7rem' : '2.75rem';
 
 	const glassesShift = () => {
