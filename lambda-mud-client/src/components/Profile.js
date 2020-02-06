@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import PlayerBar from './gameComponents/PlayerBar';
 import CustomizeAvatar from './CustomizeAvatar';
+import SetMode from './SetMode';
 import SavedQuestions from './SavedQuestions';
 
 export default function Profile() {
@@ -11,6 +12,7 @@ export default function Profile() {
 			<PlayerBar />
 			<ProfileContent>
 				<CustomizeAvatar />
+				<SetMode />
 				<SavedQuestions />
 			</ProfileContent>
 		</div>
@@ -19,11 +21,7 @@ export default function Profile() {
 
 const ProfileContent = styled.div`
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: flex-start;
-
-	@media screen and (max-width: 700px) {
-		flex-direction: column;
-		align-items: center;
-	}
+	flex-wrap: wrap;
 `;

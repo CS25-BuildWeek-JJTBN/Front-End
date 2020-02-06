@@ -18,7 +18,14 @@ export default function Controls() {
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				console.log(res.data);
+				// console.log(res.data);
+				if (!res.data.error_msg) {
+					dispatch({
+						type: 'UPDATE_VISITED_ROOMS',
+						payload: { visitedRooms: visitedRoomsObjToArray(res.data.rooms) },
+					});
+				}
+
 				dispatch({
 					type: 'MOVE_SUCCESS',
 					payload: {
@@ -27,7 +34,6 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
-						visitedRooms: visitedRoomsObjToArray(res.data.rooms),
 						error_msg: res.data.error_msg,
 					},
 				});
@@ -123,6 +129,9 @@ const ControlsWrapper = styled.div`
 	align-items: center;
 	width: 30rem;
 	height: 12rem;
+
+	position: relative;
+	top: 3rem;
 
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 6rem;

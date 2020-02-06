@@ -22,7 +22,7 @@ export const StyledForm = styled.div`
 		background-color: #f0f4f7;
 		border: solid 4px #2f2b4a;
 		margin: 1.5rem;
-		padding: 1rem;
+        padding: 1rem;
 
 		label {
 			color: #bb1333;
@@ -57,17 +57,25 @@ export const StyledForm = styled.div`
 `;
 
 export const DashboardPanel = styled.div`
-	width: 30%;
+	width: 23%;
 	min-width: 30rem;
+	max-width: 65h;
 	color: white;
+	margin-bottom: 1rem;
+
+	@media screen and (max-width: 620px) {
+		width: 90%;
+	}
 
 	.span-normal {
 		font-weight: normal;
 	}
 
-	.text-box{
-		background-color: white;
-		color: black;
+	.text-box {
+		// background-color: white;
+		background-color: #0d0208;
+		// color: black;
+		color: #00ff41;
 
 		margin-top: 1rem;
 		border-radius: 1rem;
@@ -77,4 +85,85 @@ export const DashboardPanel = styled.div`
 
 		box-shadow: inset 0.3rem 0.2rem darkred;
 	}
+`;
+
+export const ProfilePanelWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+
+	// width: 30%;
+	min-width: 30rem;
+	margin: 2rem 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+
+	// background-color: rgba(255, 255, 255, 0.5);
+	// box-shadow: 0.3rem 0.2rem rgba(0, 0, 0, 0.25);
+	// border-radius: 1rem;
+
+	background-color: white;
+	border: 0.5rem solid black;
+
+	h3 {
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+	}
+
+	@media screen and (max-width: 700px) {
+		width: 90%;
+	}
+
+	.avatar-background {
+		// background-color: lightblue;
+		// border-radius: 1rem;
+		// box-shadow: 0.3rem 0.2rem lightblue;
+	}
+
+	.color-row {
+		margin: 0.5rem 0;
+
+		// border: 1px solid blue;
+
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+
+		h4 {
+			margin: 1rem 0 0 0;
+			// margin-bottom: 0;
+		}
+
+		.colors {
+			display: flex;
+			margin-top: 1rem;
+		}
+	}
+
+	.color-row-first {
+		margin-top: 2rem;
+	}
+
+	.check-boxes {
+		// border: 1px solid red;
+		align-self: flex-end;
+		margin-top: 1rem;
+
+		display: flex;
+		align-items: center;
+	}
+`;
+
+export const Checkbox = styled.span`
+	display: inline-block;
+	background-color: ${props => props.trueValue && 'silver'};
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.3rem;
+	margin: 0 1rem;
+	cursor: pointer;
+	border: 2px solid silver;
 `;

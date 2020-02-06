@@ -66,6 +66,15 @@ const ChatWrapper = styled.div`
 	right: 2rem;
 	z-index: 999;
 
+	@media screen and (max-width: 750px) {
+		top: 17rem;
+	}
+
+	@media screen and (max-width: 500px) {
+		top: 18rem;
+		left: 1rem;
+	}
+
 	background-color: #bb1333;
 	color: white;
 	width: 30rem;
@@ -85,9 +94,13 @@ const ChatWrapper = styled.div`
 	ul,
 	.chat-box {
 		margin: 1rem 0;
-		background-color: white;
+		// background-color: white;
+		background-color: #0d0208;
+		// color: black;
+		color: #00ff41;
+
 		padding: 1rem;
-		height: 16vh;
+		height: 20vh;
 		overflow-y: auto;
 
 		border-radius: 1rem;

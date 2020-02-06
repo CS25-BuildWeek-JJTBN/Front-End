@@ -14,7 +14,6 @@ export default function TeamCard({ member }) {
 			</div>
             <i className="nes-icon linkedin is-medium" >
 			<a href={member.link_url} target='_blank'>
-				{/* {member.link_title.toUpperCase()} */}
 			</a></i>
 		</StyledCard>
 	);

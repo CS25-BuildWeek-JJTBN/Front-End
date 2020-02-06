@@ -10,8 +10,6 @@ export default function MapCell({ cell }) {
 		data: { currentRoom, visitedRooms },
 	} = useDataContext();
 
-	// console.log(visitedRooms);
-
 	const isCurrentRoom = currentRoom === cell.id ? true : false;
 	const isVisited =
 		visitedRooms && visitedRooms.map(obj => obj.id).includes(cell.id);
@@ -177,7 +175,13 @@ const StyledCell = styled.div`
 	}
 
 	.screen-avatar {
-		position: relative;
-		bottom: 5rem;
+		background-color: #00ff41;
+		border: 0.4rem solid #101010;
+		border-radius: 50%;
+		height: 5rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
 	}
 `;
