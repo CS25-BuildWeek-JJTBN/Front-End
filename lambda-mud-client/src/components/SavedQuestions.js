@@ -38,16 +38,21 @@ export default function SavedQuestions() {
 			<h3>Saved Questions: </h3>
 			<div className='questions-box'>
 				{visitedRooms &&
-					visitedRooms.map(content => (
-						<div className='question' key={content.id}>
-							<a
-								href={content.description}
-								target='_blank'
-								rel='noopener noreferrer'>
-								{content.title}
-							</a>
-						</div>
-					))}
+					visitedRooms
+						.filter(
+							content =>
+								content.title !== 'No question. Just an empty hallway.',
+						)
+						.map(content => (
+							<div className='question' key={content.id}>
+								<a
+									href={content.description}
+									target='_blank'
+									rel='noopener noreferrer'>
+									{content.title}
+								</a>
+							</div>
+						))}
 			</div>
 		</SavedWrapper>
 	);
