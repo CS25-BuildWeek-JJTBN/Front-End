@@ -30,6 +30,8 @@ const MapWrapper = styled.div`
 	padding: 5.5rem 1rem 1rem;
 	min-width: 118rem;
 
+	max-height: 100%;
+
 	// overflow: hidden;
 
 	// &::-webkit-scrollbar {

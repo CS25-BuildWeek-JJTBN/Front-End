@@ -1,5 +1,5 @@
 import React from 'react';
-// import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
@@ -21,12 +21,42 @@ import {
 
 export default function CustomizeAvatar() {
 	const {
-		data: { hasGlasses, glasses_style },
+		data: {
+			hasGlasses,
+			glasses_style,
+			skin_tone,
+			pupil_color,
+			hoodie_color,
+			pants_color,
+			shoe_color,
+			glasses_color,
+		},
 		dispatch,
 	} = useDataContext();
 
 	const handleClick = (attribute, value) => {
 		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
+
+		const body = {
+			skin_tone,
+			pupil_color,
+			hoodie_color,
+			pants_color,
+			shoe_color,
+			glasses_color,
+			glasses_style,
+		};
+
+		console.log({ body });
+
+		axiosWithAuth()
+			.get('/adv/player-update/', body)
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	};
 
 	return (

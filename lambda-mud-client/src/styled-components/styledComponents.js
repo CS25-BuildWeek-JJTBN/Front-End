@@ -91,9 +91,9 @@ export const ProfilePanelWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	width: 30%;
+	// width: 30%;
 	min-width: 30rem;
-	margin: 2rem 0;
+	margin: 2rem 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -124,17 +124,22 @@ export const ProfilePanelWrapper = styled.div`
 	.color-row {
 		margin: 0.5rem 0;
 
+		// border: 1px solid blue;
+
 		width: 100%;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 
 		h4 {
-			margin-bottom: 0;
+			margin: 1rem 0 0 0;
+			// margin-bottom: 0;
 		}
 
 		.colors {
 			display: flex;
+			margin-top: 1rem;
 		}
 	}
 
@@ -143,6 +148,10 @@ export const ProfilePanelWrapper = styled.div`
 	}
 
 	.check-boxes {
+		// border: 1px solid red;
+		align-self: flex-end;
+		margin-top: 1rem;
+
 		display: flex;
 		align-items: center;
 	}

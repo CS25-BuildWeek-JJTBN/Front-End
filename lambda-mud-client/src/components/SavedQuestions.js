@@ -54,7 +54,7 @@ export default function SavedQuestions() {
 }
 
 const SavedWrapper = styled.div`
-	width: 30%;
+	// width: 30%;
 	max-width: 65ch;
 	margin: 2rem 0;
 	display: flex;

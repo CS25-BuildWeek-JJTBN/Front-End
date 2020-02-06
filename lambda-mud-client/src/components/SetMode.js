@@ -17,7 +17,7 @@ export default function SetMode() {
 		<ProfilePanelWrapper>
 			<h3>Set Game Difficulty:</h3>
 			<div className='color-row'>
-				<h4>Difficulty Level:</h4>
+				<h4>Game Mode:</h4>
 				<div className='check-boxes'>
 					<Checkbox
 						onClick={() =>

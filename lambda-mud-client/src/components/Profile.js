@@ -21,11 +21,7 @@ export default function Profile() {
 
 const ProfileContent = styled.div`
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: flex-start;
-
-	@media screen and (max-width: 700px) {
-		flex-direction: column;
-		align-items: center;
-	}
+	flex-wrap: wrap;
 `;
