@@ -24,12 +24,12 @@ export default function CustomizeAvatar() {
 		data: {
 			hasGlasses,
 			glasses_style,
-			skin_tone,
-			pupil_color,
-			hoodie_color,
-			pants_color,
-			shoe_color,
-			glasses_color,
+			// skin_tone,
+			// pupil_color,
+			// hoodie_color,
+			// pants_color,
+			// shoe_color,
+			// glasses_color,
 		},
 		dispatch,
 	} = useDataContext();
@@ -37,20 +37,20 @@ export default function CustomizeAvatar() {
 	const handleClick = (attribute, value) => {
 		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
 
-		const body = {
-			skin_tone,
-			pupil_color,
-			hoodie_color,
-			pants_color,
-			shoe_color,
-			glasses_color,
-			glasses_style,
-		};
+		// const body = {
+		// 	skin_tone,
+		// 	pupil_color,
+		// 	glasses_color,
+		// 	glasses_style,
+		// 	hoodie_color,
+		// 	pants_color,
+		// 	shoe_color,
+		// };
 
-		console.log({ body });
+		// console.log({ [attribute]: value });
 
 		axiosWithAuth()
-			.get('/adv/player-update/', body)
+			.post('/adv/player-update/', { [attribute]: value })
 			.then(res => {
 				console.log(res);
 			})

@@ -18,11 +18,13 @@ export default function Controls() {
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				// console.log(res.data);
+				console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
 						type: 'UPDATE_VISITED_ROOMS',
-						payload: { visitedRooms: visitedRoomsObjToArray(res.data.rooms) },
+						payload: {
+							visitedRooms: visitedRoomsObjToArray(res.data.rooms),
+						},
 					});
 				}
 
@@ -34,6 +36,7 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
+						roomItems: res.data.room_items,
 						error_msg: res.data.error_msg,
 					},
 				});

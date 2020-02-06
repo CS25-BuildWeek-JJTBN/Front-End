@@ -35,7 +35,7 @@ export const AvatarWrapper = styled.div`
 			width: 2rem;
 			height: 2rem;
 			border-radius: ${props =>
-				props.data.glassesStyle === 'round' ? '1rem' : '0'};
+				props.data.glasses_style === 'round' ? '1rem' : '0'};
 			border: 3px solid ${props => props.data.glasses_color};
 		}
 	}

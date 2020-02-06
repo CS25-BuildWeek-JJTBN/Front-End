@@ -6,7 +6,9 @@ export const initialDataState = {
 	description: '',
 	players: [],
 	currentRoom: '',
+	roomItems: [],
 	visitedRooms: [],
+	playerItems: [],
 	skin_tone: '#e0ac69',
 	pupil_color: '#634e34',
 	hoodie_color: 'gray',
@@ -71,6 +73,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				description: action.payload.description,
 				players: action.payload.players,
 				currentRoom: action.payload.room,
+				roomItems: action.payload.roomItems,
 				error_msg: action.payload.error_msg,
 			};
 		case 'UPDATE_VISITED_ROOMS':
