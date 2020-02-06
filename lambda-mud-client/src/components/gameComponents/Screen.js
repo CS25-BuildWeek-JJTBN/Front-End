@@ -8,11 +8,12 @@ export default function Screen() {
 	return (
 		<ScreenWrapper>
 			<Map />
-			{/* <Chat /> */}
+			<Chat />
 		</ScreenWrapper>
 	);
 }
 
 const ScreenWrapper = styled.div`
 	flex-grow: 1;
+	overflow: auto;
 `;

@@ -29,14 +29,15 @@ export default function Map() {
 	return (
 		<MapWrapper>
 			{mapData && mapData.map((row, index) => <MapRow row={row} key={index} />)}
-			{isLoading && <Loading />}
-			<div className='error-msg'>{error_msg}</div>
+			{/* {isLoading && <Loading />}
+			<div className='error-msg'>{error_msg}</div> */}
 		</MapWrapper>
 	);
 }
 
 const MapWrapper = styled.div`
 	padding: 5.5rem 1rem 1rem;
+	min-width: 118rem;
 
 	// overflow: hidden;
 

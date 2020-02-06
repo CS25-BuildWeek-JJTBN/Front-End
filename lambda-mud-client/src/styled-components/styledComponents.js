@@ -59,8 +59,13 @@ export const StyledForm = styled.div`
 export const DashboardPanel = styled.div`
 	width: 23%;
 	min-width: 30rem;
+	max-width: 65h;
 	color: white;
 	margin-bottom: 1rem;
+
+	@media screen and (max-width: 620px) {
+		width: 90%;
+	}
 
 	.span-normal {
 		font-weight: normal;
