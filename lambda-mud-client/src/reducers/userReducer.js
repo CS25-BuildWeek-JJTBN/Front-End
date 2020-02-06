@@ -1,7 +1,7 @@
 export const initialUserState = {
 	isLoading: false,
 	isLoggedIn: false,
-	hardMode: false,
+	hardMode: true,
 	// error: '',
 };
 

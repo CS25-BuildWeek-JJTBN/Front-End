@@ -16,7 +16,7 @@ export default function MapCell({ cell }) {
 
 	return (
 		<StyledWrapper>
-			{cell.id && (
+			{cell.id ? (
 				<StyledCell
 					n={cell.n_to}
 					s={cell.s_to}
@@ -50,6 +50,8 @@ export default function MapCell({ cell }) {
 					</div>
 					<div className='pc-link pc-s'></div>
 				</StyledCell>
+			) : (
+				<StyledCell />
 			)}
 		</StyledWrapper>
 	);
@@ -71,6 +73,7 @@ const StyledWrapper = styled.div`
 
 const StyledCell = styled.div`
 	width: 100%;
+	min-width: 11rem;
 	height: 5.5rem;
 
 	display: flex;

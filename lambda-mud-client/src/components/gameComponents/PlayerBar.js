@@ -8,7 +8,11 @@ export default function PlayerBar() {
 		data: { name, visitedRooms },
 	} = useDataContext();
 
-	const roomsVisited = visitedRooms && visitedRooms.length;
+	const roomsVisited =
+		visitedRooms &&
+		visitedRooms.filter(
+			content => content.title !== 'No question. Just an empty hallway.',
+		).length;
 
 	return (
 		<DashBar>
@@ -16,7 +20,7 @@ export default function PlayerBar() {
 				Player: <span className='span-normal'>{name}</span>
 			</h3>
 			<h3>
-				Rooms: <span className='span-normal'>{roomsVisited}</span>
+				Questions Found: <span className='span-normal'>{roomsVisited}</span>
 			</h3>
 			<h3>
 				ISA:{' '}

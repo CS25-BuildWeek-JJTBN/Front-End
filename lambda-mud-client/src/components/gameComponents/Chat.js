@@ -64,7 +64,7 @@ const ChatWrapper = styled.div`
 	position: absolute;
 	top: 14rem;
 	right: 2rem;
-	z-index: 999;
+	z-index: 1100;
 
 	@media screen and (max-width: 750px) {
 		top: 17rem;

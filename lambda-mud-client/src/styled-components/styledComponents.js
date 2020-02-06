@@ -172,18 +172,26 @@ export const LetterSelect = styled.div`
         border: solid 4px #2f2b4a;
         background-color: #F0F4F7;
         height: 28rem;
-        width: 49rem;
+        width: 55rem;
         display: flex;
         flex-wrap: wrap;
 
-        h1{
+        h2{
             display: flex;
             padding: 1rem;
             color: #bb1333;
             cursor: pointer;
-
+            &:hover {
+                background-color: #9d96ca;
+                color: white;
+                border-radius: 20%;
+            }
         }
- 
-   
-
+`;
+export const Item = styled.div`
+	cursor: pointer;
+	&:hover {
+		background-color: #00ff41;
+		color: #0d0208;
+	}
 `;

@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
+// import ControlsMiddle from './ControlsMiddle';
+// import ControlsButtons from './ControlsButtons';
+
 import { visitedRoomsObjToArray } from '../../utils/visitedRoomsFunctions';
 
 export default function Controls() {
@@ -12,17 +15,19 @@ export default function Controls() {
 		dispatch,
 	} = useDataContext();
 
-	const handleSend = direction => {
+	const handleMove = direction => {
 		dispatch({ type: 'MOVE_START' });
 
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				// console.log(res.data);
+				// console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
 						type: 'UPDATE_VISITED_ROOMS',
-						payload: { visitedRooms: visitedRoomsObjToArray(res.data.rooms) },
+						payload: {
+							visitedRooms: visitedRoomsObjToArray(res.data.rooms),
+						},
 					});
 				}
 
@@ -34,6 +39,7 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
+						roomItems: res.data.room_items,
 						error_msg: res.data.error_msg,
 					},
 				});
@@ -49,16 +55,16 @@ export default function Controls() {
 			if (!chatOpen) {
 				switch (key) {
 					case 'n':
-						handleSend('n');
+						handleMove('n');
 						break;
 					case 's':
-						handleSend('s');
+						handleMove('s');
 						break;
 					case 'e':
-						handleSend('e');
+						handleMove('e');
 						break;
 					case 'w':
-						handleSend('w');
+						handleMove('w');
 						break;
 					default:
 						break;
@@ -66,16 +72,16 @@ export default function Controls() {
 
 				switch (keyCode) {
 					case 37:
-						handleSend('w');
+						handleMove('w');
 						break;
 					case 38:
-						handleSend('n');
+						handleMove('n');
 						break;
 					case 39:
-						handleSend('e');
+						handleMove('e');
 						break;
 					case 40:
-						handleSend('s');
+						handleMove('s');
 						break;
 					default:
 						return;
@@ -91,34 +97,24 @@ export default function Controls() {
 	return (
 		<ControlsWrapper>
 			<ControlsNav>
-				<button id='button_n' onClick={() => handleSend('n')}>
+				<button id='button_n' onClick={() => handleMove('n')}>
 					N
 				</button>
 				<div className='nav-buttons-row'>
-					<button id='button_w' onClick={() => handleSend('w')}>
+					<button id='button_w' onClick={() => handleMove('w')}>
 						W
 					</button>
 					<button className='button-cover'></button>
-					<button id='button_e' onClick={() => handleSend('e')}>
+					<button id='button_e' onClick={() => handleMove('e')}>
 						E
 					</button>
 				</div>
-				<button id='button_s' onClick={() => handleSend('s')}>
+				<button id='button_s' onClick={() => handleMove('s')}>
 					S
 				</button>
 			</ControlsNav>
-			{/* <ControlsMiddle>
-				<FlatButton>SELECT</FlatButton>
-				<FlatButton>START</FlatButton>
-			</ControlsMiddle> */}
-			<ControlsButtons>
-				{/* <RoundButtonXY>X</RoundButtonXY> */}
-				<div className='round-buttons-row'>
-					{/* <RoundButtonXY>Y</RoundButtonXY> */}
-					<RoundButtonAB>A</RoundButtonAB>
-				</div>
-				<RoundButtonAB>B</RoundButtonAB>
-			</ControlsButtons>
+			{/* <ControlsMiddle /> */}
+			{/* <ControlsButtons /> */}
 		</ControlsWrapper>
 	);
 }
@@ -127,7 +123,8 @@ const ControlsWrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 30rem;
+	// width: 30rem;
+	width: 12rem;
 	height: 12rem;
 
 	position: relative;
@@ -195,72 +192,4 @@ const ControlsNav = styled.div`
 			box-shadow: none;
 		}
 	}
-`;
-
-// const ControlsMiddle = styled.div`
-// 	display: flex;
-// 	align-items: center;
-// `;
-
-// const FlatButton = styled.button`
-// 	background-color: gray;
-// 	color: silver;
-// 	border: none;
-// 	font-size: 0.5rem;
-// 	height: 1.25rem;
-// 	width: 4.5rem;
-// 	border-radius: 0.6rem;
-// 	transform: rotate(-35deg);
-// 	letter-spacing: 0;
-// 	cursor: pointer;
-// 	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-// 		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-
-// 	&:hover {
-// 		color: white;
-// 		box-shadow: 0 0 1rem yellow,
-// 			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-// 			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-// 	}
-// `;
-
-const ControlsButtons = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 9rem;
-
-	.round-buttons-row {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-	}
-`;
-
-const RoundButtonXY = styled.button`
-	width: 3.2rem;
-	height: 3.2rem;
-	border-radius: 1.6rem;
-	border: none;
-	letter-spacing: 0;
-	text-align: center;
-	cursor: default;
-
-	background-color: #baa9cb;
-	color: #7d35d5;
-	box-shadow: 0 0 1rem black, inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-		inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-
-	&:hover {
-		box-shadow: 0 0 1rem yellow,
-			inset -0.3rem -0.2rem 0.3rem rgba(0, 0, 0, 0.25),
-			inset 0.3rem 0.2rem 0.3rem rgba(255, 255, 255, 0.25);
-		color: white;
-	}
-`;
-
-const RoundButtonAB = styled(RoundButtonXY)`
-	background-color: #7d35d5;
-	color: #baa9cb;
-	cursor: pointer;
 `;

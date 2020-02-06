@@ -5,7 +5,7 @@ export const team_info = [
 		img_path: 'todd_pixel.png',
 		link_title: 'GitHub',
 		link_url: 'https://github.com/toddmckenzie',
-		bio: 'Quail For Life',
+		bio: 'Web 19 Labs 17 TL CS25 TL',
 	},
 	{
 		name: 'Jordan Doan',
@@ -33,7 +33,7 @@ export const team_info = [
 	},
 	{
 		name: 'Brandon Pampuch',
-		role: 'ROLE',
+		role: 'Moral Support',
 		img_path: 'brandon_pixel.png',
 		link_title: 'GitHub',
 		link_url: 'https://github.com/Brandon-Pampuch',

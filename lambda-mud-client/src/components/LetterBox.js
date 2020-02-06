@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function LetterBox({letter}) {
  return (
      <div>
-         <h1>{letter}</h1>
+         <h2>{letter}</h2>
      </div>
  )
 };
