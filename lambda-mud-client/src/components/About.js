@@ -17,13 +17,17 @@ export default function About() {
 				<h2>The Tech Stack:</h2>
 				<div className='tech-stack-txt'>
 					<p>
-						THE LEGEND OF LAMBDA is a REACT front-end application built on a
-						DJANGO back-end.
+						<span className='red-text'>THE LEGEND OF LAMBDA</span> is a{' '}
+						<span className='red-text'>REACT</span> front-end application built
+						on a <span className='red-text'>DJANGO</span> back-end.
 					</p>
 					<p>
-						The front-end was built using REACT ROUTER, AXIOS for data fetching,
-						CONTEXT API for state management, & STYLED-COMPONENTS and NES.CSS
-						for styling.
+						The front-end was built using{' '}
+						<span className='red-text'>REACT ROUTER</span>,{' '}
+						<span className='red-text'>AXIOS</span> for data fetching,
+						<span className='red-text'>CONTEXT API</span> for state management,
+						& <span className='red-text'>STYLED-COMPONENTS</span> and{' '}
+						<span className='red-text'>NES.CSS</span> for styling.
 					</p>
 				</div>
 			</div>
@@ -37,6 +41,10 @@ const AboutPage = styled.div`
 		text-align: center;
 		margin-top: 2rem;
 		font-size: 2rem;
+	}
+
+	.red-text {
+		color: #bb1333;
 	}
 
 	.tech-stack-txt {

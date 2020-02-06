@@ -130,6 +130,9 @@ const ControlsWrapper = styled.div`
 	width: 30rem;
 	height: 12rem;
 
+	position: relative;
+	top: 3rem;
+
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 6rem;
 
