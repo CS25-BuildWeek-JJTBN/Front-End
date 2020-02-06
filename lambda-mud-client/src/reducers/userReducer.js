@@ -1,6 +1,7 @@
 export const initialUserState = {
 	isLoading: false,
 	isLoggedIn: false,
+	hardMode: false,
 	// error: '',
 };
 
@@ -48,6 +49,11 @@ export const userReducer = (state = initialUserState, action) => {
 			return {
 				...state,
 				isLoggedIn: true,
+			};
+		case 'SET_MODE':
+			return {
+				...state,
+				hardMode: action.payload.hardMode,
 			};
 		case 'LOGOUT':
 			return {

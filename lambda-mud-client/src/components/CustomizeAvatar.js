@@ -14,6 +14,10 @@ import {
 	shoesColors,
 	glassesColors,
 } from './gameComponents/AvatarColors';
+import {
+	ProfilePanelWrapper,
+	Checkbox,
+} from '../styled-components/styledComponents';
 
 export default function CustomizeAvatar() {
 	const {
@@ -26,7 +30,7 @@ export default function CustomizeAvatar() {
 	};
 
 	return (
-		<CustomizeWrapper>
+		<ProfilePanelWrapper>
 			<h3>Build Your Avatar!</h3>
 			<div className='avatar-background'>
 				<Avatar />
@@ -93,7 +97,7 @@ export default function CustomizeAvatar() {
 			</div>
 			<div className='color-row'>
 				<h4>Glasses?</h4>
-				<div className='check-glasses'>
+				<div className='check-boxes'>
 					<Checkbox
 						onClick={() => handleClick('hasGlasses', true)}
 						trueValue={hasGlasses}
@@ -142,81 +146,9 @@ export default function CustomizeAvatar() {
 					</div>
 				</>
 			)}
-		</CustomizeWrapper>
+		</ProfilePanelWrapper>
 	);
 }
-
-const CustomizeWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	width: 40%;
-	min-width: 30rem;
-	margin: 2rem 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
-
-	// background-color: rgba(255, 255, 255, 0.5);
-	// box-shadow: 0.3rem 0.2rem rgba(0, 0, 0, 0.25);
-	// border-radius: 1rem;
-
-	background-color: white;
-	border: 0.5rem solid black;
-
-	@media screen and (max-width: 700px) {
-		width: 90%;
-	}
-
-	.avatar-background {
-		// background-color: lightblue;
-		// border-radius: 1rem;
-		// box-shadow: 0.3rem 0.2rem lightblue;
-	}
-
-	h3 {
-		margin-bottom: 2rem;
-		text-transform: uppercase;
-	}
-
-	.color-row {
-		margin: 0.5rem 0;
-
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		h4 {
-			margin-bottom: 0;
-		}
-
-		.colors {
-			display: flex;
-		}
-	}
-
-	.color-row-first {
-		margin-top: 2rem;
-	}
-
-	.check-glasses {
-		display: flex;
-		align-items: center;
-	}
-`;
-
-const Checkbox = styled.span`
-	display: inline-block;
-	background-color: ${props => props.trueValue && 'silver'};
-	width: 2rem;
-	height: 2rem;
-	border-radius: 0.3rem;
-	margin: 0 1rem;
-	cursor: pointer;
-	border: 2px solid silver;
-`;
 
 const SquareLens = styled.span`
 	display: inline-block;

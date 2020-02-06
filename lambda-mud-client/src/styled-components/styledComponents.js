@@ -81,3 +81,75 @@ export const DashboardPanel = styled.div`
 		box-shadow: inset 0.3rem 0.2rem darkred;
 	}
 `;
+
+export const ProfilePanelWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+
+	width: 30%;
+	min-width: 30rem;
+	margin: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+
+	// background-color: rgba(255, 255, 255, 0.5);
+	// box-shadow: 0.3rem 0.2rem rgba(0, 0, 0, 0.25);
+	// border-radius: 1rem;
+
+	background-color: white;
+	border: 0.5rem solid black;
+
+	h3 {
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+	}
+
+	@media screen and (max-width: 700px) {
+		width: 90%;
+	}
+
+	.avatar-background {
+		// background-color: lightblue;
+		// border-radius: 1rem;
+		// box-shadow: 0.3rem 0.2rem lightblue;
+	}
+
+	.color-row {
+		margin: 0.5rem 0;
+
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		h4 {
+			margin-bottom: 0;
+		}
+
+		.colors {
+			display: flex;
+		}
+	}
+
+	.color-row-first {
+		margin-top: 2rem;
+	}
+
+	.check-boxes {
+		display: flex;
+		align-items: center;
+	}
+`;
+
+export const Checkbox = styled.span`
+	display: inline-block;
+	background-color: ${props => props.trueValue && 'silver'};
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.3rem;
+	margin: 0 1rem;
+	cursor: pointer;
+	border: 2px solid silver;
+`;

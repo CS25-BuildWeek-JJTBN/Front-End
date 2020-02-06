@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import PlayerBar from './gameComponents/PlayerBar';
 import CustomizeAvatar from './CustomizeAvatar';
+import SetMode from './SetMode';
 import SavedQuestions from './SavedQuestions';
 
 export default function Profile() {
@@ -11,6 +12,7 @@ export default function Profile() {
 			<PlayerBar />
 			<ProfileContent>
 				<CustomizeAvatar />
+				<SetMode />
 				<SavedQuestions />
 			</ProfileContent>
 		</div>
