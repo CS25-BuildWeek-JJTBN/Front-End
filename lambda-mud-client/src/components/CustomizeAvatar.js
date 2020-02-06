@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from 'styled-components';
 
@@ -19,6 +19,8 @@ import {
 	Checkbox,
 } from '../styled-components/styledComponents';
 
+import { processAttributes } from '../utils/processAttributes';
+
 export default function CustomizeAvatar() {
 	const {
 		data: {
@@ -34,20 +36,23 @@ export default function CustomizeAvatar() {
 		dispatch,
 	} = useDataContext();
 
+	useEffect(() => {
+		dispatch({ type: 'GET_DATA_START' });
+
+		axiosWithAuth()
+			.get('/adv/init/')
+			.then(res => {
+				// console.log(res.data);
+				processAttributes(res.data, dispatch);
+			})
+			.catch(err => {
+				// console.log(err);
+				dispatch({ type: 'GET_DATA_FAILURE' });
+			});
+	}, []);
+
 	const handleClick = (attribute, value) => {
 		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
-
-		// const body = {
-		// 	skin_tone,
-		// 	pupil_color,
-		// 	glasses_color,
-		// 	glasses_style,
-		// 	hoodie_color,
-		// 	pants_color,
-		// 	shoe_color,
-		// };
-
-		// console.log({ [attribute]: value });
 
 		axiosWithAuth()
 			.post('/adv/player-update/', { [attribute]: value })

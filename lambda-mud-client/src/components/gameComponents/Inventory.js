@@ -15,7 +15,7 @@ export default function Inventory() {
 			<div className='text-box'>
 				{playerItems.length === 0 && <div>You don't have any items</div>}
 				{playerItems.map(item => (
-					<div>
+					<div key={item.id}>
 						{item.color}
 						{item.description}
 					</div>

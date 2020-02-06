@@ -12,13 +12,13 @@ export default function Controls() {
 		dispatch,
 	} = useDataContext();
 
-	const handleSend = direction => {
+	const handleMove = direction => {
 		dispatch({ type: 'MOVE_START' });
 
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				console.log(res.data.room_items);
+				// console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
 						type: 'UPDATE_VISITED_ROOMS',
@@ -52,16 +52,16 @@ export default function Controls() {
 			if (!chatOpen) {
 				switch (key) {
 					case 'n':
-						handleSend('n');
+						handleMove('n');
 						break;
 					case 's':
-						handleSend('s');
+						handleMove('s');
 						break;
 					case 'e':
-						handleSend('e');
+						handleMove('e');
 						break;
 					case 'w':
-						handleSend('w');
+						handleMove('w');
 						break;
 					default:
 						break;
@@ -69,16 +69,16 @@ export default function Controls() {
 
 				switch (keyCode) {
 					case 37:
-						handleSend('w');
+						handleMove('w');
 						break;
 					case 38:
-						handleSend('n');
+						handleMove('n');
 						break;
 					case 39:
-						handleSend('e');
+						handleMove('e');
 						break;
 					case 40:
-						handleSend('s');
+						handleMove('s');
 						break;
 					default:
 						return;
@@ -94,19 +94,19 @@ export default function Controls() {
 	return (
 		<ControlsWrapper>
 			<ControlsNav>
-				<button id='button_n' onClick={() => handleSend('n')}>
+				<button id='button_n' onClick={() => handleMove('n')}>
 					N
 				</button>
 				<div className='nav-buttons-row'>
-					<button id='button_w' onClick={() => handleSend('w')}>
+					<button id='button_w' onClick={() => handleMove('w')}>
 						W
 					</button>
 					<button className='button-cover'></button>
-					<button id='button_e' onClick={() => handleSend('e')}>
+					<button id='button_e' onClick={() => handleMove('e')}>
 						E
 					</button>
 				</div>
-				<button id='button_s' onClick={() => handleSend('s')}>
+				<button id='button_s' onClick={() => handleMove('s')}>
 					S
 				</button>
 			</ControlsNav>
@@ -114,14 +114,14 @@ export default function Controls() {
 				<FlatButton>SELECT</FlatButton>
 				<FlatButton>START</FlatButton>
 			</ControlsMiddle> */}
-			<ControlsButtons>
-				{/* <RoundButtonXY>X</RoundButtonXY> */}
+			{/* <ControlsButtons>
+				<RoundButtonXY>X</RoundButtonXY>
 				<div className='round-buttons-row'>
-					{/* <RoundButtonXY>Y</RoundButtonXY> */}
-					<RoundButtonAB>A</RoundButtonAB>
+					<RoundButtonXY>Y</RoundButtonXY>
+					<RoundButtonAB onClick={() => handleAction('p')}>P</RoundButtonAB>
 				</div>
-				<RoundButtonAB>B</RoundButtonAB>
-			</ControlsButtons>
+				<RoundButtonAB onClick={() => handleAction('d')}>D</RoundButtonAB>
+			</ControlsButtons> */}
 		</ControlsWrapper>
 	);
 }
@@ -130,7 +130,8 @@ const ControlsWrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 30rem;
+	// width: 30rem;
+	width: 12rem;
 	height: 12rem;
 
 	position: relative;

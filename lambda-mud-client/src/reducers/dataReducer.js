@@ -92,6 +92,24 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				[action.payload.attribute]: action.payload.value,
 			};
+		case 'ACTION_START':
+			return {
+				...state,
+				error: '',
+				error_msg: '',
+				isLoading: true,
+			};
+		case 'ACTION_SUCCESS':
+			return {
+				...state,
+				playerItems: [...state.playerItems, action.payload.item],
+			};
+		case 'ACTION_FAILURE':
+			return {
+				...state,
+				error: 'Sorry, error taking that action',
+				isLoading: false,
+			};
 		case 'TOGGLE_CHAT':
 			return {
 				...state,

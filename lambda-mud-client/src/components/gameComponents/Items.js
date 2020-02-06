@@ -15,7 +15,7 @@ export default function Items() {
 			<div className='text-box'>
 				{roomItems.length === 0 && <div>No items here</div>}
 				{roomItems.map(item => (
-					<div>
+					<div key={item.id}>
 						{item.color}
 						{item.description}
 					</div>
