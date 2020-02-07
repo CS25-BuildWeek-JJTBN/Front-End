@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useUserContext } from '../../contexts/UserContext';
 import { useDataContext } from '../../contexts/DataContext';
 
 import Avatar from './Avatar';
@@ -8,6 +9,10 @@ import Avatar from './Avatar';
 import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
 
 export default function MapCell({ cell }) {
+	const {
+		user: { hardMode },
+	} = useUserContext();
+
 	const {
 		data: { id, visited_rooms },
 	} = useDataContext();
@@ -19,6 +24,9 @@ export default function MapCell({ cell }) {
 			.map(obj => obj.id)
 			.includes(cell.id);
 
+	const showRoom = hardMode ? isVisited : true;
+	const showCable = hardMode ? isCurrentRoom || isVisited : true;
+
 	return (
 		<StyledWrapper>
 			{cell.id ? (
@@ -28,7 +36,8 @@ export default function MapCell({ cell }) {
 					e={cell.e_to}
 					w={cell.w_to}
 					isCurrentRoom={isCurrentRoom}
-					isVisited={isVisited}>
+					isVisited={isVisited}
+					showCable={showCable}>
 					{/* {cell.id} */}
 					<div className='pc-link pc-n'></div>
 					<div className='pc-middle'>
@@ -38,18 +47,20 @@ export default function MapCell({ cell }) {
 								<Avatar />
 							</div>
 						) : (
-							<div className='pc'>
-								<div className='pc-top'>
-									<div className='pc-screen'>{cell.id}</div>
-								</div>
-								<div className='pc-bottom'>
-									<div className='pc-keyboard'>
-										<KeyboardRow />
-										<KeyboardRow />
-										<KeyboardRow />
+							showRoom && (
+								<div className='pc'>
+									<div className='pc-top'>
+										<div className='pc-screen'>{cell.id}</div>
+									</div>
+									<div className='pc-bottom'>
+										<div className='pc-keyboard'>
+											<KeyboardRow />
+											<KeyboardRow />
+											<KeyboardRow />
+										</div>
 									</div>
 								</div>
-							</div>
+							)
 						)}
 						<div className='pc-link pc-e'></div>
 					</div>
@@ -100,20 +111,20 @@ const StyledCell = styled.div`
 	}
 
 	.pc-n {
-		background-color: ${props => (props.n ? '#101010' : 'none')};
+		background-color: ${props => (props.showCable && props.n ? '#101010' : 'none')};
 	}
 
 	.pc-s {
-		background-color: ${props => (props.s ? '#101010' : 'none')};
+		background-color: ${props => (props.showCable && props.s ? '#101010' : 'none')};
 	}
 
 	.pc-e {
-		background-color: ${props => (props.e ? '#101010' : 'none')};
+		background-color: ${props => (props.showCable && props.e ? '#101010' : 'none')};
 		// box-shadow: 0 0.5rem 1rem ${props => (props.e ? 'black' : 'none')};
 	}
 	
 	.pc-w {
-		background-color: ${props => (props.w ? '#101010' : 'none')};
+		background-color: ${props => (props.showCable && props.w ? '#101010' : 'none')};
 		// box-shadow: 0 0.5rem 1rem ${props => (props.w ? 'black' : 'none')};
 	}
 

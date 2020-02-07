@@ -18,8 +18,7 @@ export default function PlayerBar() {
 		axiosWithAuth()
 			.get('/adv/init/')
 			.then(res => {
-				console.log(res.data);
-
+				// console.log(res.data);
 				for (const key of Object.keys(res.data)) {
 					dispatch({
 						type: 'UPDATE_DATA_BY_FIELD',
