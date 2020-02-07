@@ -11,7 +11,7 @@ import { baseURL } from '../utils/baseURL';
 // import { LetterSelect} from '../styled-components/styledComponents';
 import { StyledForm } from '../styled-components/styledComponents';
 import { letter_data } from './LetterData';
-// import LetterBox from './LetterBox';
+import LetterBox from './LetterBox';
 import Loading from './Loading';
 
 export default function Register() {
@@ -40,14 +40,14 @@ export default function Register() {
 	const handleLetter = letter => {
 		console.log(typeField)
 		console.log(letter)
-		if(typeField === '')
-		{ setError('Please click on field headings to type')
-	}else{
-		setRegistrationInfo({
-			...registrationInfo,
-			[typeField]: registrationInfo[typeField]+ letter
-		})
-	}
+		if (typeField === '') {
+			setError('Please click on field headings to type')
+		} else {
+			setRegistrationInfo({
+				...registrationInfo,
+				[typeField]: registrationInfo[typeField] + letter
+			})
+		}
 	}
 
 	const handleSubmit = e => {
@@ -112,32 +112,33 @@ export default function Register() {
 					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
-					<LetterSelect>
+			<LetterBox  handleLetter={handleLetter}/>
+					{/* <LetterSelect>
 			{letter_data.map(letter => (
 				<div key={letter} onClick={() => handleLetter(letter)}><h2>{letter}</h2></div>
 			))}
-		</LetterSelect>
+		</LetterSelect> */}
 		</StyledForm>
 	);
 }
 
-const LetterSelect = styled.div`
-border: solid 4px #2f2b4a;
-background-color: #F0F4F7;
-height: 28rem;
-width: 55rem;
-display: flex;
-flex-wrap: wrap;
+// const LetterSelect = styled.div`
+// border: solid 4px #2f2b4a;
+// background-color: #F0F4F7;
+// height: 28rem;
+// width: 55rem;
+// display: flex;
+// flex-wrap: wrap;
 
-h2{
-	display: flex;
-	padding: 1rem;
-	color: #bb1333;
-	cursor: pointer;
-	&:hover {
-		background-color: #9d96ca;
-		color: white;
-		border-radius: 20%;
-	}
-}
-`;
+// h2{
+// 	display: flex;
+// 	padding: 1rem;
+// 	color: #bb1333;
+// 	cursor: pointer;
+// 	&:hover {
+// 		background-color: #9d96ca;
+// 		color: white;
+// 		border-radius: 20%;
+// 	}
+// }
+// `;
