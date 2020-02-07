@@ -23,22 +23,22 @@ export default function Login() {
 		password: '',
 	});
 
-	const [typeField, setTypeField ] = useState('');
+	const [typeField, setTypeField] = useState('');
 	const [error, setError] = useState('');
 
 	const handleChange = e =>
 		setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
-		const handleLetter = letter => {
-			if (typeField === '') {
-				setError('Please click on field headings to type')
-			} else {
-				setCredentials({
-					...credentials,
-					[typeField]: credentials[typeField] + letter.toLowerCase()
-				})
-			}
+	const handleLetter = letter => {
+		if (typeField === '') {
+			setError('Please click on field headings to type');
+		} else {
+			setCredentials({
+				...credentials,
+				[typeField]: credentials[typeField] + letter.toLowerCase(),
+			});
 		}
+	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -66,7 +66,15 @@ export default function Login() {
 				<Loading />
 			) : (
 				<form onSubmit={handleSubmit}>
-					<label htmlFor='username'><span style={{textDecoration: typeField === 'username' && 'underline'}} onClick={()=>setTypeField('username')}>Username:</span> </label>
+					<label htmlFor='username'>
+						<span
+							style={{
+								textDecoration: typeField === 'username' && 'underline',
+							}}
+							onClick={() => setTypeField('username')}>
+							Username:
+						</span>{' '}
+					</label>
 					<input
 						type='text'
 						id='username'
@@ -76,7 +84,15 @@ export default function Login() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password'><span style={{textDecoration: typeField === 'password' && 'underline'}} onClick={()=>setTypeField('password')}>Password:</span></label>
+					<label htmlFor='password'>
+						<span
+							style={{
+								textDecoration: typeField === 'password' && 'underline',
+							}}
+							onClick={() => setTypeField('password')}>
+							Password:
+						</span>
+					</label>
 					<input
 						type='password'
 						id='password'
@@ -91,7 +107,7 @@ export default function Login() {
 					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
-			<LetterBox  handleLetter={handleLetter}/>
+			<LetterBox handleLetter={handleLetter} />
 		</StyledForm>
 	);
 }

@@ -7,12 +7,6 @@ import { team_info } from './TeamInfo';
 export default function About() {
 	return (
 		<AboutPage>
-			<h2>The Team:</h2>
-			<TeamWrapper>
-				{team_info.map(member => (
-					<TeamCard key={member.name} member={member} />
-				))}
-			</TeamWrapper>
 			<div>
 				<h2>The Tech Stack:</h2>
 				<div className='tech-stack-txt'>
@@ -30,6 +24,14 @@ export default function About() {
 						<span className='red-text'>NES.CSS</span> for styling.
 					</p>
 				</div>
+			</div>
+			<div>
+				<h2>The Team:</h2>
+				<TeamWrapper>
+					{team_info.map(member => (
+						<TeamCard key={member.name} member={member} />
+					))}
+				</TeamWrapper>
 			</div>
 		</AboutPage>
 	);
