@@ -19,11 +19,12 @@ export default function ItemsList({ header, empty, items, endpoint }) {
 			.then(res => {
 				// console.log(res.data);
 				dispatch({
-					type: 'ACTION_SUCCESS',
-					payload: {
-						room_items: res.data.room_items,
-						player_items: res.data.player_items,
-					},
+					type: 'UPDATE_DATA_BY_FIELD',
+					payload: { key: 'room_items', value: res.data.room_items },
+				});
+				dispatch({
+					type: 'UPDATE_DATA_BY_FIELD',
+					payload: { key: 'player_items', value: res.data.player_items },
 				});
 			})
 			.catch(err => {

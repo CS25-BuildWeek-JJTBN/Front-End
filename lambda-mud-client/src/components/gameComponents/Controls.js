@@ -7,8 +7,6 @@ import { useDataContext } from '../../contexts/DataContext';
 // import ControlsMiddle from './ControlsMiddle';
 // import ControlsButtons from './ControlsButtons';
 
-import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
-
 export default function Controls() {
 	const {
 		data: { chatOpen },
@@ -21,13 +19,11 @@ export default function Controls() {
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				console.log(res.data.room_items);
+				// console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
-						type: 'UPDATE_VISITED_ROOMS',
-						payload: {
-							visited_rooms: visitedRoomsObjToArray(res.data.rooms),
-						},
+						type: 'UPDATE_DATA_BY_FIELD',
+						payload: { key: 'visited_rooms', value: res.data.rooms },
 					});
 				}
 

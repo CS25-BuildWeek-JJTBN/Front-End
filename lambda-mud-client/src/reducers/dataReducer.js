@@ -21,6 +21,7 @@ export const initialDataState = {
 	has_headphones: false,
 	lens_color: '',
 	headphone_color: '',
+	headphone_color_2: '',
 	hatband_color: '',
 	hat_color: '',
 	isLoading: false,
@@ -36,21 +37,6 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				error: '',
 				isLoading: true,
-			};
-		case 'GET_DATA_SUCCESS':
-			return {
-				...state,
-				isLoading: false,
-				error: '',
-				uuid: action.payload.uuid,
-				name: action.payload.name,
-				title: action.payload.title,
-				description: action.payload.description,
-				players: action.payload.players,
-				id: action.payload.room,
-				room_items: action.payload.room_items,
-				visited_rooms: action.payload.visited_rooms,
-				player_items: action.payload.player_items,
 			};
 		case 'UPDATE_DATA_BY_FIELD':
 			return {
@@ -86,28 +72,11 @@ export const dataReducer = (state = initialDataState, action) => {
 				room_items: action.payload.room_items,
 				error_msg: action.payload.error_msg,
 			};
-		case 'UPDATE_VISITED_ROOMS':
-			return {
-				...state,
-				visited_rooms: action.payload.visited_rooms,
-			};
 		case 'MOVE_FAILURE':
 			return {
 				...state,
 				error: 'Sorry, error making that move',
 				isLoading: false,
-			};
-		case 'GET_PLAYER_ITEMS':
-			return {
-				...state,
-				isLoading: false,
-				player_items: action.payload.player_items,
-			};
-		case 'GET_VISITED_ROOMS':
-			return {
-				...state,
-				isLoading: false,
-				visited_rooms: action.payload.visited_rooms,
 			};
 		case 'ACTION_START':
 			return {
@@ -115,13 +84,6 @@ export const dataReducer = (state = initialDataState, action) => {
 				error: '',
 				error_msg: '',
 				isLoading: true,
-			};
-		case 'ACTION_SUCCESS':
-			return {
-				...state,
-				isLoading: false,
-				room_items: action.payload.room_items,
-				player_items: action.payload.player_items,
 			};
 		case 'ACTION_FAILURE':
 			return {

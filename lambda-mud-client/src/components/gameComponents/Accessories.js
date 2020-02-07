@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useDataContext } from '../../contexts/DataContext';
 
@@ -11,6 +11,12 @@ import setAttribute from '../../utils/setAttribute';
 
 export default function Accessories() {
 	const { data, dispatch } = useDataContext();
+
+	useEffect(() => {
+		if (!data.has_sunglasses) {
+			setAttribute('lens_color', '', dispatch);
+		}
+	}, [data.has_sunglasses]);
 
 	const wearableItems = ['Glasses', 'Sunglasses', 'Hat', 'Headphones'];
 
