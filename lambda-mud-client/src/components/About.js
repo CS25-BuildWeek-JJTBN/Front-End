@@ -18,10 +18,11 @@ export default function About() {
 					<p>
 						The front-end was built using{' '}
 						<span className='red-text'>REACT ROUTER</span>,{' '}
-						<span className='red-text'>AXIOS</span> for data fetching,
-						<span className='red-text'>CONTEXT API</span> for state management,
-						& <span className='red-text'>STYLED-COMPONENTS</span> and{' '}
-						<span className='red-text'>NES.CSS</span> for styling.
+						<span className='red-text'>AXIOS</span> for data fetching,{' '}
+						<span className='red-text'>CONTEXT API</span> for state management,{' '}
+						<span className='red-text'>STYLED-COMPONENTS</span> and{' '}
+						<span className='red-text'>NES.CSS</span> for styling, and{' '}
+						<span className='red-text'>PUSHER-JS</span> for chat functionality.
 					</p>
 				</div>
 			</div>
