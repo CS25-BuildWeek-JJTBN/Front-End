@@ -1,29 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
+import Pusher from 'pusher-js';
 
 import { useDataContext } from '../../contexts/DataContext';
 
 export default function Chat() {
-	const [message, setMessage] = useState('');
-
 	const {
-		data: { players, chatOpen },
+		data: { name, uuid, players, chatOpen },
 		dispatch,
 	} = useDataContext();
 
-	const handleChange = e => setMessage(e.target.value);
+	const [chat, setChat] = useState({
+		text: '',
+		username: '',
+		chats: [],
+	});
+
+	useEffect(() => {
+		if (uuid && name) {
+			setChat({ ...chat, username: name });
+
+			const pusher = new Pusher('1ba70163374ac8ff9fba', {
+				cluster: 'us2',
+				encrypted: true,
+			});
+
+			const channel = pusher.subscribe(`p-channel-${uuid}`);
+
+			console.log(chat.chats);
+
+			channel.bind('broadcast', data => {
+				console.log(chat.chats);
+				// console.log(data);
+				// [...chat.chats, data]
+				setChat({ ...chat, username: name, chats: [...chat.chats, data] });
+			});
+		}
+	}, [uuid]);
+
+	const handleChange = e => setChat({ ...chat, text: e.target.value });
 
 	const handleSend = () => {
+		const payload = { message: chat.text };
+		console.log('1', payload);
+
 		axiosWithAuth()
-			.post('/adv/say/', { message })
+			.post('/adv/say/', payload)
 			.then(res => {
 				console.log(res);
+
+				console.log('2', payload);
+
+				setChat({
+					...chat,
+					chats: [...chat.chats, { message: `${chat.username}: ${chat.text}` }],
+					text: '',
+				});
 			})
 			.catch(err => {
 				console.log(err);
 			});
 	};
+
+	console.log(chat.chats && chat.chats);
 
 	return (
 		<ChatWrapper>
@@ -44,12 +84,17 @@ export default function Chat() {
 							))}
 						</ul>
 						<h4>Chat:</h4>
-						<div className='chat-box'></div>
+						<div className='chat-box'>
+							{chat.chats &&
+								chat.chats.map((message, index) => (
+									<div key={index}>{message.message}</div>
+								))}
+						</div>
 						<input
 							type='text'
 							id='message'
 							name='message'
-							value={message}
+							value={chat.text}
 							onChange={handleChange}
 						/>
 						<button onClick={handleSend}>Send</button>
@@ -63,8 +108,8 @@ export default function Chat() {
 const ChatWrapper = styled.div`
 	position: absolute;
 	top: 14rem;
-	right: 2rem;
-	z-index: 1100;
+	left: 2rem;
+	z-index: 1205;
 
 	@media screen and (max-width: 750px) {
 		top: 17rem;

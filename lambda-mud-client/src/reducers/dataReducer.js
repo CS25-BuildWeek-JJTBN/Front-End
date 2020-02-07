@@ -1,6 +1,6 @@
 export const initialDataState = {
 	isLoading: false,
-	// uuid: '',
+	uuid: '',
 	name: '',
 	title: '',
 	description: '',
@@ -21,11 +21,12 @@ export const initialDataState = {
 	hatBandColor: '',
 	lensColor: '',
 	hasGlasses: false,
+	hasSunglasses: false,
 	hasHat: false,
 	hasHeadphones: false,
 	error: '',
 	error_msg: '',
-	chatOpen: false,
+	chatOpen: true,
 };
 
 export const dataReducer = (state = initialDataState, action) => {
@@ -41,7 +42,7 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				isLoading: false,
 				error: '',
-				// uuid: action.payload.uuid,
+				uuid: action.payload.uuid,
 				name: action.payload.name,
 				title: action.payload.title,
 				description: action.payload.description,
@@ -88,6 +89,18 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				error: 'Sorry, error making that move',
 				isLoading: false,
+			};
+		case 'GET_PLAYER_ITEMS':
+			return {
+				...state,
+				isLoading: false,
+				playerItems: action.payload.playerItems,
+			};
+		case 'GET_VISITED_ROOMS':
+			return {
+				...state,
+				isLoading: false,
+				visitedRooms: action.payload.visitedRooms,
 			};
 		case 'SET_ATTRIBUTE':
 			return {

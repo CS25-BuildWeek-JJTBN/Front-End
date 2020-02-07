@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React from 'react';
 import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
@@ -20,7 +19,7 @@ import {
 	Checkbox,
 } from '../styled-components/styledComponents';
 
-import { processAttributes } from '../utils/processAttributes';
+import setAttribute from '../utils/setAttribute';
 
 export default function CustomizeAvatar() {
 	const {
@@ -28,33 +27,8 @@ export default function CustomizeAvatar() {
 		dispatch,
 	} = useDataContext();
 
-	useEffect(() => {
-		dispatch({ type: 'GET_DATA_START' });
-
-		axiosWithAuth()
-			.get('/adv/init/')
-			.then(res => {
-				// console.log(res.data);
-				processAttributes(res.data, dispatch);
-			})
-			.catch(err => {
-				// console.log(err);
-				dispatch({ type: 'GET_DATA_FAILURE' });
-			});
-	}, []);
-
-	const handleClick = (attribute, value) => {
-		dispatch({ type: 'SET_ATTRIBUTE', payload: { attribute, value } });
-
-		axiosWithAuth()
-			.post('/adv/player-update/', { [attribute]: value })
-			.then(res => {
-				console.log(res);
-			})
-			.catch(err => {
-				console.log(err);
-			});
-	};
+	const handleClick = (attribute, value, dispatch) =>
+		setAttribute(attribute, value, dispatch);
 
 	return (
 		<ProfilePanelWrapper>
@@ -70,7 +44,7 @@ export default function CustomizeAvatar() {
 						<ColorSwatch
 							key={color}
 							color={color}
-							handleClick={() => handleClick('pupil_color', color)}
+							handleClick={() => handleClick('pupil_color', color, dispatch)}
 						/>
 					))}
 				</div>
@@ -82,7 +56,7 @@ export default function CustomizeAvatar() {
 						<ColorSwatch
 							key={color}
 							color={color}
-							handleClick={() => handleClick('skin_tone', color)}
+							handleClick={() => handleClick('skin_tone', color, dispatch)}
 						/>
 					))}
 				</div>
@@ -94,7 +68,7 @@ export default function CustomizeAvatar() {
 						<ColorSwatch
 							key={color}
 							color={color}
-							handleClick={() => handleClick('hoodie_color', color)}
+							handleClick={() => handleClick('hoodie_color', color, dispatch)}
 						/>
 					))}
 				</div>
@@ -106,7 +80,7 @@ export default function CustomizeAvatar() {
 						<ColorSwatch
 							key={color}
 							color={color}
-							handleClick={() => handleClick('pants_color', color)}
+							handleClick={() => handleClick('pants_color', color, dispatch)}
 						/>
 					))}
 				</div>
@@ -118,7 +92,7 @@ export default function CustomizeAvatar() {
 						<ColorSwatch
 							key={color}
 							color={color}
-							handleClick={() => handleClick('shoe_color', color)}
+							handleClick={() => handleClick('shoe_color', color, dispatch)}
 						/>
 					))}
 				</div>
@@ -147,13 +121,13 @@ export default function CustomizeAvatar() {
 						<h4>Shape:</h4>
 						<div>
 							<Checkbox
-								onClick={() => handleClick('glasses_style', 'round')}
+								onClick={() => handleClick('glasses_style', 'round', dispatch)}
 								trueValue={glasses_style === 'round'}
 							/>
 							<RoundLens />
 							<RoundLens />
 							<Checkbox
-								onClick={() => handleClick('glasses_style', 'square')}
+								onClick={() => handleClick('glasses_style', 'square', dispatch)}
 								trueValue={glasses_style === 'square'}
 							/>
 							<SquareLens />
@@ -167,7 +141,9 @@ export default function CustomizeAvatar() {
 								<ColorSwatch
 									key={color}
 									color={color}
-									handleClick={() => handleClick('glasses_color', color)}
+									handleClick={() =>
+										handleClick('glasses_color', color, dispatch)
+									}
 								/>
 							))}
 						</div>
