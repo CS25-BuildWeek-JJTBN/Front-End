@@ -49,7 +49,7 @@ export default function PlayerBar() {
 			<h3>
 				ISA:{' '}
 				<span className='span-normal'>
-					${roomsVisited * 300}/$30,000 ({roomsVisited}%)
+				{roomsVisited * 300}<i class="nes-icon coin is-small"></i>/30,000<i class="nes-icon coin is-small"></i> ({roomsVisited}%)
 				</span>
 			</h3>
 		</DashBar>
