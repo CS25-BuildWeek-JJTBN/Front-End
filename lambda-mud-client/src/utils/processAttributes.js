@@ -28,6 +28,6 @@ export const processAttributes = (data, dispatch) => {
 	Object.keys(filteredData).includes('glasses_style') &&
 		dispatch({
 			type: 'SET_ATTRIBUTE',
-			payload: { attribute: 'hasGlasses', value: true },
+			payload: { attribute: 'has_glasses', value: true },
 		});
 };

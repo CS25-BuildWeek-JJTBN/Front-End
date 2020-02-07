@@ -7,8 +7,6 @@ import { useDataContext } from '../../contexts/DataContext';
 // import ControlsMiddle from './ControlsMiddle';
 // import ControlsButtons from './ControlsButtons';
 
-import { visitedRoomsObjToArray } from '../../utils/visitedRoomsFunctions';
-
 export default function Controls() {
 	const {
 		data: { chatOpen },
@@ -24,10 +22,8 @@ export default function Controls() {
 				// console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
-						type: 'UPDATE_VISITED_ROOMS',
-						payload: {
-							visitedRooms: visitedRoomsObjToArray(res.data.rooms),
-						},
+						type: 'UPDATE_DATA_BY_FIELD',
+						payload: { key: 'visited_rooms', value: res.data.rooms },
 					});
 				}
 
@@ -39,7 +35,7 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
-						roomItems: res.data.room_items,
+						room_items: res.data.room_items,
 						error_msg: res.data.error_msg,
 					},
 				});
@@ -52,6 +48,23 @@ export default function Controls() {
 
 	useEffect(() => {
 		const handleKeyDown = ({ key, keyCode }) => {
+			switch (keyCode) {
+				case 37:
+					handleMove('w');
+					break;
+				case 38:
+					handleMove('n');
+					break;
+				case 39:
+					handleMove('e');
+					break;
+				case 40:
+					handleMove('s');
+					break;
+				default:
+					break;
+			}
+
 			if (!chatOpen) {
 				switch (key) {
 					case 'n':
@@ -65,23 +78,6 @@ export default function Controls() {
 						break;
 					case 'w':
 						handleMove('w');
-						break;
-					default:
-						break;
-				}
-
-				switch (keyCode) {
-					case 37:
-						handleMove('w');
-						break;
-					case 38:
-						handleMove('n');
-						break;
-					case 39:
-						handleMove('e');
-						break;
-					case 40:
-						handleMove('s');
 						break;
 					default:
 						return;

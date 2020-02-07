@@ -10,24 +10,24 @@ import {
 export default function Avatar() {
 	const { data } = useDataContext();
 
-	const headphonesShift = data.hasHat ? '7rem' : '2.75rem';
+	const headphonesShift = data.has_hat ? '7rem' : '2.75rem';
 
 	const glassesShift = () => {
-		if (!data.hasHat && !data.hasHeadphones) return '4.8rem';
-		else if (!data.hasHat && data.hasHeadphones) return '8.4rem';
-		else if (data.hasHat && !data.hasHeadphones) return '10rem';
-		else if (data.hasHat && data.hasHeadphones) return '13.3rem';
+		if (!data.has_hat && !data.has_headphones) return '4.8rem';
+		else if (!data.has_hat && data.has_headphones) return '8.4rem';
+		else if (data.has_hat && !data.has_headphones) return '10rem';
+		else if (data.has_hat && data.has_headphones) return '13.3rem';
 	};
 
 	const avatarShift = () => {
-		if (!data.hasGlasses) {
-			if (!data.hasHat && !data.hasHeadphones) return '2rem';
-			else if (data.hasHat !== data.hasHeadphones) return '0rem';
-			else if (data.hasHat && data.hasHeadphones) return '-2rem';
+		if (!data.has_glasses) {
+			if (!data.has_hat && !data.has_headphones) return '2rem';
+			else if (data.has_hat !== data.has_headphones) return '0rem';
+			else if (data.has_hat && data.has_headphones) return '-2rem';
 		} else {
-			if (!data.hasHat && !data.hasHeadphones) return '1rem';
-			else if (data.hasHat !== data.hasHeadphones) return '-1rem';
-			else if (data.hasHat && data.hasHeadphones) return '-3rem';
+			if (!data.has_hat && !data.has_headphones) return '1rem';
+			else if (data.has_hat !== data.has_headphones) return '-1rem';
+			else if (data.has_hat && data.has_headphones) return '-3rem';
 		}
 	};
 
@@ -38,20 +38,20 @@ export default function Avatar() {
 				glassesShift={glassesShift}
 				avatarShift={avatarShift}
 				data={data}>
-				{data.hasGlasses && (
+				{(data.has_glasses || data.has_sunglasses) && (
 					<div className='glasses'>
 						<div className='lens'></div>
 						<div className='lens'></div>
 					</div>
 				)}
-				{data.hasHeadphones && (
+				{data.has_headphones && (
 					<div className='headphones'>
 						<div className='headphone'></div>
 						<div className='headphone-band'></div>
 						<div className='headphone'></div>
 					</div>
 				)}
-				{data.hasHat && (
+				{data.has_hat && (
 					<div className='hat'>
 						<div className='hat-top'></div>
 						<div className='hat-band'></div>

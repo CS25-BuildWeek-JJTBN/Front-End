@@ -15,8 +15,8 @@ export default function Chat() {
 		text: '',
 		username: '',
 		chats: [],
-  });
-  const [message, setMessage] = useState(null)
+	});
+	const [message, setMessage] = useState(null);
 	useEffect(() => {
 		if (uuid && name) {
 			setChat({ ...chat, username: name });
@@ -26,33 +26,29 @@ export default function Chat() {
 				encrypted: true,
 			});
 
-      const channel = pusher.subscribe(`p-channel-${uuid}`);
-      const cb = (message) => {
-        setMessage(message)
-      }
-			channel.bind('broadcast', cb)
+			const channel = pusher.subscribe(`p-channel-${uuid}`);
+			const cb = message => {
+				setMessage(message);
+			};
+			channel.bind('broadcast', cb);
 		}
 	}, [uuid]);
 
-
-  useEffect(() => {
-    if (message && message.message) {
-      setChat({...chat, username: name, chats: [...chat.chats, message]})
-    }
-  }, [message]);
+	useEffect(() => {
+		if (message && message.message) {
+			setChat({ ...chat, username: name, chats: [...chat.chats, message] });
+		}
+	}, [message]);
 
 	const handleChange = e => setChat({ ...chat, text: e.target.value });
 
 	const handleSend = () => {
 		const payload = { message: chat.text };
-		console.log('1', payload);
 
 		axiosWithAuth()
 			.post('/adv/say/', payload)
 			.then(res => {
 				console.log(res);
-
-				console.log('2', payload);
 
 				setChat({
 					...chat,
@@ -64,9 +60,6 @@ export default function Chat() {
 				console.log(err);
 			});
 	};
-
-  console.log(chat.chats && chat.chats);
-  console.log(message)
 
 	return (
 		<ChatWrapper>

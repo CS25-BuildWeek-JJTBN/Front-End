@@ -2,7 +2,6 @@ export const initialUserState = {
 	isLoading: false,
 	isLoggedIn: false,
 	hardMode: true,
-	// error: '',
 };
 
 export const userReducer = (state = initialUserState, action) => {
@@ -10,7 +9,6 @@ export const userReducer = (state = initialUserState, action) => {
 		case 'REGISTRATION_START':
 			return {
 				...state,
-				// error: '',
 				isLoading: true,
 			};
 		case 'REGISTRATION_SUCCESS':
@@ -22,14 +20,12 @@ export const userReducer = (state = initialUserState, action) => {
 		case 'REGISTRATION_FAILURE':
 			return {
 				...state,
-				// error: 'Sorry, cannot register that account',
 				isLoggedIn: false,
 				isLoading: false,
 			};
 		case 'LOGIN_START':
 			return {
 				...state,
-				// error: '',
 				isLoading: true,
 			};
 		case 'LOGIN_SUCCESS':
@@ -41,7 +37,6 @@ export const userReducer = (state = initialUserState, action) => {
 		case 'LOGIN_FAILURE':
 			return {
 				...state,
-				// error: 'Sorry, cannot login for that username and password combination',
 				isLoggedIn: false,
 				isLoading: false,
 			};
