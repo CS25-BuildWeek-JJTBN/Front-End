@@ -38,7 +38,7 @@ export default function Avatar() {
 				glassesShift={glassesShift}
 				avatarShift={avatarShift}
 				data={data}>
-				{data.has_glasses && (
+				{(data.has_glasses || data.has_sunglasses) && (
 					<div className='glasses'>
 						<div className='lens'></div>
 						<div className='lens'></div>

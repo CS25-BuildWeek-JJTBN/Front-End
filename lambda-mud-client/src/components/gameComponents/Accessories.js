@@ -15,16 +15,19 @@ export default function Accessories() {
 	const wearableItems = ['Glasses', 'Sunglasses', 'Hat', 'Headphones'];
 
 	const handleClick = (type, color) => {
-		const attribute = 'has' + type;
+		const attribute = 'has_' + type.toLowerCase();
 		setAttribute(attribute, !data[attribute], dispatch);
 
-		if (type === 'Glasses') setAttribute('glasses_color', color, dispatch);
-		else if (type === 'Hat') {
+		if (type === 'Glasses') {
+			setAttribute('glasses_color', color, dispatch);
+			setAttribute('has_sunglasses', false, dispatch);
+		} else if (type === 'Hat') {
 			const colors = color.toLowerCase().split('-');
 			setAttribute('hat_color', colors[0], dispatch);
 			setAttribute('hatband_color', colors[1], dispatch);
 		} else if (type === 'Sunglasses') {
 			const colors = color.toLowerCase().split('-');
+			setAttribute('has_glasses', false, dispatch);
 			setAttribute('glasses_color', colors[0], dispatch);
 			setAttribute('lens_color', colors[1], dispatch);
 		}
@@ -45,7 +48,7 @@ export default function Accessories() {
 							</div>
 							<Checkbox
 								onClick={() => handleClick(item.description, item.color)}
-								trueValue={data['has' + item.description]}
+								trueValue={data['has_' + item.description.toLowerCase()]}
 							/>
 						</div>
 					))}

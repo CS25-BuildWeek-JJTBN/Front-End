@@ -23,7 +23,7 @@ import setAttribute from '../utils/setAttribute';
 
 export default function CustomizeAvatar() {
 	const {
-		data: { has_glasses, glasses_style, isLoading },
+		data: { has_sunglasses, has_glasses, glasses_style, isLoading },
 		dispatch,
 	} = useDataContext();
 
@@ -97,24 +97,26 @@ export default function CustomizeAvatar() {
 					))}
 				</div>
 			</div>
-			<div className='color-row'>
-				<h4>Glasses?</h4>
-				<div className='check-boxes'>
-					<Checkbox
-						onClick={() => handleClick('has_glasses', true, dispatch)}
-						trueValue={has_glasses}
-					/>{' '}
-					Yes{' '}
-					<Checkbox
-						onClick={() => {
-							handleClick('has_glasses', false, dispatch);
-							handleClick('glasses_style', '');
-						}}
-						trueValue={!has_glasses}
-					/>{' '}
-					No
+			{!has_sunglasses && (
+				<div className='color-row'>
+					<h4>Glasses?</h4>
+					<div className='check-boxes'>
+						<Checkbox
+							onClick={() => handleClick('has_glasses', true, dispatch)}
+							trueValue={has_glasses}
+						/>{' '}
+						Yes{' '}
+						<Checkbox
+							onClick={() => {
+								handleClick('has_glasses', false, dispatch);
+								handleClick('glasses_style', '', dispatch);
+							}}
+							trueValue={!has_glasses}
+						/>{' '}
+						No
+					</div>
 				</div>
-			</div>
+			)}
 			{has_glasses && (
 				<>
 					<div className='color-row'>
