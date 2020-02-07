@@ -100,6 +100,7 @@ export const dataReducer = (state = initialDataState, action) => {
 			return {
 				...state,
 				error_msg: action.payload,
+				isLoading: false,
 			};
 		default:
 			return state;
