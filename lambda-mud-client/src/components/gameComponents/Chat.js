@@ -16,7 +16,9 @@ export default function Chat() {
 		username: '',
 		chats: [],
 	});
+
 	const [message, setMessage] = useState(null);
+
 	useEffect(() => {
 		if (uuid && name) {
 			setChat({ ...chat, username: name });
@@ -83,7 +85,9 @@ export default function Chat() {
 						<div className='chat-box'>
 							{chat.chats &&
 								chat.chats.map((message, index) => (
-									<div key={index}>{message.message}</div>
+									<div className='chat-message' key={index}>
+										{message.message}
+									</div>
 								))}
 						</div>
 						<input
@@ -94,6 +98,9 @@ export default function Chat() {
 							onChange={handleChange}
 						/>
 						<button onClick={handleSend}>Send</button>
+						<button onClick={() => setChat({ ...chat, chats: [] })}>
+							Clear
+						</button>
 					</>
 				)}
 			</div>
@@ -154,10 +161,15 @@ const ChatWrapper = styled.div`
 
 	input {
 		width: 100%;
+		margin-bottom: 0.5rem;
 	}
 
 	button {
 		width: 100%;
-		margin-bottom: 0.5rem;
+		margin: 0.5rem 0;
+	}
+
+	.chat-message {
+		margin-top: 1rem;
 	}
 `;
