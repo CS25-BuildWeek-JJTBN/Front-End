@@ -18,7 +18,7 @@ export default function LetterBox({ handleLetter }) {
 const LetterSelect = styled.div`
 	border: solid 4px #2f2b4a;
 	background-color: #f0f4f7;
-	height: 28rem;
+	// height: 28rem;
 	width: 55rem;
 	display: flex;
 	flex-wrap: wrap;
