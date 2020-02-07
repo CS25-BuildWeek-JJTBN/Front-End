@@ -28,8 +28,8 @@ const StyledCard = styled.div`
 `;
 
 const StyledImage = styled.div`
-	width: 17rem;
-	height: 17rem;
+	width: 27rem;
+	height: 27rem;
 	margin: 0 auto;
 
 	background-image: ${props => props.image};

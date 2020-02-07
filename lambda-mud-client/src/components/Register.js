@@ -14,7 +14,7 @@ export default function Register() {
 	const history = useHistory();
 
 	const {
-		user: { isLoading, error },
+		user: { isLoading },
 		dispatch,
 	} = useUserContext();
 
@@ -23,6 +23,8 @@ export default function Register() {
 		password1: '',
 		password2: '',
 	});
+
+	const [error, setError] = useState('');
 
 	const handleChange = e => {
 		setRegistrationInfo({
@@ -46,6 +48,7 @@ export default function Register() {
 			.catch(err => {
 				// console.log(err);
 				dispatch({ type: 'REGISTRATION_FAILURE' });
+				setError('Sorry, error registering');
 			});
 	};
 
@@ -67,7 +70,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Password 1: </label>
+					<label htmlFor='password1'>Password: </label>
 					<input
 						type='password'
 						id='password1'
@@ -77,7 +80,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Password 2: </label>
+					<label htmlFor='password1'>Reenter your Password: </label>
 					<input
 						type='password'
 						id='password2'
@@ -89,7 +92,7 @@ export default function Register() {
 
 					<button type='submit'>Register</button>
 
-					{error && <div>{error}</div>}
+					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
 		</StyledForm>

@@ -1,57 +1,57 @@
 import React from 'react';
 
+import { useDataContext } from '../../contexts/DataContext';
+
 import {
 	AvatarContainer,
 	AvatarWrapper,
 } from '../../styled-components/AvatarWrapper';
 
 export default function Avatar() {
-	const avatarColors = {
-		headPhoneColor: 'black',
-		hatColor: 'orange',
-		hatBandColor: 'red',
-		skinTone: '#e0ac69',
-		pupilColor: 'black',
-		hoodieColor: 'gray',
-		pantsColor: 'darkblue',
-		shoeColor: 'white',
-		lensColor: '',
+	const { data } = useDataContext();
+
+	const headphonesShift = data.hasHat ? '7rem' : '2.75rem';
+
+	const glassesShift = () => {
+		if (!data.hasHat && !data.hasHeadphones) return '4.8rem';
+		else if (!data.hasHat && data.hasHeadphones) return '8.4rem';
+		else if (data.hasHat && !data.hasHeadphones) return '10rem';
+		else if (data.hasHat && data.hasHeadphones) return '13.3rem';
 	};
 
-	const accessoriesStatus = {
-		headphones: true,
-		hat: true,
-		roundGlasses: false,
-		squareGlasses: false,
+	const avatarShift = () => {
+		if (!data.hasGlasses) {
+			if (!data.hasHat && !data.hasHeadphones) return '2rem';
+			else if (data.hasHat !== data.hasHeadphones) return '0rem';
+			else if (data.hasHat && data.hasHeadphones) return '-2rem';
+		} else {
+			if (!data.hasHat && !data.hasHeadphones) return '1rem';
+			else if (data.hasHat !== data.hasHeadphones) return '-1rem';
+			else if (data.hasHat && data.hasHeadphones) return '-3rem';
+		}
 	};
-
-	const headphonesShift = accessoriesStatus.hat ? '7rem' : '2.75rem';
 
 	return (
 		<AvatarContainer>
 			<AvatarWrapper
 				headphonesShift={headphonesShift}
-				avatarColors={avatarColors}>
-				{accessoriesStatus.roundGlasses && (
-					<div className='round-glasses'>
-						<div className='round-lens'></div>
-						<div className='round-lens'></div>
+				glassesShift={glassesShift}
+				avatarShift={avatarShift}
+				data={data}>
+				{data.hasGlasses && (
+					<div className='glasses'>
+						<div className='lens'></div>
+						<div className='lens'></div>
 					</div>
 				)}
-				{accessoriesStatus.squareGlasses && (
-					<div className='square-glasses'>
-						<div className='square-lens'></div>
-						<div className='square-lens'></div>
-					</div>
-				)}
-				{accessoriesStatus.headphones && (
+				{data.hasHeadphones && (
 					<div className='headphones'>
 						<div className='headphone'></div>
 						<div className='headphone-band'></div>
 						<div className='headphone'></div>
 					</div>
 				)}
-				{accessoriesStatus.hat && (
+				{data.hasHat && (
 					<div className='hat'>
 						<div className='hat-top'></div>
 						<div className='hat-band'></div>
