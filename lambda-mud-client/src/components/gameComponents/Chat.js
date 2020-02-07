@@ -82,13 +82,14 @@ export default function Chat() {
 							))}
 						</ul>
 						<h4>Chat:</h4>
-						<div className='chat-box'>
+						<div className='chat-box' id='scroller'>
 							{chat.chats &&
 								chat.chats.map((message, index) => (
 									<div className='chat-message' key={index}>
 										{message.message}
 									</div>
 								))}
+							<div id='anchor'></div>
 						</div>
 						<input
 							type='text'
@@ -171,5 +172,14 @@ const ChatWrapper = styled.div`
 
 	.chat-message {
 		margin-top: 1rem;
+	}
+
+	#scroller {
+		overflow-anchor: none;
+	}
+
+	#anchor {
+		overflow-anchor: auto;
+		height: 1px;
 	}
 `;

@@ -12,9 +12,40 @@ export default function TeamCard({ member }) {
 				<p>{member.bio.toUpperCase()}</p>
 				<h3>{member.name.toUpperCase()}</h3>
 			</div>
-            <i className="nes-icon linkedin is-medium" >
-			<a href={member.link_url} target='_blank'>
-			</a></i>
+			<div className='about-icons'>
+				{member.webpage_url && (
+					<i className='nes-icon trophy is-medium'>
+						<a
+							href={member.webpage_url}
+							target='_blank'
+							rel='noopener noreferrer'></a>
+					</i>
+				)}
+				{member.linkedin_url && (
+					<i className='nes-icon linkedin is-medium'>
+						<a
+							href={member.linkedin_url}
+							target='_blank'
+							rel='noopener noreferrer'></a>
+					</i>
+				)}
+				{member.github_url && (
+					<i className='nes-icon github is-medium'>
+						<a
+							href={member.github_url}
+							target='_blank'
+							rel='noopener noreferrer'></a>
+					</i>
+				)}
+				{member.twitter_url && (
+					<i className='nes-icon twitter is-medium'>
+						<a
+							href={member.twitter_url}
+							target='_blank'
+							rel='noopener noreferrer'></a>
+					</i>
+				)}
+			</div>
 		</StyledCard>
 	);
 }
@@ -25,6 +56,17 @@ const StyledCard = styled.div`
 	margin-bottom: 2rem;
 	padding: 1rem;
 	background-color: #f0f4f7;
+
+	display: flex;
+	flex-direction: column;
+
+	.about-icons {
+		margin-top: 1rem;
+		display: flex;
+		justify-content: space-evenly;
+		flex: 1;
+		align-items: flex-end;
+	}
 `;
 
 const StyledImage = styled.div`
