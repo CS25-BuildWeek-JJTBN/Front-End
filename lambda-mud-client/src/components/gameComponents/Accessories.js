@@ -19,17 +19,22 @@ export default function Accessories() {
 		setAttribute(attribute, !data[attribute], dispatch);
 
 		if (type === 'Glasses') {
-			setAttribute('glasses_color', color, dispatch);
+			const colors = color.toLowerCase().split('-');
 			setAttribute('has_sunglasses', false, dispatch);
+			setAttribute('glasses_style', colors[0], dispatch);
+			setAttribute('glasses_color', colors[1], dispatch);
+		} else if (type === 'Sunglasses') {
+			const colors = color.toLowerCase().split('-');
+			setAttribute('has_glasses', false, dispatch);
+			setAttribute('glasses_style', colors[0], dispatch);
+			setAttribute('glasses_color', colors[1], dispatch);
+			setAttribute('lens_color', colors[2], dispatch);
 		} else if (type === 'Hat') {
 			const colors = color.toLowerCase().split('-');
 			setAttribute('hat_color', colors[0], dispatch);
 			setAttribute('hatband_color', colors[1], dispatch);
-		} else if (type === 'Sunglasses') {
-			const colors = color.toLowerCase().split('-');
-			setAttribute('has_glasses', false, dispatch);
-			setAttribute('glasses_color', colors[0], dispatch);
-			setAttribute('lens_color', colors[1], dispatch);
+		} else if (type === 'Headphones') {
+			setAttribute('headphone_color', color, dispatch);
 		}
 	};
 

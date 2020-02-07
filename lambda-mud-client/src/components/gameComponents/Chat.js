@@ -44,7 +44,6 @@ export default function Chat() {
 
 	const handleSend = () => {
 		const payload = { message: chat.text };
-		console.log('1', payload);
 
 		axiosWithAuth()
 			.post('/adv/say/', payload)

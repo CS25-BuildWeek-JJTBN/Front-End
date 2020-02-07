@@ -21,7 +21,7 @@ export default function Controls() {
 		axiosWithAuth()
 			.post('/adv/move/', { direction })
 			.then(res => {
-				// console.log(res.data.room_items);
+				console.log(res.data.room_items);
 				if (!res.data.error_msg) {
 					dispatch({
 						type: 'UPDATE_VISITED_ROOMS',
@@ -52,6 +52,23 @@ export default function Controls() {
 
 	useEffect(() => {
 		const handleKeyDown = ({ key, keyCode }) => {
+			switch (keyCode) {
+				case 37:
+					handleMove('w');
+					break;
+				case 38:
+					handleMove('n');
+					break;
+				case 39:
+					handleMove('e');
+					break;
+				case 40:
+					handleMove('s');
+					break;
+				default:
+					break;
+			}
+
 			if (!chatOpen) {
 				switch (key) {
 					case 'n':
@@ -65,23 +82,6 @@ export default function Controls() {
 						break;
 					case 'w':
 						handleMove('w');
-						break;
-					default:
-						break;
-				}
-
-				switch (keyCode) {
-					case 37:
-						handleMove('w');
-						break;
-					case 38:
-						handleMove('n');
-						break;
-					case 39:
-						handleMove('e');
-						break;
-					case 40:
-						handleMove('s');
 						break;
 					default:
 						return;

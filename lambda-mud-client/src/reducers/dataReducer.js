@@ -26,7 +26,7 @@ export const initialDataState = {
 	isLoading: false,
 	error: '',
 	error_msg: '',
-	chatOpen: true,
+	chatOpen: false,
 };
 
 export const dataReducer = (state = initialDataState, action) => {
