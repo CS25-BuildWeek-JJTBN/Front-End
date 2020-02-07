@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-
+import styled from 'styled-components';
 // Context API
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
 // Styled Components & Components
+
+// import { LetterSelect} from '../styled-components/styledComponents';
 import { StyledForm } from '../styled-components/styledComponents';
+import { letter_data } from './LetterData';
+import LetterBox from './LetterBox';
 import Loading from './Loading';
 
 export default function Register() {
@@ -23,6 +27,7 @@ export default function Register() {
 		password1: '',
 		password2: '',
 	});
+	const [typeField, setTypeField ] = useState('');
 
 	const [error, setError] = useState('');
 
@@ -32,6 +37,18 @@ export default function Register() {
 			[e.target.name]: e.target.value,
 		});
 	};
+	const handleLetter = letter => {
+		console.log(typeField)
+		console.log(letter)
+		if (typeField === '') {
+			setError('Please click on field headings to type')
+		} else {
+			setRegistrationInfo({
+				...registrationInfo,
+				[typeField]: registrationInfo[typeField] + letter.toLowerCase()
+			})
+		}
+	}
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -60,7 +77,7 @@ export default function Register() {
 				<Loading />
 			) : (
 				<form onSubmit={handleSubmit}>
-					<label htmlFor='username'>Username: </label>
+					<label htmlFor='username'><span style={{textDecoration: typeField=== 'username' && 'underline'}} onClick={()=>setTypeField('username')}>Username:</span> </label>
 					<input
 						type='text'
 						id='username'
@@ -70,7 +87,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Password: </label>
+					<label htmlFor='password1'><span style={{textDecoration: typeField=== 'password1' && 'underline'}} onClick={()=>setTypeField('password1')}>Password:</span> </label>
 					<input
 						type='password'
 						id='password1'
@@ -80,7 +97,7 @@ export default function Register() {
 						onChange={handleChange}
 					/>
 
-					<label htmlFor='password1'>Reenter your Password: </label>
+					<label htmlFor='password2'><span style={{textDecoration: typeField=== 'password2' && 'underline'}} onClick={()=>setTypeField('password2')}>Re-enter your Password: </span></label>
 					<input
 						type='password'
 						id='password2'
@@ -95,6 +112,33 @@ export default function Register() {
 					{error && <div className='error'>{error}</div>}
 				</form>
 			)}
+			<LetterBox  handleLetter={handleLetter}/>
+					{/* <LetterSelect>
+			{letter_data.map(letter => (
+				<div key={letter} onClick={() => handleLetter(letter)}><h2>{letter}</h2></div>
+			))}
+		</LetterSelect> */}
 		</StyledForm>
 	);
 }
+
+// const LetterSelect = styled.div`
+// border: solid 4px #2f2b4a;
+// background-color: #F0F4F7;
+// height: 28rem;
+// width: 55rem;
+// display: flex;
+// flex-wrap: wrap;
+
+// h2{
+// 	display: flex;
+// 	padding: 1rem;
+// 	color: #bb1333;
+// 	cursor: pointer;
+// 	&:hover {
+// 		background-color: #9d96ca;
+// 		color: white;
+// 		border-radius: 20%;
+// 	}
+// }
+// `;

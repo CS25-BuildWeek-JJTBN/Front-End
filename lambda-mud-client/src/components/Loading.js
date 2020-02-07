@@ -1,5 +1,11 @@
 import React from 'react';
 
+
+
 export default function Loading() {
-	return <div>Loading...</div>;
-}
+	return <section>
+		<form>
+			<p>Loading ....</p>
+		</form>
+	</section>
+};
