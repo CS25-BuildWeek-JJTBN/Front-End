@@ -96,6 +96,12 @@ export const dataReducer = (state = initialDataState, action) => {
 				...state,
 				chatOpen: action.payload,
 			};
+		case 'SET_ERROR':
+			return {
+				...state,
+				error_msg: action.payload,
+				isLoading: false,
+			};
 		default:
 			return state;
 	}
