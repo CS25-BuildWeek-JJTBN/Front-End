@@ -109,11 +109,6 @@ export const dataReducer = (state = initialDataState, action) => {
 				isLoading: false,
 				visited_rooms: action.payload.visited_rooms,
 			};
-		case 'SET_ATTRIBUTE':
-			return {
-				...state,
-				[action.payload.attribute]: action.payload.value,
-			};
 		case 'ACTION_START':
 			return {
 				...state,

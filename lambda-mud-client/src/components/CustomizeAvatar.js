@@ -101,13 +101,13 @@ export default function CustomizeAvatar() {
 				<h4>Glasses?</h4>
 				<div className='check-boxes'>
 					<Checkbox
-						onClick={() => handleClick('has_glasses', true)}
+						onClick={() => handleClick('has_glasses', true, dispatch)}
 						trueValue={has_glasses}
 					/>{' '}
 					Yes{' '}
 					<Checkbox
 						onClick={() => {
-							handleClick('has_glasses', false);
+							handleClick('has_glasses', false, dispatch);
 							handleClick('glasses_style', '');
 						}}
 						trueValue={!has_glasses}
