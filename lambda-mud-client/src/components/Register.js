@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+
 // Context API
 import { useUserContext } from '../contexts/UserContext';
 import { baseURL } from '../utils/baseURL';
 
 // Styled Components & Components
-
-// import { LetterSelect} from '../styled-components/styledComponents';
 import { StyledForm } from '../styled-components/styledComponents';
-import { letter_data } from './LetterData';
 import LetterBox from './LetterBox';
 import Loading from './Loading';
 
 export default function Register() {
-	const history = useHistory();
+	let history = useHistory();
 
 	const {
 		user: { isLoading },
@@ -71,7 +68,6 @@ export default function Register() {
 	return (
 		<StyledForm>
 			<h2>Register:</h2>
-			{/* <h2> End </h2> */}
 			{isLoading ? (
 				<Loading />
 			) : (

@@ -11,7 +11,7 @@ import Loading from './Loading';
 import LetterBox from './LetterBox';
 
 export default function Login() {
-	const history = useHistory();
+	let history = useHistory();
 
 	const {
 		user: { isLoading },
