@@ -6,7 +6,7 @@ export const StyledForm = styled.div`
 	align-items: center;
 
 	width: 90%;
-	max-width: 30rem;
+	// max-width: 30rem;
 	margin: auto;
 	margin-top: 10rem;
 
@@ -22,7 +22,7 @@ export const StyledForm = styled.div`
 		background-color: #f0f4f7;
 		border: solid 4px #2f2b4a;
 		margin: 1.5rem;
-		padding: 1rem;
+        padding: 1rem;
 
 		label {
 			color: #bb1333;
@@ -168,6 +168,26 @@ export const Checkbox = styled.span`
 	border: 2px solid silver;
 `;
 
+// export const LetterSelect = styled.div`
+//         border: solid 4px #2f2b4a;
+//         background-color: #F0F4F7;
+//         height: 28rem;
+//         width: 55rem;
+//         display: flex;
+//         flex-wrap: wrap;
+
+//         h2{
+//             display: flex;
+//             padding: 1rem;
+//             color: #bb1333;
+//             cursor: pointer;
+//             &:hover {
+//                 background-color: #9d96ca;
+//                 color: white;
+//                 border-radius: 20%;
+//             }
+//         }
+// `;
 export const Item = styled.div`
 	cursor: pointer;
 	&:hover {

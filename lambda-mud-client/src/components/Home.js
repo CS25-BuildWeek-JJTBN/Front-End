@@ -122,7 +122,7 @@ const HomePageHeader = styled.div`
 			color: #000;
 		}
 		49% {
-			color: #000;
+			color:#000;
 		}
 		60% {
 			color: transparent;
@@ -137,6 +137,7 @@ const HomePageHeader = styled.div`
 
 	.clickable {
 		cursor: pointer;
+		
 	}
 `;
 
