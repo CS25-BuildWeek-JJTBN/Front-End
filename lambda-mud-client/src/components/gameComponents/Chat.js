@@ -28,10 +28,8 @@ export default function Chat() {
 
 			const channel = pusher.subscribe(`p-channel-${uuid}`);
 
-			console.log(chat.chats);
-
 			channel.bind('broadcast', data => {
-				console.log(chat.chats);
+				// console.log(chat.chats);
 				// console.log(data);
 				// [...chat.chats, data]
 				setChat({ ...chat, username: name, chats: [...chat.chats, data] });
@@ -50,7 +48,7 @@ export default function Chat() {
 			.then(res => {
 				console.log(res);
 
-				console.log('2', payload);
+				// console.log('2', payload);
 
 				setChat({
 					...chat,
@@ -63,7 +61,7 @@ export default function Chat() {
 			});
 	};
 
-	console.log(chat.chats && chat.chats);
+	// console.log(chat.chats && chat.chats);
 
 	return (
 		<ChatWrapper>

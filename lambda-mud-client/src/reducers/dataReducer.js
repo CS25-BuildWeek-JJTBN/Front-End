@@ -1,29 +1,29 @@
 export const initialDataState = {
-	isLoading: false,
+	id: '',
 	uuid: '',
 	name: '',
 	title: '',
+	player_items: [],
 	description: '',
 	players: [],
-	currentRoom: '',
-	roomItems: [],
-	visitedRooms: [],
-	playerItems: [],
+	visited_rooms: [],
+	room_items: [],
 	skin_tone: '#e0ac69',
 	pupil_color: '#634e34',
+	glasses_color: '',
+	glasses_style: '',
 	hoodie_color: 'gray',
 	pants_color: 'darkblue',
 	shoe_color: 'white',
-	glasses_color: '',
-	glasses_style: '',
-	headPhoneColor: '',
-	hatColor: '',
-	hatBandColor: '',
-	lensColor: '',
-	hasGlasses: false,
-	hasSunglasses: false,
-	hasHat: false,
-	hasHeadphones: false,
+	has_glasses: false,
+	has_sunglasses: false,
+	has_hat: false,
+	has_headphones: false,
+	lens_color: '',
+	headphone_color: '',
+	hatband_color: '',
+	hat_color: '',
+	isLoading: false,
 	error: '',
 	error_msg: '',
 	chatOpen: true,
@@ -47,10 +47,17 @@ export const dataReducer = (state = initialDataState, action) => {
 				title: action.payload.title,
 				description: action.payload.description,
 				players: action.payload.players,
-				currentRoom: action.payload.room,
-				roomItems: action.payload.roomItems,
-				visitedRooms: action.payload.visitedRooms,
-				playerItems: action.payload.playerItems,
+				id: action.payload.room,
+				room_items: action.payload.room_items,
+				visited_rooms: action.payload.visited_rooms,
+				player_items: action.payload.player_items,
+			};
+		case 'UPDATE_DATA_BY_FIELD':
+			return {
+				...state,
+				isLoading: false,
+				error: '',
+				[action.payload.key]: action.payload.value,
 			};
 		case 'GET_DATA_FAILURE':
 			return {
@@ -75,14 +82,14 @@ export const dataReducer = (state = initialDataState, action) => {
 				title: action.payload.title,
 				description: action.payload.description,
 				players: action.payload.players,
-				currentRoom: action.payload.room,
-				roomItems: action.payload.roomItems,
+				id: action.payload.room,
+				room_items: action.payload.room_items,
 				error_msg: action.payload.error_msg,
 			};
 		case 'UPDATE_VISITED_ROOMS':
 			return {
 				...state,
-				visitedRooms: action.payload.visitedRooms,
+				visited_rooms: action.payload.visited_rooms,
 			};
 		case 'MOVE_FAILURE':
 			return {
@@ -94,13 +101,13 @@ export const dataReducer = (state = initialDataState, action) => {
 			return {
 				...state,
 				isLoading: false,
-				playerItems: action.payload.playerItems,
+				player_items: action.payload.player_items,
 			};
 		case 'GET_VISITED_ROOMS':
 			return {
 				...state,
 				isLoading: false,
-				visitedRooms: action.payload.visitedRooms,
+				visited_rooms: action.payload.visited_rooms,
 			};
 		case 'SET_ATTRIBUTE':
 			return {
@@ -118,8 +125,8 @@ export const dataReducer = (state = initialDataState, action) => {
 			return {
 				...state,
 				isLoading: false,
-				roomItems: action.payload.roomItems,
-				playerItems: action.payload.playerItems,
+				room_items: action.payload.room_items,
+				player_items: action.payload.player_items,
 			};
 		case 'ACTION_FAILURE':
 			return {

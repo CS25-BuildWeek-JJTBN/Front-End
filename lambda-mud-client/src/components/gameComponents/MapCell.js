@@ -5,14 +5,19 @@ import { useDataContext } from '../../contexts/DataContext';
 
 import Avatar from './Avatar';
 
+import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
+
 export default function MapCell({ cell }) {
 	const {
-		data: { currentRoom, visitedRooms },
+		data: { id, visited_rooms },
 	} = useDataContext();
 
-	const isCurrentRoom = currentRoom === cell.id ? true : false;
+	const isCurrentRoom = id === cell.id ? true : false;
 	const isVisited =
-		visitedRooms && visitedRooms.map(obj => obj.id).includes(cell.id);
+		visited_rooms &&
+		visitedRoomsObjToArray(visited_rooms)
+			.map(obj => obj.id)
+			.includes(cell.id);
 
 	return (
 		<StyledWrapper>

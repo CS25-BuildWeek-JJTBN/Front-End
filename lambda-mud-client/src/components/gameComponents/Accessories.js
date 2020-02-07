@@ -21,12 +21,12 @@ export default function Accessories() {
 		if (type === 'Glasses') setAttribute('glasses_color', color, dispatch);
 		else if (type === 'Hat') {
 			const colors = color.toLowerCase().split('-');
-			setAttribute('hatColor', colors[0], dispatch);
-			setAttribute('hatBandColor', colors[1], dispatch);
+			setAttribute('hat_color', colors[0], dispatch);
+			setAttribute('hatband_color', colors[1], dispatch);
 		} else if (type === 'Sunglasses') {
 			const colors = color.toLowerCase().split('-');
 			setAttribute('glasses_color', colors[0], dispatch);
-			setAttribute('lensColor', colors[1], dispatch);
+			setAttribute('lens_color', colors[1], dispatch);
 		}
 	};
 
@@ -34,8 +34,8 @@ export default function Accessories() {
 		<ProfilePanelWrapper>
 			<h3>Add Swag!</h3>
 			<h4>Wearable Items:</h4>
-			{data.playerItems &&
-				data.playerItems
+			{data.player_items &&
+				data.player_items
 					.filter(item => wearableItems.includes(item.description))
 					.map(item => (
 						<div key={item.id} className='color-row'>

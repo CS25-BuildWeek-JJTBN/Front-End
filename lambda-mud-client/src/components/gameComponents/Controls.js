@@ -7,7 +7,7 @@ import { useDataContext } from '../../contexts/DataContext';
 // import ControlsMiddle from './ControlsMiddle';
 // import ControlsButtons from './ControlsButtons';
 
-import { visitedRoomsObjToArray } from '../../utils/visitedRoomsFunctions';
+import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
 
 export default function Controls() {
 	const {
@@ -26,7 +26,7 @@ export default function Controls() {
 					dispatch({
 						type: 'UPDATE_VISITED_ROOMS',
 						payload: {
-							visitedRooms: visitedRoomsObjToArray(res.data.rooms),
+							visited_rooms: visitedRoomsObjToArray(res.data.rooms),
 						},
 					});
 				}
@@ -39,7 +39,7 @@ export default function Controls() {
 						description: res.data.description,
 						players: res.data.players,
 						room: res.data.id,
-						roomItems: res.data.room_items,
+						room_items: res.data.room_items,
 						error_msg: res.data.error_msg,
 					},
 				});

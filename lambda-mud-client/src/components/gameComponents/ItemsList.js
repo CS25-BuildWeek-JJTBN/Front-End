@@ -7,7 +7,7 @@ import { DashboardPanel, Item } from '../../styled-components/styledComponents';
 
 export default function ItemsList({ header, empty, items, endpoint }) {
 	const {
-		data: { currentRoom },
+		data: { id },
 		dispatch,
 	} = useDataContext();
 
@@ -15,14 +15,14 @@ export default function ItemsList({ header, empty, items, endpoint }) {
 		dispatch({ type: 'ACTION_START' });
 
 		axiosWithAuth()
-			.post(`/adv/${endpoint}`, { item, room: currentRoom })
+			.post(`/adv/${endpoint}`, { item, room: id })
 			.then(res => {
 				// console.log(res.data);
 				dispatch({
 					type: 'ACTION_SUCCESS',
 					payload: {
-						roomItems: res.data.room_items,
-						playerItems: res.data.player_items,
+						room_items: res.data.room_items,
+						player_items: res.data.player_items,
 					},
 				});
 			})
