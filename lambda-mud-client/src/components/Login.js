@@ -35,7 +35,7 @@ export default function Login() {
 			} else {
 				setCredentials({
 					...credentials,
-					[typeField]: credentials[typeField] + letter
+					[typeField]: credentials[typeField] + letter.toLowerCase()
 				})
 			}
 		}

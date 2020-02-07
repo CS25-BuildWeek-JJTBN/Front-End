@@ -45,7 +45,7 @@ export default function Register() {
 		} else {
 			setRegistrationInfo({
 				...registrationInfo,
-				[typeField]: registrationInfo[typeField] + letter
+				[typeField]: registrationInfo[typeField] + letter.toLowerCase()
 			})
 		}
 	}
