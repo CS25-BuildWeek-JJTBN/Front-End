@@ -31,7 +31,7 @@ export const AvatarWrapper = styled.div`
 		z-index: 1015;
 
 		.lens {
-			background-color: ${props => props.data.lensColor};
+			background-color: ${props => props.data.lens_color};
 			width: 2rem;
 			height: 2rem;
 			border-radius: ${props =>
@@ -48,7 +48,7 @@ export const AvatarWrapper = styled.div`
 		z-index: 1010;
 
 		.headphone {
-			background-color: ${props => props.data.headPhoneColor};
+			background-color: ${props => props.data.headphone_color};
 			width: 1rem;
 			height: 3rem;
 
@@ -60,9 +60,9 @@ export const AvatarWrapper = styled.div`
 			width: 7rem;
 			height: 3.5rem;
 			border-radius: 3.5rem 3.5rem 0 0;
-			border-left: 2px solid ${props => props.data.headPhoneColor};
-			border-top: 3px solid ${props => props.data.headPhoneColor};
-			border-right: 2px solid ${props => props.data.headPhoneColor};
+			border-left: 2px solid ${props => props.data.headphone_color};
+			border-top: 3px solid ${props => props.data.headphone_color};
+			border-right: 2px solid ${props => props.data.headphone_color};
 		}
 	}
 
@@ -76,7 +76,7 @@ export const AvatarWrapper = styled.div`
 		z-index: 1000;
 
 		.hat-top {
-			background-color: ${props => props.data.hatColor};
+			background-color: ${props => props.data.hat_color};
 			width: 6rem;
 			height: 3rem;
 			border-radius: 3rem 3rem 0 0;
@@ -88,7 +88,7 @@ export const AvatarWrapper = styled.div`
 		}
 
 		.hat-band {
-			background-color: ${props => props.data.hatBandColor};
+			background-color: ${props => props.data.hatband_color};
 			width: 6.75rem;
 			height: 2rem;
 			border-radius: 0.3rem;

@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
 
 import { useDataContext } from '../../contexts/DataContext';
 
+import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
+
 export default function PlayerBar() {
 	const {
-		data: { name, visitedRooms },
+		data: { name, visited_rooms },
+		dispatch,
 	} = useDataContext();
 
+	useEffect(() => {
+		dispatch({ type: 'GET_DATA_START' });
+
+		axiosWithAuth()
+			.get('/adv/init/')
+			.then(res => {
+				// console.log(res.data);
+				for (const key of Object.keys(res.data)) {
+					dispatch({
+						type: 'UPDATE_DATA_BY_FIELD',
+						payload: { key, value: res.data[key] },
+					});
+				}
+			})
+			.catch(err => {
+				// console.log(err);
+				dispatch({ type: 'GET_DATA_FAILURE' });
+			});
+	}, []);
+
 	const roomsVisited =
-		visitedRooms &&
-		visitedRooms.filter(
+		visited_rooms &&
+		visitedRoomsObjToArray(visited_rooms).filter(
 			content => content.title !== 'No question. Just an empty hallway.',
 		).length;
 

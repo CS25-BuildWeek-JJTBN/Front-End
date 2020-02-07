@@ -3,17 +3,19 @@ import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
+import { visitedRoomsObjToArray } from '../utils/visitedRoomsObjToArray';
+
 export default function SavedQuestions() {
 	const {
-		data: { visitedRooms },
+		data: { visited_rooms },
 	} = useDataContext();
 
 	return (
 		<SavedWrapper>
 			<h3>Saved Questions: </h3>
 			<div className='questions-box'>
-				{visitedRooms &&
-					visitedRooms
+				{visited_rooms &&
+					visitedRoomsObjToArray(visited_rooms)
 						.filter(
 							content =>
 								content.title !== 'No question. Just an empty hallway.',

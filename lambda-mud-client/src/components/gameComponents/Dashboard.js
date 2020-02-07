@@ -11,7 +11,7 @@ import Loading from '../Loading';
 
 export default function Dashboard() {
 	const {
-		data: { isLoading, error_msg, roomItems, playerItems },
+		data: { isLoading, error_msg, room_items, player_items },
 	} = useDataContext();
 
 	return (
@@ -29,13 +29,13 @@ export default function Dashboard() {
 					<Resource />
 					<ItemsList
 						header={'Item(s) in Room:'}
-						items={roomItems}
+						items={room_items}
 						endpoint={'pickup'}
 						empty={'No items here'}
 					/>
 					<ItemsList
 						header={'Inventory'}
-						items={playerItems}
+						items={player_items}
 						endpoint={'drop'}
 						empty={`You don't have any items`}
 					/>
