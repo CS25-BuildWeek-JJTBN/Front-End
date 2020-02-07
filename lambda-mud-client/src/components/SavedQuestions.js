@@ -1,37 +1,12 @@
-import React, { useEffect } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React from 'react';
 import styled from 'styled-components';
 
 import { useDataContext } from '../contexts/DataContext';
 
-import { visitedRoomsObjToArray } from '../utils/visitedRoomsFunctions';
-
 export default function SavedQuestions() {
 	const {
 		data: { visitedRooms },
-		dispatch,
 	} = useDataContext();
-
-	useEffect(() => {
-		dispatch({ type: 'GET_DATA_START' });
-
-		axiosWithAuth()
-			.get('/adv/init/')
-			.then(res => {
-				// console.log(res.data);
-
-				dispatch({
-					type: 'GET_DATA_SUCCESS',
-					payload: {
-						visitedRooms: visitedRoomsObjToArray(res.data.visited_rooms),
-					},
-				});
-			})
-			.catch(err => {
-				// console.log(err);
-				dispatch({ type: 'GET_DATA_FAILURE' });
-			});
-	}, []);
 
 	return (
 		<SavedWrapper>
