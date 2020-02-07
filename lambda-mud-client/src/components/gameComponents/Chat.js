@@ -15,8 +15,8 @@ export default function Chat() {
 		text: '',
 		username: '',
 		chats: [],
-	});
-
+  });
+  const [message, setMessage] = useState(null)
 	useEffect(() => {
 		if (uuid && name) {
 			setChat({ ...chat, username: name });
@@ -26,18 +26,20 @@ export default function Chat() {
 				encrypted: true,
 			});
 
-			const channel = pusher.subscribe(`p-channel-${uuid}`);
-
-			console.log(chat.chats);
-
-			channel.bind('broadcast', data => {
-				console.log(chat.chats);
-				// console.log(data);
-				// [...chat.chats, data]
-				setChat({ ...chat, username: name, chats: [...chat.chats, data] });
-			});
+      const channel = pusher.subscribe(`p-channel-${uuid}`);
+      const cb = (message) => {
+        setMessage(message)
+      }
+			channel.bind('broadcast', cb)
 		}
 	}, [uuid]);
+
+
+  useEffect(() => {
+    if (message && message.message) {
+      setChat({...chat, username: name, chats: [...chat.chats, message]})
+    }
+  }, [message]);
 
 	const handleChange = e => setChat({ ...chat, text: e.target.value });
 
@@ -63,7 +65,8 @@ export default function Chat() {
 			});
 	};
 
-	console.log(chat.chats && chat.chats);
+  console.log(chat.chats && chat.chats);
+  console.log(message)
 
 	return (
 		<ChatWrapper>
