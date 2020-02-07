@@ -9,7 +9,7 @@ import { baseURL } from '../utils/baseURL';
 // Styled Components & Components
 import { LetterSelect} from '../styled-components/styledComponents';
 import { StyledForm } from '../styled-components/styledComponents';
-import {letter_data} from './LetterData';
+import { letter_data } from './LetterData';
 import LetterBox from './LetterBox';
 import Loading from './Loading';
 
@@ -35,6 +35,7 @@ export default function Register() {
 			[e.target.name]: e.target.value,
 		});
 	};
+
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -100,11 +101,10 @@ export default function Register() {
 			)}
 					<LetterSelect>
 			{letter_data.map(letter => (
-				<LetterBox key={letter} letter={letter} />
+				<LetterBox key={letter} letter={letter}/>
 			))}
 		</LetterSelect>
 		</StyledForm>
-
 	);
 }
 

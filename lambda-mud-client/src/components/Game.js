@@ -24,7 +24,7 @@ export default function Game() {
 				dispatch({
 					type: 'GET_DATA_SUCCESS',
 					payload: {
-						// uuid: res.data.uuid,
+						uuid: res.data.uuid,
 						name: res.data.name,
 						title: res.data.title,
 						description: res.data.description,
