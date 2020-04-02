@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import PlayerBar from './gameComponents/PlayerBar';
 import CustomizeAvatar from './CustomizeAvatar';
 import Accessories from './gameComponents/Accessories';

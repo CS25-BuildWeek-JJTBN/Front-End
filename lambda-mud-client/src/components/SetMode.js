@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { useUserContext } from '../contexts/UserContext';
-
 import {
 	ProfilePanelWrapper,
 	Checkbox,

@@ -1,18 +1,10 @@
 import React from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
-
 import { useDataContext } from '../../contexts/DataContext';
-
 import { DashboardPanel, Item } from '../../styled-components/styledComponents';
 
 export default function ItemsList({ header, empty, items, endpoint }) {
-	const {
-		// data: { player_items, id },
-		data,
-		dispatch,
-	} = useDataContext();
-
-	// console.log(player_items.map(item => item.description));
+	const { data, dispatch } = useDataContext();
 
 	const handleClick = item => {
 		const currentItems = data.player_items.map(item => item.description);

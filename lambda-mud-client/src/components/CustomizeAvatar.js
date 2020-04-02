@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { useDataContext } from '../contexts/DataContext';
-
 import Avatar from './gameComponents/Avatar';
 import Loading from './Loading';
 import ColorSwatch from './gameComponents/ColorSwatch';

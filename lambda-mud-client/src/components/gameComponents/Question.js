@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { useDataContext } from '../../contexts/DataContext';
-
 import { DashboardPanel } from '../../styled-components/styledComponents';
 
 export default function Question() {

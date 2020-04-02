@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import TeamCard from './TeamCard';
 import { team_info } from './TeamInfo';
 

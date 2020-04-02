@@ -1,8 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
 import { useUserContext } from '../contexts/UserContext';
-
 import styled from 'styled-components';
 
 export default function Home() {
@@ -122,7 +120,7 @@ const HomePageHeader = styled.div`
 			color: #000;
 		}
 		49% {
-			color:#000;
+			color: #000;
 		}
 		60% {
 			color: transparent;
@@ -137,7 +135,6 @@ const HomePageHeader = styled.div`
 
 	.clickable {
 		cursor: pointer;
-		
 	}
 `;
 

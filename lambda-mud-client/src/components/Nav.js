@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { useUserContext } from '../contexts/UserContext';
-
 import Logo from './Logo';
 
 export default function Nav() {
@@ -102,7 +100,7 @@ const NavBarRight = styled.div`
 		color: white;
 		text-decoration: none;
 		font-size: 2rem;
-		cursor: pointer,
+		cursor: pointer;
 
 		&:hover {
 			color: lightblue;

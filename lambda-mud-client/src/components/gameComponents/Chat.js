@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
 import Pusher from 'pusher-js';
-
 import { useDataContext } from '../../contexts/DataContext';
 
 export default function Chat() {
