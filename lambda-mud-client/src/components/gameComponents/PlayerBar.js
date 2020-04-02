@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from 'styled-components';
-
 import { useDataContext } from '../../contexts/DataContext';
-
 import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
 
 export default function PlayerBar() {

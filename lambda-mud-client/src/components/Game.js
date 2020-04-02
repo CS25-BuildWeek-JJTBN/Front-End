@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import PlayerBar from './gameComponents/PlayerBar';
 import Screen from './gameComponents/Screen';
 import Dashboard from './gameComponents/Dashboard';

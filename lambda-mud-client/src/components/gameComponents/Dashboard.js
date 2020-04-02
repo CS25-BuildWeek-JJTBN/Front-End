@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { useDataContext } from '../../contexts/DataContext';
-
 import Controls from './Controls';
 import Question from './Question';
 import Resource from './Resource';

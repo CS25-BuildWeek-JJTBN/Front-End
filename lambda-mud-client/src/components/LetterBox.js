@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { letter_data } from './LetterData';
 
 export default function LetterBox({ handleLetter }) {

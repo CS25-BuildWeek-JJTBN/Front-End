@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { useUserContext } from '../../contexts/UserContext';
 import { useDataContext } from '../../contexts/DataContext';
-
 import Avatar from './Avatar';
-
 import { visitedRoomsObjToArray } from '../../utils/visitedRoomsObjToArray';
 
 export default function MapCell({ cell }) {

@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-
 import { useDataContext } from '../../contexts/DataContext';
-
 import {
 	ProfilePanelWrapper,
 	Checkbox,
